@@ -11,7 +11,7 @@ export default function Header() {
     { href: '/protocols', label: 'Protocols' },
     { href: '/ingredients', label: 'Supplements' },
     { href: '/trust-methodology', label: 'How We Score' },
-    { href: '/for-llms', label: 'Connect Your AI', highlight: true },
+    { href: '/how-we-make-money', label: 'About' },
   ];
 
   return (
@@ -32,7 +32,7 @@ export default function Header() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`hover:text-[var(--foreground)] transition-colors ${l.highlight ? 'text-[var(--accent)]' : ''}`}
+                className={"hover:text-[var(--foreground)] transition-colors"}
               >
                 {l.label}
               </Link>
@@ -60,7 +60,7 @@ export default function Header() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`hover:text-[var(--foreground)] ${l.highlight ? 'text-[var(--accent)]' : ''}`}
+                className={"hover:text-[var(--foreground)]"}
                 onClick={() => setMobileOpen(false)}
               >
                 {l.label}
