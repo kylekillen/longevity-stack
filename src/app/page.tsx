@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllIngredients, getAllStacks, getAllVendors, getSearchData } from "@/lib/queries";
 import SearchBar from "@/components/SearchBar";
+import CopyButton from "@/components/CopyButton";
 
 export default function Home() {
   const ingredients = getAllIngredients();
@@ -49,28 +50,28 @@ export default function Home() {
               </div>
 
               {/* AI badges */}
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
-                <span className="mr-1">Works with:</span>
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span className="mr-1 text-[var(--foreground)]/70">Works with:</span>
                 {['ChatGPT', 'Claude', 'Gemini', 'Perplexity'].map(ai => (
-                  <span key={ai} className="px-3 py-1 rounded-full border border-[var(--card-border)] bg-[var(--card)]">{ai}</span>
+                  <span key={ai} className="px-3 py-1 rounded-full border border-[var(--card-border)] bg-[var(--card)] text-[var(--foreground)]/80">{ai}</span>
                 ))}
               </div>
             </div>
 
             {/* Right: How it works steps (stacked) */}
             <div className="space-y-3">
-              <p className="text-xs text-[var(--muted)] uppercase tracking-wider mb-2 font-medium">How it works</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-3">Use <span className="text-[var(--accent)]">your AI</span> to find the best deals</h2>
               {[
-                { step: '01', title: 'Your AI finds us', desc: 'Share thelongevityagent.com with any AI assistant' },
-                { step: '02', title: 'Say what you need', desc: '"Best NAD+ supplement from a vendor with trust 7+?"' },
-                { step: '03', title: 'We find the deals', desc: 'Prices compared across every vetted vendor in real time' },
-                { step: '04', title: 'One-click checkout', desc: 'All items grouped on one page, ready to buy' },
+                { step: '01', title: 'Drop our link in any AI chat', desc: <span className="inline-flex items-center gap-2 flex-wrap"><code className="text-[var(--accent)] bg-[var(--accent-dim)] px-2 py-0.5 rounded text-xs">thelongevityagent.com</code><CopyButton text="thelongevityagent.com" /></span> },
+                { step: '02', title: 'Say what you need', desc: <span>&quot;Best NAD+ supplement from a vendor with trust 7+?&quot;</span> },
+                { step: '03', title: 'Your AI finds the best deals', desc: <span>Prices compared across every vetted vendor in real time</span> },
+                { step: '04', title: 'You get a link', desc: <span>All items grouped on one page, ready to buy</span> },
               ].map((item) => (
                 <div key={item.step} className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5 flex items-start gap-4 hover:border-[var(--accent)]/30 transition-colors">
                   <div className="text-[var(--accent)] text-lg font-mono font-bold shrink-0 w-8">{item.step}</div>
                   <div>
                     <h3 className="text-sm font-semibold text-[var(--foreground)] mb-0.5">{item.title}</h3>
-                    <p className="text-sm text-[var(--muted)]">{item.desc}</p>
+                    <div className="text-sm text-[var(--muted)]">{item.desc}</div>
                   </div>
                 </div>
               ))}
