@@ -28,26 +28,10 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-lg text-[var(--muted)] mb-8 leading-relaxed">
-                We index {products.length} products across {allVendors.length} brands.
+                We track and update prices from all the biggest supplement brands.
                 Set your trust threshold, and we find the best deal from vendors you can actually trust.
                 Share our link with any AI — or search manually.
               </p>
-
-              {/* Stats row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                {[
-                  { value: String(products.length), label: 'Products', sub: `across ${allVendors.length} vendors` },
-                  { value: String(ingredients.length), label: 'Supplements', sub: 'researched & priced' },
-                  { value: '2-10', label: 'Trust Scores', sub: 'you set the threshold' },
-                  { value: 'Free', label: 'AI Access', sub: 'no API key needed' },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <div className="text-2xl font-bold text-[var(--accent)]">{item.value}</div>
-                    <div className="text-sm font-semibold text-[var(--foreground)]">{item.label}</div>
-                    <div className="text-xs text-[var(--muted)]">{item.sub}</div>
-                  </div>
-                ))}
-              </div>
 
               {/* AI badges */}
               <div className="flex flex-wrap items-center gap-2 text-xs">

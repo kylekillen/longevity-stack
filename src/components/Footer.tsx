@@ -23,7 +23,7 @@ export default function Footer() {
               <li><Link href="/why-not-amazon" className="hover:text-[var(--foreground)] transition-colors">Why Not Amazon</Link></li>
               <li><Link href="/trust-methodology" className="hover:text-[var(--foreground)] transition-colors">Trust Score Methodology</Link></li>
               <li><Link href="/how-we-make-money" className="hover:text-[var(--foreground)] transition-colors">How We Make Money</Link></li>
-              <li><Link href="/for-llms" className="hover:text-[var(--foreground)] transition-colors">Connect Your AI</Link></li>
+              <li><Link href="/for-llms" className="hover:text-[var(--foreground)] transition-colors">For LLMs / Developers</Link></li>
             </ul>
           </div>
           <div>
