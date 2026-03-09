@@ -7,32 +7,40 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
+    { href: '/', label: 'Home' },
     { href: '/protocols', label: 'Protocols' },
-    { href: '/ingredients', label: 'Browse' },
-    { href: '/why-not-amazon', label: 'Why Not Amazon' },
+    { href: '/ingredients', label: 'Supplements' },
     { href: '/trust-methodology', label: 'How We Score' },
-    { href: '/for-llms', label: 'For LLMs', highlight: true },
+    { href: '/for-llms', label: 'Connect Your AI', highlight: true },
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-[var(--surface)] border-b border-[var(--card-border)] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-gray-900">Longevity Stack</span>
-            <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium">beta</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-8 h-8 rounded-lg bg-[var(--accent-dim)] border border-[var(--accent)]/20 flex items-center justify-center group-hover:bg-[var(--accent)]/20 group-hover:border-[var(--accent)]/40 transition-all duration-300">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 2L8 14M4 5L8 2L12 5M4 8H12M4 11L8 14L12 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--accent)]" />
+              </svg>
+            </div>
+            <span className="font-semibold text-sm tracking-tight group-hover:text-[var(--accent)] transition-colors duration-300">The Longevity Agent</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--muted)]">
             {links.map(l => (
-              <Link key={l.href} href={l.href} className={`hover:text-gray-900 transition-colors ${l.highlight ? 'text-emerald-600' : ''}`}>
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`hover:text-[var(--foreground)] transition-colors ${l.highlight ? 'text-[var(--accent)]' : ''}`}
+              >
                 {l.label}
               </Link>
             ))}
           </nav>
 
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-[var(--muted)]"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -47,9 +55,14 @@ export default function Header() {
         </div>
 
         {mobileOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-3 text-sm font-medium text-gray-600">
+          <nav className="md:hidden pb-4 flex flex-col gap-3 text-sm font-medium text-[var(--muted)]">
             {links.map(l => (
-              <Link key={l.href} href={l.href} className={`hover:text-gray-900 ${l.highlight ? 'text-emerald-600' : ''}`} onClick={() => setMobileOpen(false)}>
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`hover:text-[var(--foreground)] ${l.highlight ? 'text-[var(--accent)]' : ''}`}
+                onClick={() => setMobileOpen(false)}
+              >
                 {l.label}
               </Link>
             ))}

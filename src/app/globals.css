@@ -1,11 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050508;
+  --foreground: #ededed;
+  --surface: #0c0c12;
+  --card: #1a1a24;
+  --card-border: #2a2a3a;
+  --muted: #9a9ab0;
+  --accent: #22d3ee;
+  --accent-hover: #06b6d4;
+  --accent-dim: rgba(34, 211, 238, 0.1);
+  --accent-glow: rgba(34, 211, 238, 0.05);
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #4ade80;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: white;
 }

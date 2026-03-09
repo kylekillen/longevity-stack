@@ -10,51 +10,78 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero — AI-First, Above the Fold */}
-      <section className="bg-gradient-to-b from-emerald-50 to-white pt-12 sm:pt-16 pb-8">
+      {/* Hero — split layout */}
+      <section className="pt-16 sm:pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-6">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-3">
-              Tell Your AI What You Need.
-              <br />
-              <span className="text-emerald-600">Get a Shopping Cart.</span>
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We index {products.length} products across {allVendors.length} brands. Share our link with ChatGPT, Claude, or any AI — it finds the best deals and builds you a one-click checkout.
-            </p>
-          </div>
-
-          {/* How it works — compact 4-step row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-6">
-            {[
-              { step: '1', title: 'Share our link', desc: 'Paste into any AI you already use' },
-              { step: '2', title: 'Say what you need', desc: '"Best deals on NAD and CoQ10?"' },
-              { step: '3', title: 'AI finds the deals', desc: 'Compares prices across every vendor' },
-              { step: '4', title: 'One-click checkout', desc: 'All items grouped, ready to buy' },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold mb-2">
-                  {item.step}
-                </div>
-                <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{item.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
+            {/* Left: Hero text */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--card-border)] bg-[var(--card)] text-sm text-[var(--accent)] mb-6">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                Agent-native commerce
               </div>
-            ))}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
+                Best prices,{" "}
+                <span className="text-[var(--accent)]">
+                  at the quality you choose.
+                </span>
+              </h1>
+              <p className="text-lg text-[var(--muted)] mb-8 leading-relaxed">
+                We index {products.length} products across {allVendors.length} brands.
+                Set your trust threshold, and we find the best deal from vendors you can actually trust.
+                Share our link with any AI — or search manually.
+              </p>
+
+              {/* Stats row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                {[
+                  { value: String(products.length), label: 'Products', sub: `across ${allVendors.length} vendors` },
+                  { value: String(ingredients.length), label: 'Supplements', sub: 'researched & priced' },
+                  { value: '2-10', label: 'Trust Scores', sub: 'you set the threshold' },
+                  { value: 'Free', label: 'AI Access', sub: 'no API key needed' },
+                ].map((item) => (
+                  <div key={item.label}>
+                    <div className="text-2xl font-bold text-[var(--accent)]">{item.value}</div>
+                    <div className="text-sm font-semibold text-[var(--foreground)]">{item.label}</div>
+                    <div className="text-xs text-[var(--muted)]">{item.sub}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* AI badges */}
+              <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
+                <span className="mr-1">Works with:</span>
+                {['ChatGPT', 'Claude', 'Gemini', 'Perplexity'].map(ai => (
+                  <span key={ai} className="px-3 py-1 rounded-full border border-[var(--card-border)] bg-[var(--card)]">{ai}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: How it works steps (stacked) */}
+            <div className="space-y-3">
+              <p className="text-xs text-[var(--muted)] uppercase tracking-wider mb-2 font-medium">How it works</p>
+              {[
+                { step: '01', title: 'Your AI finds us', desc: 'Share thelongevityagent.com with any AI assistant' },
+                { step: '02', title: 'Say what you need', desc: '"Best NAD+ supplement from a vendor with trust 7+?"' },
+                { step: '03', title: 'We find the deals', desc: 'Prices compared across every vetted vendor in real time' },
+                { step: '04', title: 'One-click checkout', desc: 'All items grouped on one page, ready to buy' },
+              ].map((item) => (
+                <div key={item.step} className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5 flex items-start gap-4 hover:border-[var(--accent)]/30 transition-colors">
+                  <div className="text-[var(--accent)] text-lg font-mono font-bold shrink-0 w-8">{item.step}</div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[var(--foreground)] mb-0.5">{item.title}</h3>
+                    <p className="text-sm text-[var(--muted)]">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* AI badges */}
-          <div className="flex justify-center items-center gap-2 mb-8">
-            <span className="text-xs text-gray-400">Works with:</span>
-            {['ChatGPT', 'Claude', 'Gemini', 'Perplexity'].map(ai => (
-              <span key={ai} className="text-xs bg-white border border-gray-200 text-gray-600 px-2.5 py-0.5 rounded-full">{ai}</span>
-            ))}
-          </div>
-
-          {/* Divider with "or" */}
-          <div className="max-w-2xl mx-auto flex items-center gap-4 mb-6">
-            <div className="flex-1 h-px bg-gray-200" />
-            <span className="text-sm text-gray-400 font-medium">or search manually</span>
-            <div className="flex-1 h-px bg-gray-200" />
+          {/* Divider */}
+          <div className="max-w-2xl mx-auto flex items-center gap-4 mb-8">
+            <div className="flex-1 h-px bg-[var(--card-border)]" />
+            <span className="text-sm text-[var(--muted)] font-medium">or search manually</span>
+            <div className="flex-1 h-px bg-[var(--card-border)]" />
           </div>
 
           {/* Search bar */}
@@ -63,27 +90,26 @@ export default function Home() {
           </div>
 
           {/* Brands we compare */}
-          <div className="max-w-3xl mx-auto mt-6">
-            <p className="text-xs text-center text-gray-400 uppercase tracking-wider mb-3">Prices compared across all major brands</p>
+          <div className="max-w-3xl mx-auto mt-8">
+            <p className="text-xs text-center text-[var(--muted)] uppercase tracking-wider mb-3">Prices compared across</p>
             <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
               {allVendors.filter(v => v.slug !== 'amazon').map((v) => (
-                <span key={v.slug} className="text-sm font-medium text-gray-400 hover:text-gray-600 transition-colors whitespace-nowrap">
+                <span key={v.slug} className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors whitespace-nowrap">
                   {v.name}
                 </span>
               ))}
-              <span className="text-xs text-gray-300">+ more</span>
             </div>
           </div>
 
           {/* Popular quick links */}
           <div className="max-w-2xl mx-auto mt-5">
             <div className="flex flex-wrap justify-center gap-2 text-sm">
-              <span className="text-gray-400 self-center mr-1">Popular:</span>
+              <span className="text-[var(--muted)] self-center mr-1">Popular:</span>
               {['creatine', 'vitamin-d3', 'omega-3', 'magnesium-glycinate', 'ashwagandha', 'nac', 'coq10'].map(slug => {
                 const ing = ingredients.find(i => i.ingredient_slug === slug);
                 return ing ? (
                   <Link key={slug} href={`/ingredients/${slug}`}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
+                    className="px-3 py-1 bg-[var(--card)] border border-[var(--card-border)] text-[var(--muted)] rounded-full hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
                     {ing.ingredient}
                   </Link>
                 ) : null;
@@ -94,14 +120,14 @@ export default function Home() {
       </section>
 
       {/* Biohacker Protocols */}
-      <section className="py-16">
+      <section className="py-16 border-t border-[var(--card-border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Biohacker Protocols</h2>
-              <p className="text-gray-500">Shop published supplement stacks from leading health optimizers.</p>
+              <h2 className="text-2xl font-bold text-[var(--foreground)]">Biohacker Protocols</h2>
+              <p className="text-[var(--muted)]">Published supplement stacks from leading health optimizers.</p>
             </div>
-            <Link href="/protocols" className="text-sm text-emerald-600 font-medium hover:text-emerald-700">
+            <Link href="/protocols" className="text-sm text-[var(--accent)] font-medium hover:text-[var(--accent-hover)]">
               View all &rarr;
             </Link>
           </div>
@@ -112,13 +138,13 @@ export default function Home() {
                 <Link
                   key={stack.slug}
                   href={`/protocols/${stack.slug}`}
-                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-emerald-200 transition-all"
+                  className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-6 hover:border-[var(--accent)] transition-all"
                 >
-                  <h3 className="font-semibold text-gray-900 mb-2">{stack.name}</h3>
-                  <p className="text-sm text-gray-500 mb-3 line-clamp-2">{stack.goal}</p>
+                  <h3 className="font-semibold text-[var(--foreground)] mb-2">{stack.name}</h3>
+                  <p className="text-sm text-[var(--muted)] mb-3 line-clamp-2">{stack.goal}</p>
                   <div className="flex items-center justify-between mt-4">
-                    <span className="text-xs text-gray-400">{items.length} supplements</span>
-                    {stack.source && <span className="text-xs text-emerald-600">{stack.source.split(' - ')[0]}</span>}
+                    <span className="text-xs text-[var(--muted)]">{items.length} supplements</span>
+                    {stack.source && <span className="text-xs text-[var(--accent)]">{stack.source.split(' - ')[0]}</span>}
                   </div>
                 </Link>
               );
@@ -128,14 +154,14 @@ export default function Home() {
       </section>
 
       {/* Supplements Grid */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">All {ingredients.length} Supplements</h2>
-              <p className="text-gray-500">Research-backed supplements with real-time pricing.</p>
+              <h2 className="text-2xl font-bold text-[var(--foreground)]">All {ingredients.length} Supplements</h2>
+              <p className="text-[var(--muted)]">Research-backed supplements with real-time pricing.</p>
             </div>
-            <Link href="/ingredients" className="text-sm text-emerald-600 font-medium hover:text-emerald-700">
+            <Link href="/ingredients" className="text-sm text-[var(--accent)] font-medium hover:text-[var(--accent-hover)]">
               View all &rarr;
             </Link>
           </div>
@@ -146,18 +172,18 @@ export default function Home() {
                 <Link
                   key={ing.ingredient_slug}
                   href={`/ingredients/${ing.ingredient_slug}`}
-                  className="flex flex-col p-4 bg-white border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors"
+                  className="flex flex-col p-4 bg-[var(--card)] border border-[var(--card-border)] rounded-xl hover:border-[var(--accent)] transition-colors"
                 >
-                  <h3 className="font-medium text-gray-900 mb-1">{ing.ingredient}</h3>
-                  <p className="text-xs text-gray-400 mb-2">{ing.typical_dose}</p>
+                  <h3 className="font-medium text-[var(--foreground)] mb-1">{ing.ingredient}</h3>
+                  <p className="text-xs text-[var(--muted)] mb-2">{ing.typical_dose}</p>
                   <div className="flex flex-wrap gap-1 mb-3">
                     {pathways.slice(0, 3).map((p: string) => (
-                      <span key={p} className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full">{p}</span>
+                      <span key={p} className="text-xs bg-[var(--accent-dim)] text-[var(--accent)] px-2 py-0.5 rounded-full">{p}</span>
                     ))}
                   </div>
                   <div className="mt-auto flex justify-between items-center">
-                    <span className="text-sm font-medium text-gray-900">from ${ing.min_price.toFixed(2)}</span>
-                    <span className="text-xs text-gray-400">{ing.product_count} product{ing.product_count !== 1 ? 's' : ''}</span>
+                    <span className="text-sm font-medium text-[var(--foreground)]">from ${ing.min_price.toFixed(2)}</span>
+                    <span className="text-xs text-[var(--muted)]">{ing.product_count} product{ing.product_count !== 1 ? 's' : ''}</span>
                   </div>
                 </Link>
               );
@@ -165,7 +191,7 @@ export default function Home() {
           </div>
           {ingredients.length > 16 && (
             <div className="text-center mt-6">
-              <Link href="/ingredients" className="text-emerald-600 font-medium hover:text-emerald-700">
+              <Link href="/ingredients" className="text-[var(--accent)] font-medium hover:text-[var(--accent-hover)]">
                 View all {ingredients.length} supplements &rarr;
               </Link>
             </div>
