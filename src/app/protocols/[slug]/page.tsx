@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const stack = getStackBySlug(slug);
   if (!stack) return {};
   return {
-    title: `${stack.name} — Longevity Stack`,
+    title: `${stack.name} — The Longevity Agent`,
     description: stack.description,
   };
 }
@@ -32,37 +32,37 @@ export default async function ProtocolPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
-      <nav className="text-sm text-gray-400 mb-6">
-        <Link href="/protocols" className="hover:text-gray-600">Protocols</Link>
+      <nav className="text-sm text-[var(--muted)] mb-6">
+        <Link href="/protocols" className="hover:text-[var(--muted)]">Protocols</Link>
         <span className="mx-2">/</span>
-        <span className="text-gray-900">{stack.name}</span>
+        <span className="text-[var(--foreground)]">{stack.name}</span>
       </nav>
 
       <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{stack.name}</h1>
-        {stack.goal && <p className="text-emerald-600 font-medium mb-3">{stack.goal}</p>}
-        <p className="text-gray-600 leading-relaxed">{stack.description}</p>
+        <h1 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-2">{stack.name}</h1>
+        {stack.goal && <p className="text-[var(--accent)] font-medium mb-3">{stack.goal}</p>}
+        <p className="text-[var(--muted)] leading-relaxed">{stack.description}</p>
         {stack.source && (
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-[var(--muted)] mt-2">
             Source: {stack.source_url ? (
-              <a href={stack.source_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">{stack.source}</a>
+              <a href={stack.source_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--muted)]">{stack.source}</a>
             ) : stack.source}
           </p>
         )}
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8">
-        <h3 className="font-semibold text-blue-900 mb-1">Not affiliated</h3>
-        <p className="text-sm text-blue-800">
+      <div className="bg-blue-900/20 border border-blue-700/30 rounded-xl p-5 mb-8">
+        <h3 className="font-semibold text-blue-300 mb-1">Not affiliated</h3>
+        <p className="text-sm text-blue-400">
           This is {stack.name.split("'")[0]}&apos;s published protocol. We are not affiliated with them.
           We just make it easy to shop their stack at the best prices.
         </p>
       </div>
 
       {stack.dosing_notes && (
-        <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-1">Dosing Notes</h3>
-          <p className="text-sm text-gray-700">{stack.dosing_notes}</p>
+        <div className="bg-[var(--surface)] border border-[var(--card-border)] rounded-xl p-5 mb-8">
+          <h3 className="font-semibold text-[var(--foreground)] mb-1">Dosing Notes</h3>
+          <p className="text-sm text-[var(--foreground)]">{stack.dosing_notes}</p>
         </div>
       )}
 
@@ -75,24 +75,24 @@ export default async function ProtocolPage({ params }: { params: Promise<{ slug:
           return (
             <div
               key={product.slug}
-              className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+              className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
             >
               <div className="flex-1">
-                <Link href={`/ingredients/${product.ingredient_slug}`} className="text-xs text-emerald-600 font-medium hover:text-emerald-700">{product.ingredient}</Link>
-                <h3 className="font-semibold text-gray-900">{product.name}</h3>
-                <p className="text-sm text-gray-500">{product.dose_mg}{product.dose_unit} &middot; {product.form} &middot; {product.servings_per_container} servings</p>
-                <span className="text-xs text-gray-400">via {product.vendor_name}</span>
+                <Link href={`/ingredients/${product.ingredient_slug}`} className="text-xs text-[var(--accent)] font-medium hover:text-[var(--accent-hover)]">{product.ingredient}</Link>
+                <h3 className="font-semibold text-[var(--foreground)]">{product.name}</h3>
+                <p className="text-sm text-[var(--muted)]">{product.dose_mg}{product.dose_unit} &middot; {product.form} &middot; {product.servings_per_container} servings</p>
+                <span className="text-xs text-[var(--muted)]">via {product.vendor_name}</span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <p className="text-lg font-bold text-gray-900">${product.price.toFixed(2)}</p>
-                  {perServing && <p className="text-xs text-gray-400">${perServing}/serving</p>}
+                  <p className="text-lg font-bold text-[var(--foreground)]">${product.price.toFixed(2)}</p>
+                  {perServing && <p className="text-xs text-[var(--muted)]">${perServing}/serving</p>}
                 </div>
                 <a
                   href={product.affiliate_url || product.product_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700"
+                  className="inline-flex items-center px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-hover)]"
                 >
                   Buy
                 </a>
@@ -103,15 +103,15 @@ export default async function ProtocolPage({ params }: { params: Promise<{ slug:
       </div>
 
       {/* Total & CTA */}
-      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-8">
+      <div className="bg-[var(--surface)] border border-[var(--card-border)] rounded-xl p-6 mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <p className="text-sm text-gray-500">Total stack cost (cheapest per product)</p>
-            <p className="text-3xl font-bold text-gray-900">${totalPrice.toFixed(2)}</p>
+            <p className="text-sm text-[var(--muted)]">Total stack cost (cheapest per product)</p>
+            <p className="text-3xl font-bold text-[var(--foreground)]">${totalPrice.toFixed(2)}</p>
           </div>
           <Link
             href={cartUrl}
-            className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700"
+            className="inline-flex items-center px-6 py-3 bg-[var(--accent)] text-white font-medium rounded-lg hover:bg-[var(--accent-hover)]"
           >
             Open in Cart &rarr;
           </Link>
@@ -120,14 +120,14 @@ export default async function ProtocolPage({ params }: { params: Promise<{ slug:
 
       {/* Interactions */}
       {allInteractions.length > 0 && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
-          <h3 className="font-semibold text-amber-900 mb-2">Interaction Warnings</h3>
+        <div className="bg-yellow-900/20 border border-yellow-700/30 rounded-xl p-5 mb-6">
+          <h3 className="font-semibold text-yellow-400 mb-2">Interaction Warnings</h3>
           {allInteractions.map((item) => (
             <div key={item.ingredient} className="mb-2 last:mb-0">
-              <p className="text-sm font-medium text-amber-800">{item.ingredient}</p>
+              <p className="text-sm font-medium text-yellow-400">{item.ingredient}</p>
               <ul className="ml-4">
                 {item.interactions.map((int: any, i: number) => (
-                  <li key={i} className="text-sm text-amber-700">&bull; {int.substance}: {int.mechanism}</li>
+                  <li key={i} className="text-sm text-yellow-400">&bull; {int.substance}: {int.mechanism}</li>
                 ))}
               </ul>
             </div>
@@ -135,7 +135,7 @@ export default async function ProtocolPage({ params }: { params: Promise<{ slug:
         </div>
       )}
 
-      <p className="text-xs text-gray-400 text-center mt-8">
+      <p className="text-xs text-[var(--muted)] text-center mt-8">
         This is not medical advice. Consult your healthcare provider before starting any supplement regimen.
       </p>
     </div>

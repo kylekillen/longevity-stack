@@ -25,12 +25,12 @@ export default async function CartPage({ searchParams }: CartPageProps) {
   if (itemSlugs.length === 0) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Your Custom Checkout</h1>
-        <p className="text-gray-500 mb-6">No items in your stack yet.</p>
-        <p className="text-sm text-gray-400 mb-4">
-          Add items via URL: <code className="bg-gray-100 px-2 py-1 rounded">/cart?items=quercetin-now-500mg,fisetin-le-100mg</code>
+        <h1 className="text-3xl font-bold text-[var(--foreground)] mb-4">Your Custom Checkout</h1>
+        <p className="text-[var(--muted)] mb-6">No items in your stack yet.</p>
+        <p className="text-sm text-[var(--muted)] mb-4">
+          Add items via URL: <code className="bg-[var(--card)] px-2 py-1 rounded">/cart?items=quercetin-now-500mg,fisetin-le-100mg</code>
         </p>
-        <Link href="/ingredients" className="text-emerald-600 font-medium hover:text-emerald-700">
+        <Link href="/ingredients" className="text-[var(--accent)] font-medium hover:text-[var(--accent-hover)]">
           Browse supplements &rarr;
         </Link>
       </div>
@@ -111,8 +111,8 @@ export default async function CartPage({ searchParams }: CartPageProps) {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-1">Your Custom Checkout</h1>
-          <p className="text-gray-500">
+          <h1 className="text-3xl font-bold text-[var(--foreground)] mb-1">Your Custom Checkout</h1>
+          <p className="text-[var(--muted)]">
             {validProducts.length} supplement{validProducts.length !== 1 ? "s" : ""} from {vendorGroups.length} vendor{vendorGroups.length !== 1 ? "s" : ""}
             {vendorLock && ` (${vendorLock} preferred)`}
           </p>
@@ -121,16 +121,16 @@ export default async function CartPage({ searchParams }: CartPageProps) {
       </div>
 
       {/* Explainer banner */}
-      <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
+      <div className="bg-cyan-900/20 border border-cyan-700/30 rounded-xl p-4 mb-6">
         <div className="flex items-start gap-3">
-          <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div>
-            <p className="text-sm font-medium text-emerald-900">
+            <p className="text-sm font-medium text-cyan-300">
               We found the best prices for your stack across multiple vendors.
             </p>
-            <p className="text-sm text-emerald-700 mt-1">
+            <p className="text-sm text-[var(--accent)] mt-1">
               Since items come from different stores, click each vendor&apos;s buy button to purchase from that retailer. Use <strong>&quot;Open all vendor tabs&quot;</strong> above to open every vendor at once.
             </p>
           </div>
@@ -138,8 +138,8 @@ export default async function CartPage({ searchParams }: CartPageProps) {
       </div>
 
       {missingItems.length > 0 && (
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-          <p className="text-sm text-amber-800">
+        <div className="bg-yellow-900/20 border border-yellow-700/30 rounded-lg p-4 mb-6">
+          <p className="text-sm text-yellow-400">
             <strong>Not found:</strong> {missingItems.join(", ")}. Check{" "}
             <Link href="/for-llms" className="underline">valid slugs</Link>.
           </p>
@@ -149,27 +149,27 @@ export default async function CartPage({ searchParams }: CartPageProps) {
       {/* Products grouped by vendor */}
       <div className="space-y-6 mb-8">
         {vendorGroups.map((group) => (
-          <div key={group.vendorSlug} className="border border-gray-200 rounded-xl overflow-hidden">
+          <div key={group.vendorSlug} className="border border-[var(--card-border)] rounded-xl overflow-hidden">
             {/* Vendor header */}
-            <div className="bg-gray-50 px-5 py-3 flex items-center justify-between border-b border-gray-200">
+            <div className="bg-[var(--surface)] px-5 py-3 flex items-center justify-between border-b border-[var(--card-border)]">
               <div className="flex items-center gap-3">
-                <h2 className="font-semibold text-gray-900">{group.vendorName}</h2>
+                <h2 className="font-semibold text-[var(--foreground)]">{group.vendorName}</h2>
                 <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${
-                  group.vendorTrustScore >= 8 ? 'bg-green-100 text-green-700' :
-                  group.vendorTrustScore >= 5 ? 'bg-yellow-100 text-yellow-700' :
-                  'bg-red-100 text-red-700'
+                  group.vendorTrustScore >= 8 ? 'bg-green-900/50 text-green-400' :
+                  group.vendorTrustScore >= 5 ? 'bg-yellow-900/50 text-yellow-400' :
+                  'bg-red-900/50 text-red-400'
                 }`}>{group.vendorTrustScore}</span>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-[var(--muted)]">
                   {group.products.length} item{group.products.length !== 1 ? 's' : ''}
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-sm font-semibold text-gray-900">${group.subtotal.toFixed(2)}</span>
+                <span className="text-sm font-semibold text-[var(--foreground)]">${group.subtotal.toFixed(2)}</span>
               </div>
             </div>
 
             {/* Products in this vendor group */}
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-[var(--card-border)]">
               {group.products.map((product) => {
                 const perServing = (product.servings_per_container != null && product.servings_per_container > 0)
                   ? (product.price / product.servings_per_container).toFixed(2)
@@ -178,28 +178,28 @@ export default async function CartPage({ searchParams }: CartPageProps) {
                 return (
                   <div
                     key={product.slug}
-                    className="bg-white px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+                    className="bg-[var(--card)] px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
                   >
                     <div className="flex-1">
                       <Link
                         href={`/ingredients/${product.ingredient_slug}`}
-                        className="text-xs text-emerald-600 font-medium hover:text-emerald-700"
+                        className="text-xs text-[var(--accent)] font-medium hover:text-[var(--accent-hover)]"
                       >
                         {product.ingredient}
                       </Link>
-                      <h3 className="font-semibold text-gray-900">{product.name}</h3>
-                      <p className="text-sm text-gray-500">
+                      <h3 className="font-semibold text-[var(--foreground)]">{product.name}</h3>
+                      <p className="text-sm text-[var(--muted)]">
                         {product.dose_mg}
                         {product.dose_unit} &middot; {product.form} &middot;{" "}
                         {product.servings_per_container} servings
                       </p>
                       <div className="flex items-center gap-2 mt-1">
                         {product.vendor_ships_direct ? (
-                          <span className="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">
+                          <span className="text-xs bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded">
                             Direct Ship
                           </span>
                         ) : (
-                          <span className="text-xs bg-red-50 text-red-700 px-1.5 py-0.5 rounded">
+                          <span className="text-xs bg-red-900/30 text-red-400 px-1.5 py-0.5 rounded">
                             Third-party sellers
                           </span>
                         )}
@@ -207,16 +207,16 @@ export default async function CartPage({ searchParams }: CartPageProps) {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="text-right">
-                        <p className="text-lg font-bold text-gray-900">${product.price.toFixed(2)}</p>
+                        <p className="text-lg font-bold text-[var(--foreground)]">${product.price.toFixed(2)}</p>
                         {perServing && (
-                          <p className="text-xs text-gray-400">${perServing}/serving</p>
+                          <p className="text-xs text-[var(--muted)]">${perServing}/serving</p>
                         )}
                       </div>
                       <a
                         href={product.affiliate_url || product.product_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition-colors whitespace-nowrap"
+                        className="inline-flex items-center px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap"
                       >
                         Buy &rarr;
                       </a>
@@ -230,22 +230,22 @@ export default async function CartPage({ searchParams }: CartPageProps) {
       </div>
 
       {/* Total */}
-      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-8">
+      <div className="bg-[var(--surface)] border border-[var(--card-border)] rounded-xl p-6 mb-8">
         <div className="flex justify-between items-center">
           <div>
-            <p className="text-sm text-gray-500">Estimated total (one-time)</p>
-            <p className="text-3xl font-bold text-gray-900">${totalPrice.toFixed(2)}</p>
+            <p className="text-sm text-[var(--muted)]">Estimated total (one-time)</p>
+            <p className="text-3xl font-bold text-[var(--foreground)]">${totalPrice.toFixed(2)}</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-gray-500">Est. monthly cost</p>
-            <p className="text-lg font-semibold text-gray-700">
+            <p className="text-sm text-[var(--muted)]">Est. monthly cost</p>
+            <p className="text-lg font-semibold text-[var(--foreground)]">
               ~${monthlyEstimate.toFixed(2)}/mo
             </p>
-            <p className="text-xs text-gray-400">Based on 1 serving/day per product</p>
+            <p className="text-xs text-[var(--muted)]">Based on 1 serving/day per product</p>
           </div>
         </div>
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <p className="text-xs text-gray-500">
+        <div className="mt-4 pt-4 border-t border-[var(--card-border)]">
+          <p className="text-xs text-[var(--muted)]">
             <strong>Across {vendorGroups.length} vendor{vendorGroups.length !== 1 ? 's' : ''}:</strong>{' '}
             {vendorGroups.map((g, i) => (
               <span key={g.vendorSlug}>
@@ -258,11 +258,11 @@ export default async function CartPage({ searchParams }: CartPageProps) {
 
       {/* Synergies */}
       {crossInteractions.length > 0 && (
-        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-6">
-          <h3 className="font-semibold text-emerald-900 mb-2">Synergies in your stack</h3>
+        <div className="bg-cyan-900/20 border border-cyan-700/30 rounded-xl p-5 mb-6">
+          <h3 className="font-semibold text-cyan-300 mb-2">Synergies in your stack</h3>
           <ul className="space-y-1">
             {[...new Set(crossInteractions)].map((msg, i) => (
-              <li key={i} className="text-sm text-emerald-800">{msg}</li>
+              <li key={i} className="text-sm text-cyan-400">{msg}</li>
             ))}
           </ul>
         </div>
@@ -270,14 +270,14 @@ export default async function CartPage({ searchParams }: CartPageProps) {
 
       {/* Interaction Warnings */}
       {allInteractions.length > 0 && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
-          <h3 className="font-semibold text-amber-900 mb-2">Interaction Warnings</h3>
+        <div className="bg-yellow-900/20 border border-yellow-700/30 rounded-xl p-5 mb-6">
+          <h3 className="font-semibold text-yellow-400 mb-2">Interaction Warnings</h3>
           {allInteractions.map((item) => (
             <div key={item.ingredient} className="mb-3 last:mb-0">
-              <p className="text-sm font-medium text-amber-800">{item.ingredient}</p>
+              <p className="text-sm font-medium text-yellow-400">{item.ingredient}</p>
               <ul className="ml-4 space-y-0.5">
                 {item.interactions.map((int: any, i: number) => (
-                  <li key={i} className="text-sm text-amber-700">
+                  <li key={i} className="text-sm text-yellow-400">
                     <span className={`inline-block w-2 h-2 rounded-full mr-1.5 ${
                       int.severity === 'high' ? 'bg-red-500' :
                       int.severity === 'moderate' ? 'bg-amber-500' :
@@ -293,7 +293,7 @@ export default async function CartPage({ searchParams }: CartPageProps) {
       )}
 
       {/* Disclaimer */}
-      <p className="text-xs text-gray-400 text-center">
+      <p className="text-xs text-[var(--muted)] text-center">
         Prices are estimates and may not reflect current retail pricing. Always verify prices at the vendor before purchasing.
         This is not medical advice. Consult your healthcare provider before starting any supplement regimen.
       </p>

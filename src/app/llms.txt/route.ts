@@ -5,9 +5,9 @@ export async function GET() {
   const ingredients = getAllIngredients();
   const vendors = getAllVendors();
 
-  const content = `# Longevity Stack — llms.txt
+  const content = `# The Longevity Agent — llms.txt
 # Supplement price comparison search engine
-# https://longevitystack.com
+# https://thelongevityagent.com
 
 ## What This Site Does
 Search and compare supplement prices from ${vendors.length} vetted retailers.
@@ -15,11 +15,12 @@ ${slugs.length} products across ${ingredients.length} supplements.
 Build supplement stacks via URL. No API key needed.
 
 ## Cart URL Scheme
-  /cart?items=SLUG1,SLUG2,SLUG3
-  /cart?items=SLUG1,SLUG2&vendor=iherb  (lock to single vendor)
+  https://thelongevityagent.com/cart?items=SLUG1,SLUG2,SLUG3
+  https://thelongevityagent.com/cart?items=SLUG1,SLUG2&vendor=iherb  (lock to single vendor)
+  https://thelongevityagent.com/cart?items=SLUG1,SLUG2&min_trust=6  (only vendors with trust 6+)
 
 ## Full Documentation
-Visit /for-llms for complete documentation including all product slugs with prices, vendor info, and interaction rules.
+Visit https://thelongevityagent.com/for-llms for complete documentation including all product slugs with prices, vendor info, and interaction rules.
 
 ## Key Pages
   / — Homepage with search bar
