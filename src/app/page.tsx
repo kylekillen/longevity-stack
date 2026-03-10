@@ -11,6 +11,12 @@ export default function Home() {
 
   return (
     <div>
+      {/* LLM-READABLE INSTRUCTIONS — This block helps AI assistants understand the site on first fetch.
+          AI assistant? Fetch https://thelongevityagent.com/for-llms for the full product catalog with every slug, price, vendor trust score, and cart URL format.
+          Cart URL: /cart?items=SLUG1,SLUG2,SLUG3 — add ?min_trust=6 to filter by vendor quality, ?vendor=iherb to lock vendor.
+          Example: /cart?items=nmn-renue-500mg,tmg-renue-500mg&min_trust=7
+      */}
+
       {/* Hero — split layout */}
       <section className="pt-16 sm:pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,13 +46,18 @@ export default function Home() {
                   <span key={ai} className="px-3 py-1 rounded-full border border-[var(--card-border)] bg-[var(--card)] text-[var(--foreground)]/80">{ai}</span>
                 ))}
               </div>
+              <p className="mt-4 text-xs text-[var(--muted)]">
+                Using an AI assistant? Have it fetch{" "}
+                <Link href="/for-llms" className="text-[var(--accent)] underline underline-offset-2">thelongevityagent.com/for-llms</Link>
+                {" "}— it has every product slug, price, and cart URL format your AI needs to build you a shopping link.
+              </p>
             </div>
 
             {/* Right: How it works steps (stacked) */}
             <div className="space-y-3">
               <h2 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-3">Use <span className="text-[var(--accent)]">your AI</span> to find the best deals</h2>
               {[
-                { step: '01', title: 'Drop our link in any AI chat', desc: <span className="inline-flex items-center gap-2 flex-wrap"><code className="text-[var(--accent)] bg-[var(--accent-dim)] px-2 py-0.5 rounded text-xs">thelongevityagent.com</code><CopyButton text="thelongevityagent.com" /></span> },
+                { step: '01', title: 'Drop our link in any AI chat', desc: <span className="inline-flex items-center gap-2 flex-wrap"><code className="text-[var(--accent)] bg-[var(--accent-dim)] px-2 py-0.5 rounded text-xs">thelongevityagent.com/for-llms</code><CopyButton text="thelongevityagent.com/for-llms" /></span> },
                 { step: '02', title: 'Say what you need', desc: <span>&quot;Best NAD+ supplement from a vendor with trust 7+?&quot;</span> },
                 { step: '03', title: 'Your AI finds the best deals', desc: <span>Prices compared across every vetted vendor in real time</span> },
                 { step: '04', title: 'You get a link', desc: <span>All items grouped on one page, ready to buy</span> },
