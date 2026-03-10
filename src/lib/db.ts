@@ -10,7 +10,18 @@ export function getDb(): Database.Database {
   if (!db) {
     if (IS_VERCEL) {
       // Vercel has a read-only filesystem — open DB read-only, skip WAL and schema init
-      db = new Database(DB_PATH, { readonly: true });
+      // Try process.cwd() first, fall back to __dirname-relative path
+      const fs = require('fs');
+      let dbPath = DB_PATH;
+      if (!fs.existsSync(dbPath)) {
+        dbPath = path.join(__dirname, '..', '..', 'data', 'longevity-stack.db');
+      }
+      if (!fs.existsSync(dbPath)) {
+        // Last resort: check common Vercel paths
+        const altPath = path.join('/var/task', 'data', 'longevity-stack.db');
+        if (fs.existsSync(altPath)) dbPath = altPath;
+      }
+      db = new Database(dbPath, { readonly: true });
       db.pragma('foreign_keys = ON');
     } else {
       const fs = require('fs');
