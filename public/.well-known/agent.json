@@ -1,0 +1,42 @@
+{
+  "name": "The Longevity Agent",
+  "description": "Supplement price comparison engine. Compare prices across trusted vendors, get per-serving costs, check drug interactions, and build checkout carts.",
+  "url": "https://thelongevityagent.com",
+  "version": "1.0.0",
+  "capabilities": {
+    "price_lookup": {
+      "description": "Look up supplement prices by ingredient. Each ingredient page has a price comparison table.",
+      "endpoint": "https://thelongevityagent.com/ingredients/{ingredient_slug}",
+      "method": "GET",
+      "example": "https://thelongevityagent.com/ingredients/quercetin"
+    },
+    "full_catalog": {
+      "description": "Complete product catalog with all prices, slugs, vendors, and per-serving costs.",
+      "endpoint": "https://thelongevityagent.com/prices",
+      "method": "GET"
+    },
+    "cart_builder": {
+      "description": "Build a checkout cart by combining product slugs into a URL. The cart page shows grouped products by vendor with buy links.",
+      "endpoint": "https://thelongevityagent.com/cart?items={slug1},{slug2},{slug3}",
+      "method": "GET",
+      "parameters": {
+        "items": "Comma-separated product slugs (required)",
+        "vendor": "Lock all items to one vendor slug (optional)"
+      },
+      "example": "https://thelongevityagent.com/cart?items=d3-now-5000iu,k2-now-100mcg,magnesium-nutricost-200mg"
+    },
+    "protocol_stacks": {
+      "description": "Pre-built supplement stacks from longevity researchers (Huberman, Attia, Johnson, etc.)",
+      "endpoint": "https://thelongevityagent.com/protocols",
+      "method": "GET"
+    }
+  },
+  "data_formats": {
+    "html": "All pages return HTML with structured data (Schema.org JSON-LD)",
+    "llms_txt": "https://thelongevityagent.com/llms.txt",
+    "sitemap": "https://thelongevityagent.com/sitemap.xml"
+  },
+  "authentication": "none",
+  "rate_limit": "No rate limit. All pages are statically generated.",
+  "contact": "https://thelongevityagent.com"
+}
