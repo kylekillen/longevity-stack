@@ -1,5 +1,7 @@
 import { getProductSlugs, getAllIngredients, getAllVendors } from "@/lib/queries";
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   const slugs = getProductSlugs();
   const ingredients = getAllIngredients();

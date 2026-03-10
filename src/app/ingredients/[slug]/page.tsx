@@ -36,8 +36,111 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
   const synergies = JSON.parse(first.synergies || "[]");
   const pathways = JSON.parse(first.pathways || "[]");
 
+  // Schema.org structured data
+  const siteUrl = "https://thelongevityagent.com";
+  const pageUrl = `${siteUrl}/ingredients/${slug}`;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Supplements",
+        item: `${siteUrl}/ingredients`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: ingredient,
+        item: pageUrl,
+      },
+    ],
+  };
+
+  const productSchemas = products.map((product) => {
+    const perServing = product.per_serving_price
+      || (product.servings_per_container ? product.price / product.servings_per_container : null);
+    return {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.name,
+      ...(product.description && { description: product.description }),
+      ...(product.brand && { brand: { "@type": "Brand", name: product.brand } }),
+      category: "Health & Beauty > Health Care > Vitamins & Supplements",
+      offers: {
+        "@type": "Offer",
+        url: product.affiliate_url || product.product_url,
+        priceCurrency: "USD",
+        price: product.price.toFixed(2),
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          name: product.vendor_name,
+        },
+      },
+      ...(product.dose_mg && {
+        additionalProperty: [
+          {
+            "@type": "PropertyValue",
+            name: "Dose",
+            value: `${product.dose_mg}${product.dose_unit}`,
+          },
+          ...(product.form ? [{
+            "@type": "PropertyValue",
+            name: "Form",
+            value: product.form,
+          }] : []),
+          ...(product.servings_per_container ? [{
+            "@type": "PropertyValue",
+            name: "Servings Per Container",
+            value: product.servings_per_container.toString(),
+          }] : []),
+          ...(perServing ? [{
+            "@type": "PropertyValue",
+            name: "Price Per Serving",
+            value: `$${perServing.toFixed(2)}`,
+          }] : []),
+        ],
+      }),
+    };
+  });
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    name: `${ingredient} — Price Comparison & Research`,
+    description: `Compare ${ingredient} prices across ${products.length} products from vetted retailers.`,
+    url: pageUrl,
+    breadcrumb: breadcrumbSchema,
+    mainEntity: productSchemas.length === 1 ? productSchemas[0] : {
+      "@type": "ItemList",
+      name: `${ingredient} Products`,
+      numberOfItems: productSchemas.length,
+      itemListElement: productSchemas.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: p,
+      })),
+    },
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      {productSchemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+
       {/* Breadcrumb */}
       <nav className="text-sm text-[var(--muted)] mb-6">
         <Link href="/ingredients" className="hover:text-[var(--muted)]">Supplements</Link>
