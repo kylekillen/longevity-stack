@@ -59,6 +59,27 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
     ],
   };
 
+  // Shared merchant return policy and shipping details for Google structured data
+  const merchantReturnPolicy = {
+    "@type": "MerchantReturnPolicy",
+    applicableCountry: "US",
+    returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+    merchantReturnDays: 0,
+  };
+
+  const shippingDetails = {
+    "@type": "OfferShippingDetails",
+    shippingDestination: {
+      "@type": "DefinedRegion",
+      addressCountry: "US",
+    },
+    deliveryTime: {
+      "@type": "ShippingDeliveryTime",
+      handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "DAY" },
+      transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 7, unitCode: "DAY" },
+    },
+  };
+
   const productSchemas = products.map((product) => {
     const perServing = product.per_serving_price
       || (product.servings_per_container ? product.price / product.servings_per_container : null);
@@ -66,6 +87,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
       "@context": "https://schema.org",
       "@type": "Product",
       name: product.name,
+      image: `${siteUrl}/og-product.png`,
       ...(product.description && { description: product.description }),
       ...(product.brand && { brand: { "@type": "Brand", name: product.brand } }),
       category: "Health & Beauty > Health Care > Vitamins & Supplements",
@@ -79,6 +101,8 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
           "@type": "Organization",
           name: product.vendor_name,
         },
+        hasMerchantReturnPolicy: merchantReturnPolicy,
+        shippingDetails: shippingDetails,
       },
       ...(product.dose_mg && {
         additionalProperty: [
