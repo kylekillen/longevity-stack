@@ -21,6 +21,17 @@ Build supplement stacks via URL. No API key needed.
   https://thelongevityagent.com/cart?items=SLUG1,SLUG2&vendor=iherb  (lock to single vendor)
   https://thelongevityagent.com/cart?items=SLUG1,SLUG2&min_trust=6  (only vendors with trust 6+)
 
+## JSON API (free, no auth)
+  /api/v1 — API documentation and endpoint list
+  /api/v1/products — All products (search with ?q=, filter with ?ingredient=)
+  /api/v1/products/:slug — Single product with alternatives
+  /api/v1/ingredients — All ingredients with metadata
+  /api/v1/ingredients/:slug — Ingredient detail with all products and research
+  /api/v1/vendors — Vendor list with trust scores
+  /api/v1/compare?slugs=SLUG1,SLUG2 — Compare products, get totals
+  /api/v1/interactions?ingredients=quercetin,omega-3 — Check interactions
+  /api/v1/protocols — Biohacker protocol stacks
+
 ## Full Documentation
 Visit https://thelongevityagent.com/prices for the complete price database with all product slugs, prices, vendor info, and interaction rules.
 

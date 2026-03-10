@@ -1,42 +1,79 @@
 {
   "name": "The Longevity Agent",
-  "description": "Supplement price comparison engine. Compare prices across trusted vendors, get per-serving costs, check drug interactions, and build checkout carts.",
+  "description": "Supplement price comparison engine. Compare prices across trusted vendors, get per-serving costs, check drug interactions, and build checkout carts. Free JSON API available.",
   "url": "https://thelongevityagent.com",
   "version": "1.0.0",
+  "api": {
+    "base_url": "https://thelongevityagent.com/api/v1",
+    "documentation": "https://thelongevityagent.com/api/v1",
+    "authentication": "none",
+    "format": "JSON",
+    "endpoints": {
+      "products": {
+        "url": "/api/v1/products",
+        "description": "List/search all products",
+        "params": ["q", "ingredient", "vendor", "min_trust", "sort", "limit", "offset"]
+      },
+      "product_detail": {
+        "url": "/api/v1/products/{slug}",
+        "description": "Single product with alternatives"
+      },
+      "ingredients": {
+        "url": "/api/v1/ingredients",
+        "description": "All supplement ingredients with metadata"
+      },
+      "ingredient_detail": {
+        "url": "/api/v1/ingredients/{slug}",
+        "description": "Ingredient with all products, research, interactions"
+      },
+      "vendors": {
+        "url": "/api/v1/vendors",
+        "description": "All vendors with trust scores"
+      },
+      "compare": {
+        "url": "/api/v1/compare?slugs={slug1},{slug2}",
+        "description": "Compare products, get total pricing and cart URL"
+      },
+      "interactions": {
+        "url": "/api/v1/interactions?ingredients={slug1},{slug2}",
+        "description": "Check drug/supplement interactions"
+      },
+      "protocols": {
+        "url": "/api/v1/protocols",
+        "description": "Biohacker protocol stacks (Huberman, Attia, Johnson, etc.)"
+      }
+    }
+  },
   "capabilities": {
     "price_lookup": {
-      "description": "Look up supplement prices by ingredient. Each ingredient page has a price comparison table.",
-      "endpoint": "https://thelongevityagent.com/ingredients/{ingredient_slug}",
-      "method": "GET",
-      "example": "https://thelongevityagent.com/ingredients/quercetin"
+      "description": "Look up supplement prices by ingredient",
+      "api": "GET /api/v1/ingredients/{slug}",
+      "html": "https://thelongevityagent.com/ingredients/{slug}"
     },
-    "full_catalog": {
-      "description": "Complete product catalog with all prices, slugs, vendors, and per-serving costs.",
-      "endpoint": "https://thelongevityagent.com/prices",
-      "method": "GET"
+    "product_search": {
+      "description": "Search products by name, ingredient, or brand",
+      "api": "GET /api/v1/products?q={query}"
     },
     "cart_builder": {
-      "description": "Build a checkout cart by combining product slugs into a URL. The cart page shows grouped products by vendor with buy links.",
-      "endpoint": "https://thelongevityagent.com/cart?items={slug1},{slug2},{slug3}",
-      "method": "GET",
-      "parameters": {
-        "items": "Comma-separated product slugs (required)",
-        "vendor": "Lock all items to one vendor slug (optional)"
-      },
-      "example": "https://thelongevityagent.com/cart?items=d3-now-5000iu,k2-now-100mcg,magnesium-nutricost-200mg"
+      "description": "Build a checkout cart URL from product slugs",
+      "api": "GET /api/v1/compare?slugs={slug1},{slug2}",
+      "html": "https://thelongevityagent.com/cart?items={slug1},{slug2}"
     },
-    "protocol_stacks": {
-      "description": "Pre-built supplement stacks from longevity researchers (Huberman, Attia, Johnson, etc.)",
-      "endpoint": "https://thelongevityagent.com/protocols",
-      "method": "GET"
+    "interaction_check": {
+      "description": "Check interactions between supplements",
+      "api": "GET /api/v1/interactions?ingredients={slug1},{slug2}"
+    },
+    "protocol_lookup": {
+      "description": "Get pre-built supplement stacks from researchers",
+      "api": "GET /api/v1/protocols"
     }
   },
   "data_formats": {
-    "html": "All pages return HTML with structured data (Schema.org JSON-LD)",
+    "json_api": "https://thelongevityagent.com/api/v1",
+    "html": "All pages include Schema.org JSON-LD structured data",
     "llms_txt": "https://thelongevityagent.com/llms.txt",
     "sitemap": "https://thelongevityagent.com/sitemap.xml"
   },
-  "authentication": "none",
-  "rate_limit": "No rate limit. All pages are statically generated.",
+  "rate_limit": "No rate limit. Be reasonable.",
   "contact": "https://thelongevityagent.com"
 }
