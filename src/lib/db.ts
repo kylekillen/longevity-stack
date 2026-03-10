@@ -2,20 +2,27 @@ import Database from 'better-sqlite3';
 import path from 'path';
 
 const DB_PATH = path.join(process.cwd(), 'data', 'longevity-stack.db');
+const IS_VERCEL = !!process.env.VERCEL;
 
 let db: Database.Database | null = null;
 
 export function getDb(): Database.Database {
   if (!db) {
-    const fs = require('fs');
-    const dir = path.dirname(DB_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    if (IS_VERCEL) {
+      // Vercel has a read-only filesystem — open DB read-only, skip WAL and schema init
+      db = new Database(DB_PATH, { readonly: true });
+      db.pragma('foreign_keys = ON');
+    } else {
+      const fs = require('fs');
+      const dir = path.dirname(DB_PATH);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      db = new Database(DB_PATH);
+      db.pragma('journal_mode = WAL');
+      db.pragma('foreign_keys = ON');
+      initializeDb(db);
     }
-    db = new Database(DB_PATH);
-    db.pragma('journal_mode = WAL');
-    db.pragma('foreign_keys = ON');
-    initializeDb(db);
   }
   return db;
 }
