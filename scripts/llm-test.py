@@ -38,7 +38,8 @@ TESTS = [
             {"type": "slug_valid", "label": "Cart URL uses valid product slugs"},
             {"type": "contains_any", "values": ["trust", "score", "7", "8", "9", "10"], "label": "References vendor trust scores"},
             {"type": "contains_any", "values": ["tmg", "methyl"], "label": "Mentions TMG pairing rule (NR/NMN should be paired with TMG)"},
-            {"type": "contains_any", "values": ["$/serving", "per serving", "cost per"], "label": "Compares by $/serving not sticker price"},
+            {"type": "contains_any", "values": ["$/serving", "per serving", "cost per", "/serving"], "label": "Compares by $/serving not sticker price"},
+            {"type": "cart_url_works", "label": "Cart URL returns HTTP 200"},
         ],
     },
     {
@@ -52,6 +53,7 @@ TESTS = [
             {"type": "contains_any", "values": ["k2", "K2"], "label": "Pairs D3 with K2 (mandatory interaction rule)"},
             {"type": "contains_any", "values": ["$", "cost", "price", "total", "month"], "label": "Shows pricing or monthly cost estimate"},
             {"type": "cart_has_multiple", "min_items": 3, "label": "Cart has 3+ items (it's a stack)"},
+            {"type": "cart_url_works", "label": "Cart URL returns HTTP 200"},
         ],
     },
     {
@@ -65,6 +67,7 @@ TESTS = [
             {"type": "contains_any", "values": ["warfarin", "contraindicated", "avoid", "caution", "blood thinner", "anticoagulant"], "label": "Warns about warfarin interactions"},
             {"type": "contains_any", "values": ["omega", "bleed", "risk"], "label": "Flags omega-3 bleeding risk with anticoagulants"},
             {"type": "contains_any", "values": ["doctor", "physician", "healthcare", "medical", "consult"], "label": "Recommends consulting a doctor"},
+            {"type": "cart_url_works", "label": "Cart URL returns HTTP 200"},
         ],
     },
     {
@@ -78,6 +81,7 @@ TESTS = [
             {"type": "slug_valid", "label": "Cart URL uses valid product slugs"},
             {"type": "contains_any", "values": ["$0.", "$1."], "label": "Shows actual per-serving prices"},
             {"type": "mentions_multiple_vendors", "min_vendors": 2, "label": "Compares across 2+ vendors"},
+            {"type": "cart_url_works", "label": "Cart URL returns HTTP 200"},
         ],
     },
     {
@@ -90,6 +94,7 @@ TESTS = [
             {"type": "cart_has_multiple", "min_items": 2, "label": "Cart has 2+ items"},
             {"type": "contains_any", "values": ["lion", "alpha-gpc", "creatine", "omega", "bacopa", "phosphatidylserine"], "label": "Includes known nootropic supplements"},
             {"type": "contains_any", "values": ["$/serving", "per serving", "total", "month", "$"], "label": "Shows pricing"},
+            {"type": "cart_url_works", "label": "Cart URL returns HTTP 200"},
         ],
     },
     {
@@ -102,6 +107,7 @@ TESTS = [
             {"type": "contains_any", "values": ["/cart?items=", "cart?items="], "label": "Includes a cart URL"},
             {"type": "slug_valid", "label": "Cart URL uses valid product slugs"},
             {"type": "contains_any", "values": ["CYP3A4", "statin", "interaction", "caution"], "label": "Flags quercetin drug interactions"},
+            {"type": "cart_url_works", "label": "Cart URL returns HTTP 200"},
         ],
     },
 ]
@@ -197,6 +203,27 @@ def run_check(check: dict, response: str, valid_slugs: set) -> dict:
         found_vendors = [v for v in KNOWN_VENDORS if v.lower().replace("-", " ") in resp_lower or v.lower() in resp_lower]
         result["passed"] = len(found_vendors) >= min_v
         result["detail"] = f"Vendors mentioned: {found_vendors}"
+
+    elif ctype == "cart_url_works":
+        cart_urls = re.findall(r'(?:https?://thelongevityagent\.com)?/cart\?items=[^\s\)\"]+', response)
+        if not cart_urls:
+            result["passed"] = False
+            result["detail"] = "No cart URL found to test"
+        else:
+            url = cart_urls[0]
+            if not url.startswith("http"):
+                url = f"https://thelongevityagent.com{url}"
+            try:
+                http_result = subprocess.run(
+                    ["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "-L", "--max-time", "10", url],
+                    capture_output=True, text=True, timeout=15
+                )
+                status = http_result.stdout.strip()
+                result["passed"] = status == "200"
+                result["detail"] = f"HTTP {status} for {url[:80]}"
+            except Exception as e:
+                result["passed"] = False
+                result["detail"] = f"Request failed: {e}"
 
     return result
 
