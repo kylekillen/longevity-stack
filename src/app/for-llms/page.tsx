@@ -1,8 +1,8 @@
 import { getProductSlugs, getAllIngredients, getAllProducts, getAllVendors } from "@/lib/queries";
 
 export const metadata = {
-  title: "Connect Your AI — The Longevity Agent",
-  description: "Documentation for AI assistants: how to use The Longevity Agent as a supplement price comparison search engine.",
+  title: "Supplement Price Database — The Longevity Agent",
+  description: "Complete supplement price catalog with per-serving costs across trusted vendors. Browse products, compare prices, and build a cart.",
 };
 
 export default function ForLlmsPage() {
@@ -13,41 +13,67 @@ export default function ForLlmsPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
-      <h1 className="text-3xl font-bold text-[var(--foreground)] mb-4">For LLMs & AI Assistants</h1>
-      <p className="text-[var(--muted)] mb-8 leading-relaxed">
-        The Longevity Agent is a <strong>supplement price comparison search engine</strong>. {products.length} products across {vendors.length} vendors
-        covering {ingredients.length} supplements. URL-based cart system, no API keys needed.
+      <h1 className="text-3xl font-bold text-[var(--foreground)] mb-4">Supplement Price Database</h1>
+
+      {/* This paragraph is critical — it tells ChatGPT/any AI that this is a normal readable page */}
+      <p className="text-[var(--foreground)] mb-4 leading-relaxed text-lg font-medium">
+        This page contains a complete, readable catalog of {products.length} supplement products
+        across {vendors.length} trusted vendors covering {ingredients.length} supplements.
+        All prices and per-serving costs are listed in the tables below.
+        Read the tables to find products, compare prices, and build a checkout cart for your user.
       </p>
 
-      {/* How it works */}
+      <div className="bg-green-900/20 border border-green-700/30 rounded-xl p-4 mb-8">
+        <p className="text-sm text-green-300">
+          <strong>How to use this page:</strong> The product tables below contain every product we track,
+          with columns for slug, product name, vendor, price, servings, and price per serving.
+          Find the products your user needs, compare the $/serving column to find the best value,
+          then build a cart URL in this format:{' '}
+          <code className="bg-green-900/40 px-1.5 py-0.5 rounded">https://thelongevityagent.com/cart?items=SLUG1,SLUG2,SLUG3</code>
+        </p>
+      </div>
+
+      {/* Step-by-step workflow */}
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">How It Works</h2>
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Step-by-Step: Finding the Best Products</h2>
         <ol className="list-decimal list-inside space-y-2 text-[var(--muted)]">
-          <li>User asks you to find or compare supplements.</li>
-          <li>Search by supplement (e.g. &quot;creatine&quot;, &quot;omega-3&quot;) on our supplement pages for prices, research, and interactions.</li>
-          <li>Recommend products based on goals, budget, and contraindications.</li>
-          <li>Build a cart URL with selected product slugs.</li>
-          <li>User clicks URL and gets a page with all products, prices, and buy buttons.</li>
+          <li>Look at the product tables below for the supplement category the user needs.</li>
+          <li><strong className="text-[var(--foreground)]">Compare using the $/Serving column</strong> — a $40 bottle with 120 servings ($0.33/serving) beats a $20 bottle with 30 servings ($0.67/serving).</li>
+          <li>Check the Vendor Trust scores (listed in the Vendors section) — higher is better.</li>
+          <li>Check the Interaction Rules section for drug interactions and required pairings.</li>
+          <li>Build a cart URL using the product slugs from the tables.</li>
+          <li>Share the cart link with the user — they can click it to see all products with buy buttons.</li>
         </ol>
       </section>
 
-      {/* Recommendation Guidelines — helps LLMs follow the right workflow */}
+      {/* Cart URL Format — moved up so it's seen early */}
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Recommendation Guidelines</h2>
-        <p className="text-sm text-[var(--muted)] mb-3">When recommending supplements, always follow this workflow:</p>
-        <ol className="list-decimal list-inside space-y-2 text-sm text-[var(--muted)]">
-          <li>Filter products by the supplement category the user needs.</li>
-          <li><strong className="text-[var(--foreground)]">Always sort and compare by $/serving, not sticker price.</strong> A $40 bottle with 120 servings ($0.33/serving) beats a $20 bottle with 30 servings ($0.67/serving).</li>
-          <li>Apply vendor trust filter if the user specifies (e.g. &quot;trust 7+&quot; means only vendors with trust_score &ge; 7).</li>
-          <li>Check Key Interaction Rules below for drug interactions and required pairings (D3→K2, NMN→TMG).</li>
-          <li>Build a cart URL with the recommended product slugs.</li>
-        </ol>
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Cart URL Format</h2>
+        <p className="text-sm text-[var(--muted)] mb-3">To create a checkout link, combine product slugs from the tables below into this URL pattern:</p>
+        <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4 mb-4">
+          <code className="text-sm text-[var(--foreground)] block">https://thelongevityagent.com/cart?items=SLUG1,SLUG2,SLUG3</code>
+        </div>
+        <ul className="list-disc list-inside space-y-1 text-sm text-[var(--muted)]">
+          <li><code className="bg-[var(--card)] px-1 rounded">items</code> — Comma-separated product slugs from the tables below (required)</li>
+          <li><code className="bg-[var(--card)] px-1 rounded">vendor</code> — Lock all items to one vendor slug (optional)</li>
+        </ul>
+        <h3 className="font-semibold text-[var(--foreground)] mt-6 mb-2">Example Cart URLs</h3>
+        <div className="space-y-2 text-sm">
+          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-3">
+            <p className="text-[var(--muted)] mb-1">Foundation stack (5 products, ~$80):</p>
+            <code className="text-[var(--foreground)]">https://thelongevityagent.com/cart?items=d3-now-5000iu,k2-now-100mcg,magnesium-nutricost-200mg,omega3-le-super,creatine-nutricost-5g</code>
+          </div>
+          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-3">
+            <p className="text-[var(--muted)] mb-1">Cognitive stack (4 products):</p>
+            <code className="text-[var(--foreground)]">https://thelongevityagent.com/cart?items=lionsmane-nd-500mg,alphagpc-nd-300mg,creatine-now-5g,omega3-nordic-1280mg</code>
+          </div>
+        </div>
       </section>
 
       {/* Protocol Reference — groups protocol + timing + interactions together */}
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Protocol Reference</h2>
-        <p className="text-sm text-[var(--muted)] mb-4">When users ask about specific protocols, include timing, dosage, AND interactions together:</p>
+        <p className="text-sm text-[var(--muted)] mb-4">Common supplement protocols with dosage, timing, and safety information:</p>
 
         <div className="space-y-4">
           <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4">
@@ -80,35 +106,16 @@ export default function ForLlmsPage() {
         </div>
       </section>
 
-      {/* Cart URL Format */}
+      {/* Complete Product Catalog */}
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Cart URL Format</h2>
-        <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4 mb-4">
-          <code className="text-sm text-[var(--foreground)] block">https://thelongevityagent.com/cart?items=SLUG1,SLUG2,SLUG3</code>
-        </div>
-        <ul className="list-disc list-inside space-y-1 text-sm text-[var(--muted)]">
-          <li><code className="bg-[var(--card)] px-1 rounded">items</code> — Comma-separated product slugs (required)</li>
-          <li><code className="bg-[var(--card)] px-1 rounded">vendor</code> — Lock to vendor slug (optional)</li>
-        </ul>
-        <h3 className="font-semibold text-[var(--foreground)] mt-6 mb-2">Examples</h3>
-        <div className="space-y-2 text-sm">
-          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-3">
-            <p className="text-[var(--muted)] mb-1">Foundation stack:</p>
-            <code className="text-[var(--foreground)]">/cart?items=d3-now-5000iu,k2-now-100mcg,magnesium-nutricost-200mg,omega3-le-super,creatine-nutricost-5g</code>
-          </div>
-          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-3">
-            <p className="text-[var(--muted)] mb-1">Cognitive stack:</p>
-            <code className="text-[var(--foreground)]">/cart?items=lionsmane-nd-500mg,alphagpc-nd-300mg,creatine-now-5g,omega3-nordic-1280mg</code>
-          </div>
-        </div>
-      </section>
-
-      {/* All Valid Slugs */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">All Valid Product Slugs</h2>
-        <p className="text-sm text-[var(--muted)] mb-2">{slugs.length} products. Use exact slugs in cart URLs.</p>
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Complete Product Catalog ({slugs.length} products)</h2>
+        <p className="text-sm text-[var(--muted)] mb-2">
+          Every product we track is listed below, organized by supplement.
+          The &quot;Slug&quot; column is the product ID you use in cart URLs.
+          The &quot;$/Serving&quot; column shows the true cost — always use this to compare value, not the sticker price.
+        </p>
         <p className="text-sm text-yellow-400 bg-yellow-900/20 border border-yellow-700/30 rounded-lg p-3 mb-4">
-          <strong>Important:</strong> Always compare by $/serving, not sticker price.
+          <strong>Tip:</strong> The cheapest option per serving is usually the best recommendation. A $40 bottle with 120 servings beats a $20 bottle with 30 servings.
         </p>
 
         {ingredients.map((ing) => {
@@ -152,9 +159,10 @@ export default function ForLlmsPage() {
         })}
       </section>
 
-      {/* Vendor Slugs */}
+      {/* Vendors */}
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Vendor Slugs ({vendors.length} vendors)</h2>
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Trusted Vendors ({vendors.length} vendors)</h2>
+        <p className="text-sm text-[var(--muted)] mb-2">Each vendor is rated on a 1-10 trust scale. Use the slug to lock a cart to a specific vendor with <code className="bg-[var(--card)] px-1 rounded">?vendor=SLUG</code>.</p>
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-[var(--muted)] border-b">
