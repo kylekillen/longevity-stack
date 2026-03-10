@@ -45,6 +45,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <meta name="impact-site-verification" content="e2686823-000c-42a9-ab41-d73a86bf04d4" />
+        <meta name="msvalidate.01" content="4D540154053D373A55E6E98D4028016F" />
         <link rel="llms-txt" href="/llms.txt" />
         <script
           type="application/ld+json"
