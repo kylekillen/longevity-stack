@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-03-10T10:41:14.208491",
+  "total_urls": 5,
+  "fetched": 5,
+  "extracted": 3,
+  "results": {
+    "updated": 1,
+    "unchanged": 1,
+    "failed": 2,
+    "skipped": 1,
+    "oos": 0
+  },
+  "changes": [
+    {
+      "product": "Thorne 5-MTHF 1mg",
+      "vendor": "thorne",
+      "old": 16.0,
+      "new": 24.0
+    }
+  ],
+  "failures": [
+    {
+      "product": "Thorne Berberine 1000mg",
+      "vendor": "thorne",
+      "url": "https://www.thorne.com/products/dp/berberine-1000",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Thorne Broccoli Seed Extract (Crucera-SGS) 60 Capsules",
+      "vendor": "thorne",
+      "old_price": 38.0,
+      "new_price": 67.0,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Thorne CoQ10 100mg",
+      "vendor": "thorne",
+      "url": "https://www.thorne.com/products/dp/coq10",
+      "reason": "extraction_failed"
+    }
+  ]
+}

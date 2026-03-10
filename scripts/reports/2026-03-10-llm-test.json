@@ -1,0 +1,273 @@
+{
+  "timestamp": "2026-03-10T14:24:44.763081",
+  "url": "https://thelongevityagent.com",
+  "model": "haiku",
+  "loop": 1,
+  "summary": {
+    "passed": 40,
+    "failed": 0,
+    "total": 40
+  },
+  "results": [
+    {
+      "test_id": 1,
+      "name": "NAD+ recommendation with trust filter",
+      "passed": 7,
+      "failed": 0,
+      "total": 7,
+      "checks": [
+        {
+          "label": "Mentions NAD+/NMN/NR products",
+          "passed": true,
+          "detail": "Found: ['nmn', 'nad']"
+        },
+        {
+          "label": "Includes a cart URL",
+          "passed": true,
+          "detail": "Found: ['/cart?items=', 'cart?items=']"
+        },
+        {
+          "label": "Cart URL uses valid product slugs",
+          "passed": true,
+          "detail": "All 2 slugs valid"
+        },
+        {
+          "label": "References vendor trust scores",
+          "passed": true,
+          "detail": "Found: ['trust', '7', '8', '9', '10']"
+        },
+        {
+          "label": "Mentions TMG pairing rule (NR/NMN should be paired with TMG)",
+          "passed": true,
+          "detail": "Found: ['tmg', 'methyl']"
+        },
+        {
+          "label": "Compares by $/serving not sticker price",
+          "passed": true,
+          "detail": "Found: ['$/serving', '/serving']"
+        },
+        {
+          "label": "Cart URL returns HTTP 200",
+          "passed": true,
+          "detail": "HTTP 200 for https://thelongevityagent.com/cart?items=nmn-nd-250mg,tmg-now-1000mg"
+        }
+      ],
+      "response_preview": "**Best NAD+ supplement (trust 7+):** Nootropics Depot NMN 250mg at **$0.58/serving** (best value)\n\n| Product | Vendor | Price | $/Serving | Trust |\n|---------|--------|-------|-----------|-------|\n| **Nootropics Depot NMN 250mg** | Nootropics Depot | $34.99 | $0.58 | 9/10 \u2713 |\n| Life Extension NMN 250mg | Life Extension | $37.50 | $1.25 | 9/10 |\n\n**Key notes:**\n- \u26a0\ufe0f **NMN regulatory status:** FDA classified as IND in 2022 (investigational drug)\n- **Important pairing:** NMN depletes methyl donors "
+    },
+    {
+      "test_id": 2,
+      "name": "Foundation stack builder",
+      "passed": 7,
+      "failed": 0,
+      "total": 7,
+      "checks": [
+        {
+          "label": "Includes a cart URL",
+          "passed": true,
+          "detail": "Found: ['/cart?items=', 'cart?items=']"
+        },
+        {
+          "label": "Cart URL uses valid product slugs",
+          "passed": true,
+          "detail": "All 5 slugs valid"
+        },
+        {
+          "label": "Includes D3 and Omega-3 (foundation essentials)",
+          "passed": true,
+          "detail": "All found"
+        },
+        {
+          "label": "Pairs D3 with K2 (mandatory interaction rule)",
+          "passed": true,
+          "detail": "Found: ['k2', 'K2']"
+        },
+        {
+          "label": "Shows pricing or monthly cost estimate",
+          "passed": true,
+          "detail": "Found: ['$', 'cost', 'total', 'month']"
+        },
+        {
+          "label": "Cart has 3+ items (it's a stack)",
+          "passed": true,
+          "detail": "5 items (need 3+)"
+        },
+        {
+          "label": "Cart URL returns HTTP 200",
+          "passed": true,
+          "detail": "HTTP 200 for https://thelongevityagent.com/cart?items=d3-now-5000iu,k2-now-100mcg,omega3-le-s"
+        }
+      ],
+      "response_preview": "# Basic Longevity Foundation Stack \u2014 $16/month\n\nHere's the essential 5-supplement foundation, optimized for cost:\n\n| Supplement | Dosage | Product | Cost/Month |\n|---|---|---|---|\n| **Vitamin D3** | 5000 IU/day | NOW D3 5000 IU (Amazon) | $1.20 |\n| **Vitamin K2** | 100 mcg/day | NOW K2 MK-7 (Amazon) | $3.00 |\n| **Omega-3** | ~2000mg EPA/DHA/day | Life Extension Super Omega-3 | $6.30 |\n| **Magnesium** | 200mg/day | Nutricost Glycinate (Amazon) | $3.60 |\n| **Creatine** | 5g/day | Nutricost Monohyd"
+    },
+    {
+      "test_id": 3,
+      "name": "Drug interaction awareness",
+      "passed": 7,
+      "failed": 0,
+      "total": 7,
+      "checks": [
+        {
+          "label": "Includes a cart URL",
+          "passed": true,
+          "detail": "Found: ['/cart?items=', 'cart?items=']"
+        },
+        {
+          "label": "Cart URL uses valid product slugs",
+          "passed": true,
+          "detail": "All 8 slugs valid"
+        },
+        {
+          "label": "Does NOT recommend K2 (contraindicated with warfarin)",
+          "passed": true,
+          "detail": "Correctly absent"
+        },
+        {
+          "label": "Warns about warfarin interactions",
+          "passed": true,
+          "detail": "Found: ['warfarin', 'contraindicated', 'avoid', 'anticoagulant']"
+        },
+        {
+          "label": "Flags omega-3 bleeding risk with anticoagulants",
+          "passed": true,
+          "detail": "Found: ['omega', 'bleed', 'risk']"
+        },
+        {
+          "label": "Recommends consulting a doctor",
+          "passed": true,
+          "detail": "Found: ['doctor', 'consult']"
+        },
+        {
+          "label": "Cart URL returns HTTP 200",
+          "passed": true,
+          "detail": "HTTP 200 for https://thelongevityagent.com/cart?items=creatine-nutricost-5g,bcomplex-lifeexte"
+        }
+      ],
+      "response_preview": "\u26a0\ufe0f **Critical warfarin interaction:** Vitamin K2 is **contraindicated** with warfarin\u2014avoid completely. Also, high-dose omega-3 increases bleeding risk with anticoagulants. **Consult your doctor before starting any supplements**, as warfarin interactions are serious.\n\n## Safe Energy & Joint Health Stack\n\n**For Energy** (avoiding K2, D3):\n- **Creatine** ($0.07/serving) \u2013 ATP production\n- **B-Complex** ($0.15/serving) \u2013 energy metabolism\n- **CoQ10** ($0.26/serving) \u2013 mitochondrial function\n- **Tau"
+    },
+    {
+      "test_id": 4,
+      "name": "Cheapest creatine comparison",
+      "passed": 7,
+      "failed": 0,
+      "total": 7,
+      "checks": [
+        {
+          "label": "Discusses creatine products",
+          "passed": true,
+          "detail": "Found: ['creatine']"
+        },
+        {
+          "label": "Compares by $/serving",
+          "passed": true,
+          "detail": "Found: ['per serving']"
+        },
+        {
+          "label": "Includes a cart URL",
+          "passed": true,
+          "detail": "Found: ['/cart?items=', 'cart?items=']"
+        },
+        {
+          "label": "Cart URL uses valid product slugs",
+          "passed": true,
+          "detail": "All 1 slugs valid"
+        },
+        {
+          "label": "Shows actual per-serving prices",
+          "passed": true,
+          "detail": "Found: ['$0.']"
+        },
+        {
+          "label": "Compares across 2+ vendors",
+          "passed": true,
+          "detail": "Vendors mentioned: ['nutricost', 'amazon']"
+        },
+        {
+          "label": "Cart URL returns HTTP 200",
+          "passed": true,
+          "detail": "HTTP 200 for https://thelongevityagent.com/cart?items=creatine-nutricost-5g"
+        }
+      ],
+      "response_preview": "Based on The Longevity Agent data, **the cheapest creatine is $0.07 per serving**, tied between two options:\n\n1. **Nutricost Creatine Monohydrate 5g** from Nutricost: $14.95 (200 servings)\n2. **Nutricost Creatine Monohydrate 5g** from Amazon: $13.95 (200 servings)\n\nThe Amazon option is cheaper upfront ($13.95 vs $14.95), though both come to the same $0.07/serving cost.\n\n**Cart URL:** https://thelongevityagent.com/cart?items=creatine-nutricost-5g\n\nThis will show you both vendors so you can choose"
+    },
+    {
+      "test_id": 5,
+      "name": "Cognitive stack with protocol awareness",
+      "passed": 6,
+      "failed": 0,
+      "total": 6,
+      "checks": [
+        {
+          "label": "Includes a cart URL",
+          "passed": true,
+          "detail": "Found: ['/cart?items=', 'cart?items=']"
+        },
+        {
+          "label": "Cart URL uses valid product slugs",
+          "passed": true,
+          "detail": "All 6 slugs valid"
+        },
+        {
+          "label": "Cart has 2+ items",
+          "passed": true,
+          "detail": "6 items (need 2+)"
+        },
+        {
+          "label": "Includes known nootropic supplements",
+          "passed": true,
+          "detail": "Found: ['lion', 'alpha-gpc', 'creatine', 'omega']"
+        },
+        {
+          "label": "Shows pricing",
+          "passed": true,
+          "detail": "Found: ['$/serving', 'total', '$']"
+        },
+        {
+          "label": "Cart URL returns HTTP 200",
+          "passed": true,
+          "detail": "HTTP 200 for https://thelongevityagent.com/cart?items=lionsmane-bulk-500mg,alphagpc-nd-300mg,"
+        }
+      ],
+      "response_preview": "# Cognitive Optimization Stack\n\nHere's a science-backed nootropic stack optimized for $/serving:\n\n| Supplement | Dose | Product | $/Serving |\n|---|---|---|---|\n| **Lion's Mane** | 500mg/day | Bulk Supplements Lion's Mane Extract | $0.05 |\n| **Alpha-GPC** | 300mg/day | Nootropics Depot Alpha-GPC 300mg | $0.33 |\n| **L-Theanine** | 200mg/day | Nootropics Depot L-Theanine 200mg | $0.12 |\n| **Creatine** | 5g/day | Nutricost Creatine Monohydrate 5g | $0.07 |\n| **Omega-3** | 2-3g/day EPA+DHA | Life Ext"
+    },
+    {
+      "test_id": 6,
+      "name": "Senolytic protocol timing",
+      "passed": 6,
+      "failed": 0,
+      "total": 6,
+      "checks": [
+        {
+          "label": "Mentions quercetin or fisetin",
+          "passed": true,
+          "detail": "Found: ['quercetin', 'fisetin']"
+        },
+        {
+          "label": "Specifies intermittent dosing (not daily)",
+          "passed": true,
+          "detail": "Found: ['intermittent', '2 days', 'not daily']"
+        },
+        {
+          "label": "Includes a cart URL",
+          "passed": true,
+          "detail": "Found: ['/cart?items=', 'cart?items=']"
+        },
+        {
+          "label": "Cart URL uses valid product slugs",
+          "passed": true,
+          "detail": "All 2 slugs valid"
+        },
+        {
+          "label": "Flags quercetin drug interactions",
+          "passed": true,
+          "detail": "Found: ['CYP3A4', 'statin', 'interaction']"
+        },
+        {
+          "label": "Cart URL returns HTTP 200",
+          "passed": true,
+          "detail": "HTTP 200 for https://thelongevityagent.com/cart?items=quercetin-now-500mg,fisetin-le-100mg"
+        }
+      ],
+      "response_preview": "# Senolytic Protocol Recommendation\n\nBased on the protocol guidelines, here's what you should take:\n\n**Compounds:**\n- **Quercetin**: 500\u20131000mg\n- **Fisetin**: 100\u2013500mg\n\n**Timing:** \u26a0\ufe0f **Intermittent only \u2014 2 days per month, NOT daily**\n\nThis is crucial: senolytics are designed for periodic use, not continuous supplementation.\n\n---\n\n## Best Value Products\n\n| Supplement | Product | Price | $/Serving |\n|-----------|---------|-------|-----------|\n| **Quercetin** | NOW Quercetin 500mg (Amazon) | $16"
+    }
+  ]
+}

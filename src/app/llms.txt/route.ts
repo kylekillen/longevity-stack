@@ -22,7 +22,7 @@ Build supplement stacks via URL. No API key needed.
   https://thelongevityagent.com/cart?items=SLUG1,SLUG2&min_trust=6  (only vendors with trust 6+)
 
 ## Full Documentation
-Visit https://thelongevityagent.com/for-llms for complete documentation including all product slugs with prices, vendor info, and interaction rules.
+Visit https://thelongevityagent.com/prices for the complete price database with all product slugs, prices, vendor info, and interaction rules.
 
 ## Key Pages
   / — Homepage with search bar

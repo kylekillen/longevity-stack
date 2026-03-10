@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 LLM Agent Test Harness for The Longevity Agent
-Simulates real LLM users: fetches /for-llms, runs test prompts, evaluates responses.
+Simulates real LLM users: fetches /prices, runs test prompts, evaluates responses.
 Feeds failures back to an optimization loop.
 
 Usage:
@@ -117,8 +117,8 @@ KNOWN_VENDORS = ["iherb", "thorne", "life-extension", "nootropics-depot", "now-f
 
 
 def fetch_for_llms_page(base_url: str) -> str:
-    """Fetch the /for-llms page text using curl."""
-    url = f"{base_url}/for-llms"
+    """Fetch the /prices page text using curl."""
+    url = f"{base_url}/prices"
     try:
         result = subprocess.run(
             ["curl", "-s", "-L", "--max-time", "15", url],
@@ -127,7 +127,7 @@ def fetch_for_llms_page(base_url: str) -> str:
         if result.returncode == 0 and len(result.stdout) > 500:
             return result.stdout
         else:
-            print(f"  WARNING: /for-llms returned {len(result.stdout)} chars")
+            print(f"  WARNING: /prices returned {len(result.stdout)} chars")
             return result.stdout
     except Exception as e:
         print(f"  ERROR fetching {url}: {e}")
@@ -135,7 +135,7 @@ def fetch_for_llms_page(base_url: str) -> str:
 
 
 def extract_slugs_from_page(html: str) -> set:
-    """Extract valid product slugs from the /for-llms page HTML."""
+    """Extract valid product slugs from the /prices page HTML."""
     # Slugs appear in monospace <td> tags with text-[var(--accent)]
     # Also match plain text slugs in code blocks
     slugs = set()
@@ -229,14 +229,14 @@ def run_check(check: dict, response: str, valid_slugs: set) -> dict:
 
 
 def run_llm_test(test: dict, page_content: str, valid_slugs: set, model: str) -> dict:
-    """Send the /for-llms page + test prompt to Claude, evaluate response."""
+    """Send the /prices page + test prompt to Claude, evaluate response."""
     print(f"\n{'='*60}")
     print(f"Test {test['id']}: {test['name']}")
     print(f"Prompt: \"{test['prompt']}\"")
     print(f"{'='*60}")
 
     # Build the system context — this simulates what a real user does:
-    # paste the /for-llms URL into their AI chat
+    # paste the /prices URL into their AI chat
     system_prompt = (
         "You are an AI assistant helping a user find supplements. "
         "The user has shared the following page with you from The Longevity Agent "
@@ -307,7 +307,7 @@ def run_llm_test(test: dict, page_content: str, valid_slugs: set, model: str) ->
 
 
 def generate_fix_suggestions(results: list[dict], page_content: str, model: str) -> str:
-    """Feed failures to an LLM and get suggestions for improving /for-llms page."""
+    """Feed failures to an LLM and get suggestions for improving /prices page."""
     failures = []
     for r in results:
         for check in r.get("checks", []):
@@ -324,7 +324,7 @@ def generate_fix_suggestions(results: list[dict], page_content: str, model: str)
 
     prompt = (
         "You are an expert in LLM-optimized web content. "
-        "The Longevity Agent (thelongevityagent.com) has a /for-llms page designed to help "
+        "The Longevity Agent (thelongevityagent.com) has a /prices page designed to help "
         "AI assistants recommend supplements and build cart URLs.\n\n"
         "The following automated tests FAILED when an LLM was given the page content and user prompts:\n\n"
     )
@@ -333,7 +333,7 @@ def generate_fix_suggestions(results: list[dict], page_content: str, model: str)
         prompt += f"- Test: {f['test']}\n  Failed check: {f['check']}\n  Detail: {f['detail']}\n  LLM said: {f['response_preview']}\n\n"
 
     prompt += (
-        "Based on these failures, suggest SPECIFIC changes to the /for-llms page content "
+        "Based on these failures, suggest SPECIFIC changes to the /prices page content "
         "that would help LLMs pass these tests. Focus on:\n"
         "1. What information is missing or unclear?\n"
         "2. What should be made more prominent?\n"
@@ -369,10 +369,10 @@ def main():
 
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
-    print(f"Fetching {args.url}/for-llms ...")
+    print(f"Fetching {args.url}/prices ...")
     page_html = fetch_for_llms_page(args.url)
     if not page_html:
-        print("ERROR: Could not fetch /for-llms page")
+        print("ERROR: Could not fetch /prices page")
         sys.exit(1)
     print(f"  Got {len(page_html)} chars")
 

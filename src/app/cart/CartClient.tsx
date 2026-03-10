@@ -139,7 +139,7 @@ function CartContent({ data }: { data: CartData }) {
         <div className="bg-yellow-900/20 border border-yellow-700/30 rounded-lg p-4 mb-6">
           <p className="text-sm text-yellow-400">
             <strong>Not found:</strong> {missingItems.join(", ")}. Check{" "}
-            <Link href="/for-llms" className="underline">valid slugs</Link>.
+            <Link href="/prices" className="underline">valid slugs</Link>.
           </p>
         </div>
       )}

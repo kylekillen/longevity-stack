@@ -33,7 +33,7 @@ export default function RootLayout({
     "@type": "WebSite",
     name: "The Longevity Agent",
     url: "https://thelongevityagent.com",
-    description: `Supplement price comparison engine. ${products.length} products across ${vendors.length} vendors covering ${ingredients.length} supplements. Set your trust threshold and find the best price at the quality level you choose. Cart URL scheme: /cart?items=SLUG1,SLUG2,SLUG3. Full product catalog at /for-llms. No API key needed.`,
+    description: `Supplement price comparison engine. ${products.length} products across ${vendors.length} vendors covering ${ingredients.length} supplements. Set your trust threshold and find the best price at the quality level you choose. Cart URL scheme: /cart?items=SLUG1,SLUG2,SLUG3. Full product catalog at /prices. No API key needed.`,
     potentialAction: {
       "@type": "SearchAction",
       target: "https://thelongevityagent.com/ingredients/{search_term}",
@@ -46,7 +46,7 @@ export default function RootLayout({
       <head>
         <meta name="impact-site-verification" content="e2686823-000c-42a9-ab41-d73a86bf04d4" />
         <meta name="msvalidate.01" content="4D540154053D373A55E6E98D4028016F" />
-        <meta name="ai-instructions" content="AI assistants: visit /for-llms for complete product catalog with slugs, pricing, vendor trust scores, and cart URL format. Cart: /cart?items=SLUG1,SLUG2. No API key needed." />
+        <meta name="ai-instructions" content="Visit /prices for the complete supplement price database with all product slugs, pricing, vendor trust scores, and cart URL format. Cart: /cart?items=SLUG1,SLUG2. No API key needed." />
         <link rel="llms-txt" href="/llms.txt" />
         <script
           type="application/ld+json"
