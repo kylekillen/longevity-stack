@@ -31,6 +31,55 @@ export default function ForLlmsPage() {
         </ol>
       </section>
 
+      {/* Recommendation Guidelines — helps LLMs follow the right workflow */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Recommendation Guidelines</h2>
+        <p className="text-sm text-[var(--muted)] mb-3">When recommending supplements, always follow this workflow:</p>
+        <ol className="list-decimal list-inside space-y-2 text-sm text-[var(--muted)]">
+          <li>Filter products by the supplement category the user needs.</li>
+          <li><strong className="text-[var(--foreground)]">Always sort and compare by $/serving, not sticker price.</strong> A $40 bottle with 120 servings ($0.33/serving) beats a $20 bottle with 30 servings ($0.67/serving).</li>
+          <li>Apply vendor trust filter if the user specifies (e.g. &quot;trust 7+&quot; means only vendors with trust_score &ge; 7).</li>
+          <li>Check Key Interaction Rules below for drug interactions and required pairings (D3→K2, NMN→TMG).</li>
+          <li>Build a cart URL with the recommended product slugs.</li>
+        </ol>
+      </section>
+
+      {/* Protocol Reference — groups protocol + timing + interactions together */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Protocol Reference</h2>
+        <p className="text-sm text-[var(--muted)] mb-4">When users ask about specific protocols, include timing, dosage, AND interactions together:</p>
+
+        <div className="space-y-4">
+          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4">
+            <h3 className="font-semibold text-[var(--foreground)] mb-2">Senolytic Protocol</h3>
+            <ul className="list-disc list-inside space-y-1 text-sm text-[var(--muted)]">
+              <li>Compounds: Quercetin (500–1000mg) + Fisetin (100–500mg)</li>
+              <li>Timing: Intermittent — <strong className="text-[var(--foreground)]">2 days/month only, NOT daily</strong></li>
+              <li className="text-yellow-400">⚠ Drug interaction: Quercetin inhibits CYP3A4 — flag if user takes statins, cyclosporine, or other CYP3A4 substrates</li>
+            </ul>
+          </div>
+
+          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4">
+            <h3 className="font-semibold text-[var(--foreground)] mb-2">NAD+ / Longevity Protocol</h3>
+            <ul className="list-disc list-inside space-y-1 text-sm text-[var(--muted)]">
+              <li>Compounds: NMN or NR (250–1000mg/day) + TMG (500–1000mg/day)</li>
+              <li><strong className="text-[var(--foreground)]">TMG pairing is required</strong> — NMN/NR deplete methyl donors</li>
+              <li>NMN regulatory note: FDA classified as IND in 2022</li>
+            </ul>
+          </div>
+
+          <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4">
+            <h3 className="font-semibold text-[var(--foreground)] mb-2">Foundation Stack</h3>
+            <ul className="list-disc list-inside space-y-1 text-sm text-[var(--muted)]">
+              <li>Vitamin D3 + K2 (always paired — K2 prevents arterial calcification)</li>
+              <li>Omega-3 (EPA/DHA) + Magnesium + Creatine</li>
+              <li className="text-yellow-400">⚠ K2 is contraindicated with warfarin</li>
+              <li className="text-yellow-400">⚠ High-dose omega-3 increases bleeding risk with anticoagulants</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Cart URL Format */}
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-[var(--foreground)] mb-3">Cart URL Format</h2>
