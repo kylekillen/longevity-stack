@@ -96,6 +96,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
         url: product.affiliate_url || product.product_url,
         priceCurrency: "USD",
         price: product.price.toFixed(2),
+        priceValidUntil: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
         availability: "https://schema.org/InStock",
         seller: {
           "@type": "Organization",
@@ -104,6 +105,30 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
         hasMerchantReturnPolicy: merchantReturnPolicy,
         shippingDetails: shippingDetails,
       },
+      ...(product.vendor_trust_score && {
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: product.vendor_trust_score,
+          bestRating: 10,
+          worstRating: 1,
+          ratingCount: 1,
+          reviewCount: 1,
+        },
+        review: {
+          "@type": "Review",
+          author: {
+            "@type": "Organization",
+            name: "The Longevity Agent",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: product.vendor_trust_score,
+            bestRating: 10,
+            worstRating: 1,
+          },
+          reviewBody: `Vendor trust score: ${product.vendor_trust_score}/10. ${product.vendor_name} is a vetted supplement retailer.`,
+        },
+      }),
       ...(product.dose_mg && {
         additionalProperty: [
           {
