@@ -1,0 +1,198 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "The Longevity Agent API",
+    "description": "Supplement price comparison engine. Compare prices across trusted vendors, check interactions, and build supplement stacks.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://thelongevityagent.com/api/v1"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "operationId": "searchProducts",
+        "summary": "Search and list supplement products",
+        "description": "Search products by name, ingredient, or vendor. Returns prices, per-serving costs, and vendor trust scores.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search by product name, ingredient, or brand",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "ingredient",
+            "in": "query",
+            "description": "Filter by ingredient slug (e.g., quercetin, omega-3, nmn)",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "vendor",
+            "in": "query",
+            "description": "Filter by vendor slug (e.g., nootropics-depot, iherb)",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "min_trust",
+            "in": "query",
+            "description": "Minimum vendor trust score (1-10)",
+            "schema": { "type": "integer" }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by: per_serving (default), price, trust",
+            "schema": { "type": "string", "enum": ["per_serving", "price", "trust"] }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Max results (default 500)",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of products with prices and vendor info"
+          }
+        }
+      }
+    },
+    "/products/{slug}": {
+      "get": {
+        "operationId": "getProduct",
+        "summary": "Get a single product with alternatives",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Product slug",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product details with alternative products"
+          }
+        }
+      }
+    },
+    "/ingredients": {
+      "get": {
+        "operationId": "listIngredients",
+        "summary": "List all supplement ingredients",
+        "description": "Returns all 60+ supplement ingredients with metadata including typical doses, mechanisms, and product counts.",
+        "responses": {
+          "200": {
+            "description": "List of all ingredients"
+          }
+        }
+      }
+    },
+    "/ingredients/{slug}": {
+      "get": {
+        "operationId": "getIngredient",
+        "summary": "Get ingredient details with all products and research",
+        "description": "Returns full ingredient info including all products sorted by per-serving price, research citations, interactions, and synergies.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Ingredient slug (e.g., quercetin, vitamin-d3, nmn)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ingredient details with products, research, and interactions"
+          }
+        }
+      }
+    },
+    "/vendors": {
+      "get": {
+        "operationId": "listVendors",
+        "summary": "List all vendors with trust scores",
+        "description": "Returns all vetted supplement vendors with trust scores (1-10 scale), trust notes, and whether they ship direct.",
+        "responses": {
+          "200": {
+            "description": "List of vendors with trust scores"
+          }
+        }
+      }
+    },
+    "/compare": {
+      "get": {
+        "operationId": "compareProducts",
+        "summary": "Compare multiple products and get total pricing",
+        "description": "Compare products by slug, get individual and total pricing, and a cart URL for easy checkout.",
+        "parameters": [
+          {
+            "name": "slugs",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated product slugs to compare",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "vendor",
+            "in": "query",
+            "description": "Lock comparison to a specific vendor slug",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comparison results with totals and cart URL"
+          }
+        }
+      }
+    },
+    "/interactions": {
+      "get": {
+        "operationId": "checkInteractions",
+        "summary": "Check supplement interactions",
+        "description": "Check for drug/supplement interactions between ingredients. Important for safety — flags contraindications like Vitamin K2 with warfarin.",
+        "parameters": [
+          {
+            "name": "ingredients",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated ingredient slugs to check (e.g., quercetin,vitamin-k2,omega-3)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Interaction warnings and safety notes"
+          }
+        }
+      }
+    },
+    "/protocols": {
+      "get": {
+        "operationId": "listProtocols",
+        "summary": "Get biohacker protocol stacks",
+        "description": "Returns supplement stacks from researchers like Bryan Johnson, Andrew Huberman, Peter Attia, Rhonda Patrick, and Ben Greenfield.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Get a specific protocol by slug (e.g., bryan-johnson-blueprint)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Protocol stacks with ingredients and dosing notes"
+          }
+        }
+      }
+    }
+  }
+}
