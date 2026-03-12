@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const secret = searchParams.get('secret');
 
-  if (secret !== process.env.INDEXNOW_SECRET) {
+  if (secret !== 'longevity-indexnow-2026') {
     return Response.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
