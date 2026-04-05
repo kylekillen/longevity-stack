@@ -1,0 +1,26 @@
+import Stripe from "stripe";
+
+// Each product has a monthly subscription price.
+// These price IDs must exist in your Stripe dashboard.
+// Run `bun run stripe:seed` to create them, or set manually.
+export const STRIPE_PRICES: Record<string, { priceId: string; amount: number }> = {
+  ldn: { priceId: process.env.STRIPE_PRICE_LDN || "price_1TIzCwQ3RMXFjEVjnsfD3VGL", amount: 1900 },
+  "mens-essentials": { priceId: process.env.STRIPE_PRICE_MENS_ESSENTIALS || "price_1TIzCwQ3RMXFjEVjidVBX92S", amount: 2500 },
+  "womens-essentials": { priceId: process.env.STRIPE_PRICE_WOMENS_ESSENTIALS || "price_1TIzCwQ3RMXFjEVjUufdxOfi", amount: 2900 },
+  dutasteride: { priceId: process.env.STRIPE_PRICE_DUTASTERIDE || "price_1TIzCxQ3RMXFjEVjIUAS6C2r", amount: 3500 },
+  enclomiphene: { priceId: process.env.STRIPE_PRICE_ENCLOMIPHENE || "price_1TIzCxQ3RMXFjEVjPoyhbQ8K", amount: 5900 },
+  "longevity-stack": { priceId: process.env.STRIPE_PRICE_LONGEVITY_STACK || "price_1TIzCxQ3RMXFjEVjirD0veHy", amount: 5900 },
+  trt: { priceId: process.env.STRIPE_PRICE_TRT || "price_1TIzCyQ3RMXFjEVjZZO2URB0", amount: 7900 },
+  "womens-hrt": { priceId: process.env.STRIPE_PRICE_WOMENS_HRT || "price_1TIzCyQ3RMXFjEVjlup6OYk6", amount: 7900 },
+  glp1: { priceId: process.env.STRIPE_PRICE_GLP1 || "price_1TIzCyQ3RMXFjEVjIkD6pjXc", amount: 12900 },
+};
+
+export function getStripe(): Stripe {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) throw new Error("STRIPE_SECRET_KEY is not set");
+  return new Stripe(key, { apiVersion: "2025-01-27.acacia" });
+}
+
+export function isStripeConfigured(): boolean {
+  return !!process.env.STRIPE_SECRET_KEY;
+}
