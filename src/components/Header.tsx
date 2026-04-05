@@ -7,49 +7,49 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/protocols', label: 'Protocols' },
-    { href: '/ingredients', label: 'Supplements' },
-    { href: '/trust-methodology', label: 'How We Score' },
-    { href: '/how-we-make-money', label: 'About' },
+    { href: '/men', label: "Men's Health" },
+    { href: '/women', label: "Women's Health" },
+    { href: '/how-it-works', label: 'How It Works' },
+    { href: '/pricing', label: 'Pricing' },
+    { href: '/faq', label: 'FAQ' },
   ];
 
   return (
-    <header className="bg-[var(--surface)] border-b border-[var(--card-border)] sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-[var(--accent-dim)] border border-[var(--accent)]/20 flex items-center justify-center group-hover:bg-[var(--accent)]/20 group-hover:border-[var(--accent)]/40 transition-all duration-300">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 2L8 14M4 5L8 2L12 5M4 8H12M4 11L8 14L12 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--accent)]" />
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded bg-[var(--navy)] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M7 1C3.686 1 1 3.686 1 7s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" stroke="white" strokeWidth="1.5"/>
+                <path d="M7 4v3l2 2" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             </div>
-            <span className="font-semibold text-sm tracking-tight group-hover:text-[var(--accent)] transition-colors duration-300">The Longevity Agent</span>
+            <span className="font-semibold text-sm text-[var(--navy)] tracking-tight">The Longevity Agent</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--muted)]">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--gray)]">
             {links.map(l => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={"hover:text-[var(--foreground)] transition-colors"}
-              >
+              <Link key={l.href} href={l.href} className="hover:text-[var(--navy)] transition-colors">
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/ingredients"
-              className="p-2 hover:text-[var(--foreground)] transition-colors"
-              aria-label="Search supplements"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </Link>
           </nav>
 
+          <div className="hidden md:flex items-center gap-3">
+            <Link href="/login" className="text-sm text-[var(--gray)] hover:text-[var(--navy)] transition-colors">
+              Log in
+            </Link>
+            <Link
+              href="/intake"
+              className="text-sm font-semibold bg-[var(--navy)] text-white px-4 py-2 rounded-md hover:bg-[var(--navy-dark)] transition-colors"
+            >
+              Get Started
+            </Link>
+          </div>
+
           <button
-            className="md:hidden p-2 text-[var(--muted)]"
+            className="md:hidden p-2 text-[var(--gray)]"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -64,18 +64,32 @@ export default function Header() {
         </div>
 
         {mobileOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-3 text-sm font-medium text-[var(--muted)]">
-            {links.map(l => (
+          <div className="md:hidden pb-4 border-t border-gray-100 mt-1 pt-3">
+            <nav className="flex flex-col gap-3 text-sm font-medium text-[var(--gray)]">
+              {links.map(l => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="hover:text-[var(--navy)] py-1"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="mt-4 flex flex-col gap-2">
+              <Link href="/login" className="text-sm text-center text-[var(--gray)] border border-gray-200 py-2 rounded-md">
+                Log in
+              </Link>
               <Link
-                key={l.href}
-                href={l.href}
-                className={"hover:text-[var(--foreground)]"}
+                href="/intake"
+                className="text-sm font-semibold text-center bg-[var(--navy)] text-white py-2 rounded-md"
                 onClick={() => setMobileOpen(false)}
               >
-                {l.label}
+                Get Started
               </Link>
-            ))}
-          </nav>
+            </div>
+          </div>
         )}
       </div>
     </header>
