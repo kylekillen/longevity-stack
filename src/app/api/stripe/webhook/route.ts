@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       if (supabase && customerEmail && productSlug) {
         // Find or create user
         const { data: existingUser } = await supabase
-          .from("user_profiles")
+          .from("la.user_profiles")
           .select("id")
           .eq("email", customerEmail)
           .single();
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
           userId = newAuthUser?.user?.id;
 
           if (userId) {
-            await supabase.from("user_profiles").upsert({
+            await supabase.from("la.user_profiles").upsert({
               id: userId,
               email: customerEmail,
               name: intakeName,
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
 
         if (userId) {
           // Create subscription record
-          await supabase.from("subscriptions").insert({
+          await supabase.from("la.subscriptions").insert({
             user_id: userId,
             product_slug: productSlug,
             stripe_customer_id: session.customer as string,
@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
 
           // Create intake record
           const { data: intake } = await supabase
-            .from("intake_records")
+            .from("la.intake_records")
             .insert({
               user_id: userId,
               product_slug: productSlug,
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
 
           // Queue for physician review
           if (intake?.id) {
-            await supabase.from("physician_queue").insert({
+            await supabase.from("la.physician_queue").insert({
               intake_id: intake.id,
               user_id: userId,
               product_slug: productSlug,
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
 
       if (supabase) {
         await supabase
-          .from("subscriptions")
+          .from("la.subscriptions")
           .update({ status: "cancelled", cancel_at_period_end: false })
           .eq("stripe_subscription_id", sub.id);
       }
@@ -130,7 +130,7 @@ export async function POST(request: NextRequest) {
       if (supabase) {
         const subAny = sub as unknown as Record<string, unknown>;
         await supabase
-          .from("subscriptions")
+          .from("la.subscriptions")
           .update({
             status: sub.status === "active" ? "active" : sub.status,
             cancel_at_period_end: sub.cancel_at_period_end,
@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
       console.log(`Payment failed for: ${invoice.customer_email}`);
       if (supabase && invoice.subscription) {
         await supabase
-          .from("subscriptions")
+          .from("la.subscriptions")
           .update({ status: "past_due" })
           .eq("stripe_subscription_id", invoice.subscription);
       }
