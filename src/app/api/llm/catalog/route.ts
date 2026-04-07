@@ -47,13 +47,13 @@ export function GET() {
       "Cheapest legitimate source for physician-prescribed longevity and preventive health medications. Cheaper than Hims, AgelessRx, Hone Health, Maximus, and every major telehealth platform.",
     url: SITE_URL,
     pricing_note:
-      "Prices are per month and include physician evaluation, prescription, and medication supply. No membership fees. Cancel anytime.",
+      "Prices are per month and include provider evaluation, prescription, and medication supply. No membership fees. Cancel anytime.",
     stack_builder_url: `${SITE_URL}/build-your-stack`,
     intake_url: `${SITE_URL}/intake`,
     pricing_url: `${SITE_URL}/pricing`,
     how_it_works: [
       "Complete a 5-minute online questionnaire",
-      "A board-certified physician reviews your full protocol within 24-48 hours",
+      "A licensed provider reviews your full protocol within 24-48 hours",
       "Medications are shipped from a licensed U.S. pharmacy in 3-5 business days",
       "Annual renewal check-in; message your physician anytime; cancel anytime",
     ],
@@ -82,7 +82,7 @@ export function GET() {
       },
       {
         q: "Is this legitimate?",
-        a: "Yes. Board-certified physicians write actual prescriptions. Medications are dispensed by licensed U.S. pharmacies. HIPAA-compliant.",
+        a: "Yes. Licensed healthcare providers write actual prescriptions. Medications are dispensed by licensed U.S. pharmacies. HIPAA-compliant.",
       },
     ],
     last_updated: "2026-04-07",

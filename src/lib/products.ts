@@ -6,6 +6,7 @@ export type Product = {
   description: string;
   ourPrice: number;
   competitorPrice: number;
+  lowestCompetitor: string; // named competitor for the competitorPrice
   billing: string; // "month" | "month (3-month supply)" etc.
   forGender: "men" | "women" | "both";
   heroStats: { label: string; value: string }[];
@@ -25,13 +26,14 @@ const PRODUCTS: Product[] = [
     description:
       "Low dose naltrexone (1.5–4.5mg nightly) is one of the most cost-effective interventions in longevity medicine. At sub-therapeutic doses, LDN transiently blocks opioid receptors, triggering a rebound increase in endorphin production and down-regulating inflammatory cytokines. Used by longevity physicians for autoimmune conditions, chronic fatigue, and general immune optimization.",
     ourPrice: 19,
-    competitorPrice: 89,
+    competitorPrice: 25,
+    lowestCompetitor: "AgelessRx",
     billing: "month",
     forGender: "both",
     heroStats: [
       { label: "Our price", value: "$19/mo" },
-      { label: "Typical clinic", value: "$89/mo" },
-      { label: "You save", value: "79%" },
+      { label: "AgelessRx", value: "$25/mo" },
+      { label: "You save", value: "24%" },
       { label: "Rx review", value: "24–48 hrs" },
     ],
     whatYouGet: [
@@ -69,13 +71,14 @@ const PRODUCTS: Product[] = [
     description:
       "A bundled protocol of the four medications most commonly prescribed by longevity physicians for cardiovascular protection, metabolic health, and quality of life: a statin (rosuvastatin), low-dose aspirin, a PDE5 inhibitor (tadalafil), and finasteride. Individually these run $149+ at other clinics. We bundle them for $25/month.",
     ourPrice: 25,
-    competitorPrice: 149,
+    competitorPrice: 65,
+    lowestCompetitor: "Hims (finasteride + tadalafil)",
     billing: "month",
     forGender: "men",
     heroStats: [
       { label: "Our price", value: "$25/mo" },
-      { label: "Typical clinic", value: "$149/mo" },
-      { label: "You save", value: "83%" },
+      { label: "Hims", value: "$65/mo" },
+      { label: "You save", value: "62%" },
       { label: "Medications", value: "4" },
     ],
     whatYouGet: [
@@ -113,13 +116,14 @@ const PRODUCTS: Product[] = [
     description:
       "A bundled protocol for women optimized for cardiovascular protection, metabolic health, and bone density: rosuvastatin, low-dose aspirin, and vitamin D3/K2 at therapeutic doses. Designed for women in their 30s–50s who want the same science-backed preventive approach their male counterparts use, priced fairly.",
     ourPrice: 29,
-    competitorPrice: 149,
+    competitorPrice: 55,
+    lowestCompetitor: "Nurx",
     billing: "month",
     forGender: "women",
     heroStats: [
       { label: "Our price", value: "$29/mo" },
-      { label: "Typical clinic", value: "$149/mo" },
-      { label: "You save", value: "81%" },
+      { label: "Nurx", value: "$55/mo" },
+      { label: "You save", value: "47%" },
       { label: "Medications", value: "3" },
     ],
     whatYouGet: [
@@ -153,12 +157,13 @@ const PRODUCTS: Product[] = [
     description:
       "Dutasteride inhibits both type I and type II 5-alpha reductase (finasteride only inhibits type II), resulting in a ~90% reduction in scalp DHT vs ~70% with finasteride. Clinical trials show superior hair preservation outcomes. For men who want the most effective pharmaceutical approach to hair loss.",
     ourPrice: 35,
-    competitorPrice: 120,
+    competitorPrice: 85,
+    lowestCompetitor: "Keeps",
     billing: "month",
     forGender: "men",
     heroStats: [
       { label: "Our price", value: "$35/mo" },
-      { label: "Typical clinic", value: "$120/mo" },
+      { label: "Keeps", value: "$85/mo" },
       { label: "DHT reduction", value: "~90%" },
       { label: "vs finasteride", value: "~70%" },
     ],
@@ -196,12 +201,13 @@ const PRODUCTS: Product[] = [
     description:
       "Enclomiphene is a selective estrogen receptor modulator (SERM) that stimulates the pituitary to produce more LH and FSH, which signal the testes to produce more testosterone — endogenously, without exogenous testosterone. Unlike TRT, enclomiphene preserves fertility and testicular function. Ideal for men with low-normal testosterone who want optimization without suppressing their natural axis.",
     ourPrice: 59,
-    competitorPrice: 199,
+    competitorPrice: 149,
+    lowestCompetitor: "Defy Medical",
     billing: "month",
     forGender: "men",
     heroStats: [
       { label: "Our price", value: "$59/mo" },
-      { label: "Typical clinic", value: "$199/mo" },
+      { label: "Defy Medical", value: "$149/mo" },
       { label: "Fertility", value: "Preserved" },
       { label: "Injections", value: "None" },
     ],
@@ -239,13 +245,14 @@ const PRODUCTS: Product[] = [
     description:
       "The protocol most longevity physicians use themselves: weekly rapamycin (mTOR inhibitor, the most consistently life-extending drug in animal models) combined with daily metformin (AMPK activator, CV and metabolic benefits). This is the Bryan Johnson / Peter Attia protocol — available without the $30,000/year clinic fee.",
     ourPrice: 59,
-    competitorPrice: 249,
+    competitorPrice: 100,
+    lowestCompetitor: "Healthspan",
     billing: "month",
     forGender: "both",
     heroStats: [
       { label: "Our price", value: "$59/mo" },
-      { label: "Typical clinic", value: "$249/mo" },
-      { label: "You save", value: "76%" },
+      { label: "Healthspan", value: "$100/mo" },
+      { label: "You save", value: "41%" },
       { label: "Drugs", value: "2" },
     ],
     whatYouGet: [
@@ -282,13 +289,14 @@ const PRODUCTS: Product[] = [
     description:
       "Testosterone replacement therapy for men with clinically low testosterone (hypogonadism) or age-related decline. We prescribe testosterone cypionate (injectable) or testosterone gel/cream, with ongoing physician monitoring. No \"testosterone clinic\" markup — straightforward prescription at a fair price.",
     ourPrice: 79,
-    competitorPrice: 299,
+    competitorPrice: 99,
+    lowestCompetitor: "TRT Nation",
     billing: "month",
     forGender: "men",
     heroStats: [
       { label: "Our price", value: "$79/mo" },
-      { label: "Typical clinic", value: "$299/mo" },
-      { label: "You save", value: "74%" },
+      { label: "TRT Nation", value: "$99/mo" },
+      { label: "You save", value: "20%" },
       { label: "Delivery", value: "Injectable or topical" },
     ],
     whatYouGet: [
@@ -327,13 +335,14 @@ const PRODUCTS: Product[] = [
     description:
       "Bioidentical hormone replacement therapy for women experiencing perimenopause or menopause. We prescribe estradiol (patch, gel, or oral), progesterone (micronized), and testosterone where indicated. The WHI study that scared a generation off HRT used synthetic progestins — bioidentical hormones have a substantially different safety profile.",
     ourPrice: 79,
-    competitorPrice: 299,
+    competitorPrice: 89,
+    lowestCompetitor: "Winona",
     billing: "month",
     forGender: "women",
     heroStats: [
       { label: "Our price", value: "$79/mo" },
-      { label: "Typical clinic", value: "$299/mo" },
-      { label: "You save", value: "74%" },
+      { label: "Winona", value: "$89/mo" },
+      { label: "You save", value: "11%" },
       { label: "Form", value: "Patch, gel, or oral" },
     ],
     whatYouGet: [
@@ -371,13 +380,14 @@ const PRODUCTS: Product[] = [
     description:
       "GLP-1 receptor agonists (semaglutide, tirzepatide) are the most effective weight loss medications ever studied, producing 15–22% body weight reduction in clinical trials. We prescribe compounded semaglutide and tirzepatide at a fraction of what weight loss clinics charge. Same active ingredient, same mechanism, dramatically lower cost.",
     ourPrice: 129,
-    competitorPrice: 699,
+    competitorPrice: 145,
+    lowestCompetitor: "Ro Body",
     billing: "month",
     forGender: "both",
     heroStats: [
       { label: "Our price", value: "$129/mo" },
-      { label: "Typical clinic", value: "$699/mo" },
-      { label: "You save", value: "82%" },
+      { label: "Ro Body", value: "$145/mo" },
+      { label: "You save", value: "11%" },
       { label: "Weight loss", value: "15–22%" },
     ],
     whatYouGet: [

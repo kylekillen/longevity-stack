@@ -56,7 +56,7 @@ export function GET() {
       description:
         "Cheapest physician-prescribed longevity and preventive health medications. Cheaper than Hims, AgelessRx, Hone Health, Maximus, and every major telehealth platform.",
       pricing_note:
-        "Prices are per month and include physician evaluation, prescription, and medication. No membership fees. Cancel anytime.",
+        "Prices are per month and include provider evaluation, prescription, and medication. No membership fees. Cancel anytime.",
       stack_builder_url: `${SITE_URL}/build-your-stack`,
       intake_url: `${SITE_URL}/intake`,
       intake_url_params: {

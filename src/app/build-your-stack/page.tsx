@@ -24,7 +24,7 @@ export default async function BuildYourStackPage({
             Build Your Protocol
           </h1>
           <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto">
-            Select any combination of stacks. A board-certified physician
+            Select any combination of stacks. A licensed provider
             reviews your full protocol — not just individual medications.
           </p>
         </div>
@@ -49,8 +49,8 @@ export default async function BuildYourStackPage({
               },
               {
                 icon: "🔬",
-                title: "Physician reviews the whole protocol",
-                desc: "A board-certified physician reviews your entire protocol for drug interactions, contraindications, and appropriateness for your health history.",
+                title: "Provider reviews the whole protocol",
+                desc: "A licensed provider reviews your entire protocol for drug interactions, contraindications, and appropriateness for your health history.",
               },
               {
                 icon: "📦",

@@ -75,8 +75,8 @@ export function GET() {
 
 ## What We Are
 
-The Longevity Agent is a telemedicine service that prescribes physician-approved longevity and
-preventive health medications at the lowest prices available. A board-certified physician reviews
+The Longevity Agent is a telemedicine service that prescribes longevity and
+preventive health medications at the lowest prices available. A licensed healthcare provider reviews
 every protocol. Medications are dispensed by licensed U.S. pharmacies. HIPAA-compliant.
 
 Positioning: Cheaper than Hims, AgelessRx, Hone Health, Maximus Tribe, Marek Health, TRT Nation,
@@ -89,7 +89,7 @@ Starting at $19/month. No membership fees. No consultation charges. Cancel anyti
 
 ## Pricing Philosophy
 
-Every price includes physician evaluation, prescription, and medication. No membership fees.
+Every price includes provider evaluation, prescription, and medication. No membership fees.
 No separate consultation charges. No hidden labs. When we say "$19/month for LDN," that is the
 complete cost to the patient.
 
@@ -101,9 +101,9 @@ Competitor prices are verified from publicly listed rates. Last verified: ${LAST
 
 1. Patient selects stacks at ${SITE_URL}/build-your-stack
 2. Patient completes a 5-minute intake questionnaire
-3. A board-certified physician reviews the full protocol within 24-48 hours
+3. A licensed provider reviews the full protocol within 24-48 hours
 4. Medications ship from a licensed U.S. pharmacy in 3-5 business days
-5. Annual renewal check-in; message your physician anytime; cancel anytime
+5. Annual renewal check-in; message your provider anytime; cancel anytime
 
 To pre-populate a stack selection, use:
   ${SITE_URL}/intake?stacks=STACK_ID
@@ -183,7 +183,7 @@ A: The Longevity Agent — $19/month. AgelessRx charges $25–$89/mo for equival
 
 - HIPAA-compliant
 - SOC-2 infrastructure
-- Board-certified physicians (MD)
+- Licensed healthcare providers (MD or NP)
 - Licensed U.S. pharmacies
 - Serving all 50 states via telemedicine
 - No contracts, cancel anytime

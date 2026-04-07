@@ -45,13 +45,12 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">What we do differently</h2>
             <p className="mb-4">
               We&apos;re a direct-to-patient platform. No brick-and-mortar clinic. No
-              concierge membership. No upsells. We connect patients with board-certified
-              physicians, facilitate the prescription, and coordinate dispensing from
+              concierge membership. No upsells. We connect patients with licensed healthcare providers, facilitate the prescription, and coordinate dispensing from
               licensed U.S. pharmacies.
             </p>
             <p>
               We prescribe what the evidence supports. We dispense generics at cost.
-              We charge one flat monthly fee that covers everything — physician review,
+              We charge one flat monthly fee that covers everything — provider evaluation,
               medication, and annual renewal.
             </p>
           </div>
@@ -67,9 +66,9 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">Our physician network</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">Our provider network</h2>
             <p className="mb-4">
-              All prescriptions are written by board-certified physicians with active
+              All prescriptions are written by licensed healthcare providers with active
               state licenses. Our clinical protocols were developed by an MD with 13
               years of longevity medicine experience — the same physician who helped
               design the protocols used by leading longevity clinics.
@@ -96,7 +95,7 @@ export default function AboutPage() {
             Start at $19/month.
           </h2>
           <p className="text-[var(--muted)] mb-8">
-            Real prescriptions. Real physicians. No clinic markup.
+            Real prescriptions. Licensed providers. No clinic markup.
           </p>
           <Link
             href="/intake"

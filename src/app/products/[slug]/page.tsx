@@ -80,7 +80,7 @@ export default async function ProductPage({
                 </div>
               </div>
               <p className="text-xs text-[var(--muted-light)] mb-8">
-                vs. typical clinic or telehealth price
+                vs. {product.lowestCompetitor} ${product.competitorPrice}/mo
               </p>
 
               <Link

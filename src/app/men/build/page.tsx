@@ -27,7 +27,7 @@ export default async function MenBuildPage({
             Build Your Men&apos;s Protocol
           </h1>
           <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto">
-            Select any combination of stacks. A board-certified physician
+            Select any combination of stacks. A licensed provider
             reviews your full protocol — not just individual medications.
           </p>
         </div>

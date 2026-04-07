@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How It Works — The Longevity Agent",
   description:
-    "Complete a 5-minute intake, get reviewed by a licensed physician, receive your medications by mail. Start at $19/month.",
+    "Complete a 5-minute intake, get reviewed by a licensed provider, receive your medications by mail. Start at $19/month.",
 };
 
 export default function HowItWorksPage() {
@@ -18,7 +18,7 @@ export default function HowItWorksPage() {
             From signup to doorstep<br />in under a week.
           </h1>
           <p className="text-xl text-[var(--muted)]">
-            No office visit. No waiting room. A licensed physician reviews your
+            No office visit. No waiting room. A licensed provider reviews your
             profile and your medications ship directly to you.
           </p>
         </div>
@@ -42,11 +42,11 @@ export default function HowItWorksPage() {
               },
               {
                 n: "02",
-                t: "A licensed physician reviews your profile",
+                t: "A licensed provider reviews your profile",
                 sub: "Within 24–48 hours.",
                 body: [
-                  "A board-certified physician reviews your intake. They approve your protocol, adjust dosing based on your history, or follow up with a question.",
-                  "All our physicians have clinical longevity experience. You're not being reviewed by a nurse practitioner running a checkbox algorithm.",
+                  "A licensed provider reviews your intake. They approve your protocol, adjust dosing based on your history, or follow up with a question.",
+                  "All our providers have clinical longevity experience.",
                   "If your physician has concerns, they'll reach out directly through the secure messaging system.",
                 ],
                 aside: "Most approvals happen same-day.",
@@ -103,8 +103,8 @@ export default function HowItWorksPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
               {
-                t: "Licensed physicians only",
-                d: "Every prescription is written by a board-certified MD. No NPs, no PAs making final prescribing decisions.",
+                t: "Licensed healthcare providers",
+                d: "Every prescription is written by a licensed healthcare provider with clinical longevity experience.",
               },
               {
                 t: "FDA-approved generics",
@@ -116,7 +116,7 @@ export default function HowItWorksPage() {
               },
               {
                 t: "All 50 states",
-                d: "Our physician network is licensed to prescribe in all 50 states. Telemedicine is legal nationwide.",
+                d: "Our provider network is licensed to prescribe in all 50 states. Telemedicine is legal nationwide.",
               },
               {
                 t: "Evidence-based protocols",

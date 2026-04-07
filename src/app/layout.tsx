@@ -75,7 +75,7 @@ const orgSchema = {
   name: "The Longevity Agent",
   url: SITE_URL,
   description:
-    "Physician-prescribed longevity and preventive health medications. Board-certified physicians. Starting at $19/month.",
+    "Physician-prescribed longevity and preventive health medications. Licensed healthcare providers. Starting at $19/month.",
   medicalSpecialty: "Geriatric Medicine",
   availableService: [
     { "@type": "MedicalTherapy", name: "Rapamycin therapy" },

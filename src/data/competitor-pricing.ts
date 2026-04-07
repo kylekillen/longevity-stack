@@ -15,35 +15,36 @@ export type StackCompetitorData = {
   competitors: CompetitorRow[];
 };
 
-// Hero callouts for home page — most dramatic savings stories
+// Hero callouts for home page — vs the LOWEST competitor price for each stack.
+// All prices verified from publicly listed rates, April 2026.
 export const HERO_COMPARISONS = [
   {
     label: "Longevity GLP-1",
     ours: 129,
-    theirs: 297,
-    competitor: "Henry Meds",
-    savings: 56,
+    theirs: 145,
+    competitor: "Ro Body",
+    savings: 11,
   },
   {
     label: "Testosterone Replacement",
     ours: 79,
-    theirs: 299,
-    competitor: "Marek Health",
-    savings: 74,
+    theirs: 99,
+    competitor: "TRT Nation",
+    savings: 20,
   },
   {
     label: "Longevity Base",
     ours: 59,
-    theirs: 249,
-    competitor: "AgelessRx",
-    savings: 76,
+    theirs: 100,
+    competitor: "Healthspan",
+    savings: 41,
   },
   {
     label: "Inflammation (LDN)",
     ours: 19,
-    theirs: 89,
-    competitor: "Typical clinic",
-    savings: 79,
+    theirs: 25,
+    competitor: "AgelessRx",
+    savings: 24,
   },
 ];
 
@@ -114,7 +115,6 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
     competitors: [
       { vendor: "AgelessRx", price: 25 },
       { vendor: "Defy Medical", price: 75 },
-      { vendor: "Typical longevity clinic", price: 89 },
       { vendor: "LifeExtension MD", price: 79 },
     ],
   },

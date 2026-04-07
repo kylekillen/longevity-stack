@@ -43,7 +43,7 @@ export default async function SuccessPage({
             {
               icon: "🕐",
               title: "Physician review — 24 to 48 hours",
-              desc: "A board-certified physician will review your intake questionnaire. They'll approve your protocol or reach out if they have questions.",
+              desc: "A licensed provider will review your intake questionnaire. They'll approve your protocol or reach out if they have questions.",
             },
             {
               icon: "📦",

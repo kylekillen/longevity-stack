@@ -79,7 +79,7 @@ export default function PricingPage() {
           </h1>
           <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto">
             No membership fees. No consultation charges. One flat monthly rate per stack
-            that includes physician review, prescription, and medication.
+            that includes provider evaluation, prescription, and medication.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -228,11 +228,11 @@ export default function PricingPage() {
           <h2 className="text-2xl font-bold mb-8 text-center">Every stack includes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { title: "Physician evaluation", desc: "Board-certified MD reviews your full protocol within 24–48 hours." },
-              { title: "Your prescription", desc: "Written by a licensed physician, dispensed by a licensed U.S. pharmacy." },
+              { title: "Provider evaluation", desc: "A licensed healthcare provider reviews your full protocol within 24–48 hours." },
+              { title: "Your prescription", desc: "Written by a licensed provider, dispensed by a licensed U.S. pharmacy." },
               { title: "Monthly medication supply", desc: "30-day supply shipped directly to your door in 3–5 business days." },
               { title: "Annual renewal", desc: "Once-a-year check-in. No required monthly appointments." },
-              { title: "Physician messaging", desc: "Reach your physician with questions or dosing concerns anytime." },
+              { title: "Provider messaging", desc: "Reach your provider with questions or dosing concerns anytime." },
               { title: "Cancel anytime", desc: "No contracts, no cancellation fees. Cancel in 30 seconds from your dashboard." },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-3">
@@ -321,7 +321,7 @@ export default function PricingPage() {
       <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">Start at $19/month.</h2>
-          <p className="text-[var(--muted)] mb-8">A licensed physician reviews your full protocol within 24–48 hours.</p>
+          <p className="text-[var(--muted)] mb-8">A licensed provider reviews your full protocol within 24–48 hours.</p>
           <Link
             href="/build-your-stack"
             className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--background)] font-bold px-8 py-3.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors"

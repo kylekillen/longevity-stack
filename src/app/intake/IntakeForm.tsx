@@ -1151,7 +1151,7 @@ export default function IntakeForm({ initialStacks = [], initialGender }: Props)
 
           <div className="space-y-3 mb-6">
             {[
-              "A board-certified physician reviews your full protocol within 24–48 hours.",
+              "A licensed provider reviews your full protocol within 24–48 hours.",
               "If your physician declines to prescribe, you'll receive a full refund.",
               "Cancel anytime from your dashboard. No contracts.",
             ].map((line) => (

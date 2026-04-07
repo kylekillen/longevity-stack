@@ -15,7 +15,8 @@ export type Stack = {
   accentText: string;      // tailwind text color class for readability on color
   medications: StackMed[];
   ourPrice: number | null; // null = price pending
-  competitorPrice: number | null;
+  competitorPrice: number | null;  // lowest verified competitor price
+  lowestCompetitor?: string;       // name of that competitor
   forGender: "men" | "women" | "both";
   exclusiveWith?: string[];    // stack IDs that cannot be selected simultaneously
   suggestsStacks?: string[];   // stack IDs to cross-suggest when this is selected
@@ -47,7 +48,8 @@ const STACKS: Stack[] = [
     accentText: "#93c5fd",
     forGender: "both",
     ourPrice: null, // {{PRICE}}
-    competitorPrice: 129,
+    competitorPrice: 40,
+    lowestCompetitor: "Hims",
     badge: "Foundational",
     suggestsStacks: ["longevity-base"],
     medications: [
@@ -90,7 +92,8 @@ const STACKS: Stack[] = [
     accentText: "#bbf7d0",
     forGender: "men",
     ourPrice: null, // {{PRICE}}
-    competitorPrice: 89,
+    competitorPrice: 48,
+    lowestCompetitor: "Keeps",
     exclusiveWith: ["hair-pro-men"],
     suggestsStacks: ["skin"],
     medications: [
@@ -132,7 +135,8 @@ const STACKS: Stack[] = [
     accentText: "#86efac",
     forGender: "men",
     ourPrice: null, // {{PRICE}}
-    competitorPrice: 149,
+    competitorPrice: 85,
+    lowestCompetitor: "Keeps",
     exclusiveWith: ["hair-men"],
     suggestsStacks: ["skin"],
     badge: "Stronger",
@@ -175,7 +179,8 @@ const STACKS: Stack[] = [
     accentText: "#bbf7d0",
     forGender: "women",
     ourPrice: null, // {{PRICE}}
-    competitorPrice: 99,
+    competitorPrice: 55,
+    lowestCompetitor: "Wisp",
     suggestsStacks: ["skin"],
     medications: [
       { name: "Spironolactone", dose: "50–100mg daily" },
@@ -216,7 +221,8 @@ const STACKS: Stack[] = [
     accentText: "#fed7aa",
     forGender: "both",
     ourPrice: null, // {{PRICE}}
-    competitorPrice: 79,
+    competitorPrice: 20,
+    lowestCompetitor: "Dermatica",
     medications: [
       { name: "Tretinoin", dose: "0.025% cream" },
     ],
@@ -255,7 +261,8 @@ const STACKS: Stack[] = [
     accentText: "#e9d5ff",
     forGender: "both",
     ourPrice: 19,
-    competitorPrice: 89,
+    competitorPrice: 25,
+    lowestCompetitor: "AgelessRx",
     badge: "Most Popular",
     medications: [
       { name: "LDN (Low Dose Naltrexone)", dose: "1.5–4.5mg nightly" },
@@ -303,7 +310,8 @@ const STACKS: Stack[] = [
     accentText: "#fed7aa",
     forGender: "men",
     ourPrice: 59,
-    competitorPrice: 199,
+    competitorPrice: 149,
+    lowestCompetitor: "Defy Medical",
     exclusiveWith: ["testosterone-replacement"],
     medications: [
       { name: "Enclomiphene", dose: "12.5–25mg daily" },
@@ -351,7 +359,8 @@ const STACKS: Stack[] = [
     accentText: "#fecaca",
     forGender: "men",
     ourPrice: 79,
-    competitorPrice: 299,
+    competitorPrice: 99,
+    lowestCompetitor: "TRT Nation",
     exclusiveWith: ["testosterone-enhancement"],
     medications: [
       { name: "Testosterone cream", dose: "Physician-determined dose, daily" },
@@ -400,7 +409,8 @@ const STACKS: Stack[] = [
     accentText: "#f5d0fe",
     forGender: "women",
     ourPrice: 79,
-    competitorPrice: 299,
+    competitorPrice: 89,
+    lowestCompetitor: "Winona",
     badge: "Evidence-backed",
     medications: [
       { name: "Estradiol", dose: "Transdermal — patch or gel" },
@@ -450,7 +460,8 @@ const STACKS: Stack[] = [
     accentText: "#fef08a",
     forGender: "both",
     ourPrice: 59,
-    competitorPrice: 249,
+    competitorPrice: 100,
+    lowestCompetitor: "Healthspan",
     badge: "Gold Standard",
     medications: [
       { name: "Rapamycin", dose: "2–6mg weekly" },
@@ -500,7 +511,8 @@ const STACKS: Stack[] = [
     accentText: "#99f6e4",
     forGender: "both",
     ourPrice: 129,
-    competitorPrice: 699,
+    competitorPrice: 145,
+    lowestCompetitor: "Ro Body",
     medications: [
       { name: "Compounded semaglutide", dose: "Weekly injection, titrated" },
       { name: "Ondansetron", dose: "As needed for nausea" },

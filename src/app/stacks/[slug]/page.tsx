@@ -22,7 +22,7 @@ export async function generateMetadata({
   const priceStr = stack.ourPrice ? `$${stack.ourPrice}/mo` : "Physician-prescribed";
   const medList = stack.medications.map((m) => m.name).join(", ");
   const title = `${stack.name} — ${priceStr} | Physician-Prescribed`;
-  const description = `${stack.name}: ${medList}. ${priceStr}. ${stack.tagline} Prescribed by board-certified physicians. Ships to your door.`;
+  const description = `${stack.name}: ${medList}. ${priceStr}. ${stack.tagline} Prescribed by licensed healthcare providers. Ships to your door.`;
   const url = `${SITE_URL}/stacks/${slug}`;
   return {
     title,
@@ -247,7 +247,7 @@ export default async function StackPage({
                   </div>
                   {stack.competitorPrice && (
                     <p className="text-xs text-[var(--muted-light)] mb-6">
-                      vs. typical clinic or telehealth price
+                      vs. {stack.lowestCompetitor ?? "cheapest competitor"} ${stack.competitorPrice}/mo
                     </p>
                   )}
 
@@ -463,7 +463,7 @@ export default async function StackPage({
                 {stack.name}{stack.ourPrice ? ` — $${stack.ourPrice}/month.` : "."}
               </h2>
               <p className="text-[var(--muted)] mb-8">
-                Prescribed by a licensed physician. Ships to your door.
+                Prescribed by a licensed provider. Ships to your door.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

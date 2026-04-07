@@ -33,7 +33,7 @@ export default function MenPage() {
           </h1>
           <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto mb-8">
             Each stack targets a specific health goal. Select any combination —
-            a board-certified physician reviews your full protocol, not just individual medications.
+            a licensed provider reviews your full protocol, not just individual medications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -123,7 +123,7 @@ export default function MenPage() {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-5 text-left">
             {[
               { n: "01", t: "Build your protocol", d: "Select any stacks that match your goals. Mutual exclusivities are enforced automatically." },
-              { n: "02", t: "Physician reviews within 48h", d: "A board-certified doctor reviews your full protocol for interactions and contraindications." },
+              { n: "02", t: "Provider reviews within 48h", d: "A licensed provider reviews your full protocol for interactions and contraindications." },
               { n: "03", t: "Rx ships to your door", d: "FDA-approved generics from licensed U.S. pharmacies. Arrives in 3–5 business days." },
               { n: "04", t: "Annual check-in", d: "One renewal per year. Message your physician anytime. Cancel anytime." },
             ].map((s) => (

@@ -6,7 +6,7 @@ import { HERO_COMPARISONS } from "@/data/competitor-pricing";
 export const metadata: Metadata = {
   title: "Cheapest Prescription Longevity Medications — The Longevity Agent",
   description:
-    "Rapamycin $59/mo. Semaglutide $129/mo. TRT $79/mo. LDN $19/mo. The same medications every longevity physician prescribes, at prices they can't match. Board-certified physicians. Ships to your door.",
+    "Rapamycin $59/mo. Semaglutide $129/mo. TRT $79/mo. LDN $19/mo. The same medications every longevity physician prescribes, at prices they can't match. Licensed healthcare providers. Ships to your door.",
   alternates: { canonical: "https://thelongevityagent.com" },
   openGraph: {
     title: "Cheapest Prescription Longevity Medications — The Longevity Agent",
@@ -26,7 +26,7 @@ const HOW_IT_WORKS = [
   {
     step: "02",
     title: "Physician reviews within 48 hours",
-    desc: "Board-certified doctors review your intake. They approve, adjust dosing, or follow up with a question.",
+    desc: "Licensed providers review your intake. They approve, adjust dosing, or follow up with a question.",
   },
   {
     step: "03",
@@ -41,7 +41,7 @@ const HOW_IT_WORKS = [
 ];
 
 const TRUST_ITEMS = [
-  "Prescribed by board-certified physicians — not NPs or PAs",
+  "Prescribed by licensed healthcare providers",
   "Clinical protocols designed by an MD with 13 years longevity experience",
   "FDA-approved generics and compounded medications from licensed U.S. pharmacies",
   "Cancel anytime — no contracts, no cancellation fees",
@@ -67,7 +67,7 @@ export default function Home() {
 
           <p className="text-lg sm:text-xl text-[var(--muted)] leading-relaxed max-w-2xl mx-auto">
             10 modular stacks covering cardiovascular protection, hormones, hair, skin, and
-            aging biology. Mix and match. A board-certified physician reviews your combination.
+            aging biology. Mix and match. A licensed provider reviews your combination.
           </p>
         </div>
 

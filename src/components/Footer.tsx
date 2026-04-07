@@ -54,7 +54,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-[var(--card-border)]">
           <p className="text-xs text-[var(--muted-light)] leading-relaxed max-w-3xl">
-            <strong className="text-[var(--muted)]">Medical Disclaimer:</strong> The Longevity Agent is a telemedicine platform. All prescriptions require evaluation by a licensed physician. This site does not provide medical advice. Medications are prescribed off-label where noted, consistent with standard medical practice. Results vary. Not a substitute for in-person medical care.
+            <strong className="text-[var(--muted)]">Medical Disclaimer:</strong> The Longevity Agent is a telemedicine platform. All prescriptions require evaluation by a licensed healthcare provider. This site does not provide medical advice. Medications are prescribed off-label where noted, consistent with standard medical practice. Results vary. Not a substitute for in-person medical care.
           </p>
           <p className="mt-4 text-xs text-[var(--muted-light)]">
             © {new Date().getFullYear()} The Longevity Agent. All rights reserved.
