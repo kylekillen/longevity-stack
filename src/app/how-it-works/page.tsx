@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 
 export default function HowItWorksPage() {
   return (
-    <div className="bg-white">
+    <div>
 
       {/* Hero */}
-      <section className="py-16 sm:py-20 border-b border-gray-100">
+      <section className="py-16 sm:py-20 border-b border-[var(--card-border)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--navy)] mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             From signup to doorstep<br />in under a week.
           </h1>
-          <p className="text-xl text-[var(--gray)]">
+          <p className="text-xl text-[var(--muted)]">
             No office visit. No waiting room. A licensed physician reviews your
             profile and your medications ship directly to you.
           </p>
@@ -75,18 +75,18 @@ export default function HowItWorksPage() {
               },
             ].map((step) => (
               <div key={step.n} className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 sm:gap-10">
-                <div className="w-14 h-14 rounded-full bg-[var(--navy)] text-white font-bold text-xl flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 rounded-full bg-[var(--accent-dim)] border border-[var(--accent)]/20 text-[var(--accent)] font-bold text-xl flex items-center justify-center shrink-0 font-mono">
                   {step.n}
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-[var(--navy)] mb-1">{step.t}</h2>
+                  <h2 className="text-xl font-bold mb-1">{step.t}</h2>
                   <p className="text-sm font-semibold text-[var(--green)] mb-4">{step.sub}</p>
                   <div className="space-y-2 mb-4">
                     {step.body.map((line) => (
-                      <p key={line} className="text-[var(--gray)] leading-relaxed">{line}</p>
+                      <p key={line} className="text-[var(--muted)] leading-relaxed">{line}</p>
                     ))}
                   </div>
-                  <p className="text-sm text-[var(--gray-light)] italic">{step.aside}</p>
+                  <p className="text-sm text-[var(--muted-light)] italic">{step.aside}</p>
                 </div>
               </div>
             ))}
@@ -95,9 +95,9 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Trust */}
-      <section className="py-16 bg-[var(--gray-bg)] border-t border-gray-100">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-8 text-center">
+          <h2 className="text-2xl font-bold mb-8 text-center">
             Medical-grade trust standards
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -127,13 +127,13 @@ export default function HowItWorksPage() {
                 d: "No contracts, no cancellation fees. Cancel from your dashboard. Refunds available pre-shipment.",
               },
             ].map((item) => (
-              <div key={item.t} className="flex items-start gap-3 bg-white border border-gray-200 rounded-xl p-5">
+              <div key={item.t} className="flex items-start gap-3 bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5">
                 <svg className="w-5 h-5 text-[var(--green)] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 <div>
-                  <p className="font-semibold text-[var(--navy)] text-sm">{item.t}</p>
-                  <p className="text-sm text-[var(--gray)] mt-0.5 leading-relaxed">{item.d}</p>
+                  <p className="font-semibold text-[var(--foreground)] text-sm">{item.t}</p>
+                  <p className="text-sm text-[var(--muted)] mt-0.5 leading-relaxed">{item.d}</p>
                 </div>
               </div>
             ))}
@@ -142,23 +142,23 @@ export default function HowItWorksPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[var(--navy)]">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to start?</h2>
-          <p className="text-blue-200 mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to start?</h2>
+          <p className="text-[var(--muted)] mb-8">
             5-minute intake. Physician review within 48 hours. Medications at
             your door within a week.
           </p>
           <Link
             href="/intake"
-            className="inline-flex items-center gap-2 bg-white text-[var(--navy)] font-bold px-10 py-4 rounded-lg hover:bg-gray-50 transition-colors text-base"
+            className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--background)] font-bold px-10 py-4 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-base"
           >
             Begin Intake
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-          <p className="mt-3 text-sm text-blue-300">Starting at $19/month.</p>
+          <p className="mt-3 text-sm text-[var(--muted-light)]">Starting at $19/month.</p>
         </div>
       </section>
 

@@ -21,20 +21,20 @@ export default function MenPage() {
   const products = getProductsByGender("men");
 
   return (
-    <div className="bg-white">
+    <div>
 
       {/* Hero */}
-      <section className="py-16 sm:py-24 border-b border-gray-100">
+      <section className="py-16 sm:py-24 border-b border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--green-light)] text-[var(--green-dark)] text-xs font-semibold mb-6 uppercase tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--accent)]/20 bg-[var(--accent-dim)] text-[var(--accent)] text-xs font-semibold mb-6 uppercase tracking-wide">
               Men&apos;s Health
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[var(--navy)] leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
               Every medication your longevity doctor would prescribe.<br />
-              <span className="text-[var(--green)]">Starting at $19/month.</span>
+              <span className="text-[var(--accent)]">Starting at $19/month.</span>
             </h1>
-            <p className="text-xl text-[var(--gray)] max-w-2xl mx-auto">
+            <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto">
               Board-certified physicians. FDA-approved generics. No office
               visit, no concierge fee, no waiting room.
             </p>
@@ -44,10 +44,10 @@ export default function MenPage() {
             {BENEFITS.map((b) => (
               <div
                 key={b.label}
-                className="bg-[var(--gray-bg)] border border-gray-200 rounded-lg px-4 py-3 text-center"
+                className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-4 py-3 text-center"
               >
-                <p className="text-xs font-semibold text-[var(--navy)]">{b.label}</p>
-                <p className="text-xs text-[var(--gray)] mt-0.5">{b.product}</p>
+                <p className="text-xs font-semibold text-[var(--foreground)]">{b.label}</p>
+                <p className="text-xs text-[var(--muted)] mt-0.5">{b.product}</p>
               </div>
             ))}
           </div>
@@ -55,7 +55,7 @@ export default function MenPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/intake"
-              className="inline-flex items-center justify-center gap-2 bg-[var(--navy)] text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-[var(--navy-dark)] transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] text-[var(--background)] font-semibold px-8 py-3.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
             >
               Start Your Intake — $19/mo
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +64,7 @@ export default function MenPage() {
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center gap-2 border border-gray-300 text-[var(--navy)] font-semibold px-8 py-3.5 rounded-lg hover:border-[var(--navy)] transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-[var(--card-border)] text-[var(--foreground)] font-semibold px-8 py-3.5 rounded-lg hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors"
             >
               See all pricing
             </Link>
@@ -75,7 +75,7 @@ export default function MenPage() {
       {/* Products */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-8">
+          <h2 className="text-2xl font-bold mb-8">
             Men&apos;s medications
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -85,19 +85,19 @@ export default function MenPage() {
                 <Link
                   key={p.slug}
                   href={`/products/${p.slug}`}
-                  className="border border-gray-200 rounded-xl p-6 hover:border-[var(--navy)] hover:shadow-md transition-all group"
+                  className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-6 hover:border-[var(--accent)]/40 transition-all group"
                 >
-                  <p className="text-xs text-[var(--gray)] font-medium uppercase tracking-wide mb-1">
+                  <p className="text-xs text-[var(--muted-light)] font-medium uppercase tracking-wide mb-1">
                     {p.category}
                   </p>
-                  <h3 className="font-semibold text-[var(--navy)] mb-2 group-hover:text-[var(--navy-light)] transition-colors">
+                  <h3 className="font-semibold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent)] transition-colors">
                     {p.name}
                   </h3>
-                  <p className="text-sm text-[var(--gray)] mb-4 line-clamp-2">{p.tagline}</p>
+                  <p className="text-sm text-[var(--muted)] mb-4 line-clamp-2">{p.tagline}</p>
                   <div className="flex items-end gap-3 mt-auto">
                     <span className="text-2xl font-bold text-[var(--green)]">${p.ourPrice}</span>
-                    <span className="text-sm text-[var(--gray)] mb-0.5">/mo</span>
-                    <span className="text-sm text-[var(--gray-light)] line-through mb-0.5">
+                    <span className="text-sm text-[var(--muted)] mb-0.5">/mo</span>
+                    <span className="text-sm text-[var(--muted-light)] line-through mb-0.5">
                       ${p.competitorPrice}
                     </span>
                     <span className="text-xs font-semibold text-[var(--green)] mb-0.5">
@@ -112,12 +112,10 @@ export default function MenPage() {
       </section>
 
       {/* Process */}
-      <section className="py-16 bg-[var(--gray-bg)] border-t border-gray-100">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-3">
-            How it works
-          </h2>
-          <p className="text-[var(--gray)] mb-10">Signup to doorstep in under a week.</p>
+          <h2 className="text-2xl font-bold mb-3">How it works</h2>
+          <p className="text-[var(--muted)] mb-10">Signup to doorstep in under a week.</p>
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 text-left">
             {[
               { n: "01", t: "5-minute intake", d: "Tell us about your health goals, current medications, and history." },
@@ -125,12 +123,10 @@ export default function MenPage() {
               { n: "03", t: "Rx shipped", d: "FDA-approved generics from licensed U.S. pharmacies. Arrives in 3–5 days." },
               { n: "04", t: "Annual check-in", d: "One renewal per year. Message your physician anytime." },
             ].map((s) => (
-              <div key={s.n}>
-                <div className="w-10 h-10 rounded-full bg-[var(--navy)] text-white font-bold flex items-center justify-center mb-3 text-sm">
-                  {s.n}
-                </div>
-                <h3 className="font-semibold text-[var(--navy)] mb-1 text-sm">{s.t}</h3>
-                <p className="text-sm text-[var(--gray)]">{s.d}</p>
+              <div key={s.n} className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5 hover:border-[var(--accent)]/30 transition-colors">
+                <div className="text-[var(--accent)] text-lg font-mono font-bold mb-3">{s.n}</div>
+                <h3 className="font-semibold text-[var(--foreground)] mb-1 text-sm">{s.t}</h3>
+                <p className="text-sm text-[var(--muted)]">{s.d}</p>
               </div>
             ))}
           </div>
@@ -138,15 +134,15 @@ export default function MenPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[var(--navy)]">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Start your men&apos;s health protocol today.
           </h2>
-          <p className="text-blue-200 mb-8">From $19/month. No office visit required.</p>
+          <p className="text-[var(--muted)] mb-8">From $19/month. No office visit required.</p>
           <Link
             href="/intake"
-            className="inline-flex items-center justify-center gap-2 bg-white text-[var(--navy)] font-bold px-10 py-4 rounded-lg hover:bg-gray-50 transition-colors text-base"
+            className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] text-[var(--background)] font-bold px-10 py-4 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-base"
           >
             Begin Intake
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

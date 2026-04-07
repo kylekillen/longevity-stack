@@ -1,0 +1,525 @@
+{
+  "timestamp": "2026-03-25T02:28:49.226651",
+  "total_urls": 226,
+  "fetched": 226,
+  "extracted": 182,
+  "results": {
+    "updated": 31,
+    "unchanged": 90,
+    "failed": 44,
+    "skipped": 61,
+    "oos": 5
+  },
+  "changes": [
+    {
+      "product": "Doctor's Best Fisetin 100mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "Jarrow Citicoline (CDP-Choline) 250mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "Jarrow KSM-66 Ashwagandha 300mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "Jarrow MK-7 90mcg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "Jarrow NAC Sustain 600mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "Jarrow PQQ 20mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "Jarrow QH-absorb Ubiquinol 100mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Alpha-GPC 300mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Ashwagandha 450mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Astaxanthin 12mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Berberine Glucose Support 400mg",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Creatine Monohydrate 5g",
+      "vendor": "iherb",
+      "old": 36.74,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Glucosamine Sulfate 750mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Hyaluronic Acid 100mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW L-Theanine 200mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Lion's Mane 500mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW MSM 1000mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Magnesium Glycinate 200mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Methyl B-12 5000mcg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW NAC 600mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Organic Inulin Powder",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW P-5-P 50mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Quercetin 500mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Rhodiola 500mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW TMG 1000mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Taurine 1000mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Ubiquinol 100mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Vitamin C-1000",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Vitamin D3 5000 IU",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "NOW Vitamin K2 MK-7 100mcg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    },
+    {
+      "product": "Nordic Naturals Ultimate Omega 1280mg",
+      "vendor": "iherb",
+      "old": 36.27,
+      "new": 19.59
+    }
+  ],
+  "failures": [
+    {
+      "product": "Bulk Supplements Collagen Peptides",
+      "vendor": "bulk-supplements",
+      "url": "https://www.bulksupplements.com/products/hydrolyzed-collagen-powder",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Bulk Supplements Glycine Powder",
+      "vendor": "bulk-supplements",
+      "url": "https://www.bulksupplements.com/products/glycine",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Bulk Supplements Inulin Powder",
+      "vendor": "bulk-supplements",
+      "url": "https://www.bulksupplements.com/products/inulin-powder",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Bulk Supplements Lion's Mane Extract",
+      "vendor": "bulk-supplements",
+      "url": "https://www.bulksupplements.com/products/lions-mane-extract",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Bulk Supplements MSM Powder",
+      "vendor": "bulk-supplements",
+      "url": "https://www.bulksupplements.com/products/msm-powder",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Garden of Life Grass Fed Collagen 20g",
+      "vendor": "garden-of-life",
+      "url": "https://www.gardenoflife.com/products/collagen",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Garden of Life Vitamin Code Raw C",
+      "vendor": "garden-of-life",
+      "url": "https://www.gardenoflife.com/products/vitamin-c",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Doctor's Best Nattokinase 2000 FU 270 Capsules",
+      "vendor": "iherb",
+      "old_price": 36.99,
+      "new_price": 14.99,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Jarrow Formulas PS100 100mg 60 Softgels",
+      "vendor": "iherb",
+      "old_price": 20.42,
+      "new_price": 45.88,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Jarrow Formulas PS100 Phosphatidylserine 100mg 120 Capsules",
+      "vendor": "iherb",
+      "old_price": 37.98,
+      "new_price": 72.1,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Jarrow Formulas Reduced Glutathione 500mg 60 Capsules",
+      "vendor": "iherb",
+      "old_price": 36.7,
+      "new_price": 15.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Boron 3mg",
+      "vendor": "iherb",
+      "old_price": 6.0,
+      "new_price": 19.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Curcumin Phytosome with Meriva 500mg 60 Capsules",
+      "vendor": "iherb",
+      "old_price": 20.81,
+      "new_price": 9.34,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Lutein & Zeaxanthin 120 Softgels",
+      "vendor": "iherb",
+      "old_price": 27.55,
+      "new_price": 5.87,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Milk Thistle Extract 300mg (240mg Silymarin) 200 Capsules",
+      "vendor": "iherb",
+      "old_price": 21.99,
+      "new_price": 9.78,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Probiotic-10 50 Billion 50 Capsules",
+      "vendor": "iherb",
+      "old_price": 20.42,
+      "new_price": 33.39,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Saw Palmetto Berries 550mg 250 Capsules",
+      "vendor": "iherb",
+      "old_price": 17.14,
+      "new_price": 8.56,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Turmeric Curcumin with BioPerine 90 Capsules",
+      "vendor": "iherb",
+      "old_price": 14.69,
+      "new_price": 34.9,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Vitamin A 25000 IU 250 Softgels",
+      "vendor": "iherb",
+      "old_price": 13.46,
+      "new_price": 6.72,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Vitamin E-400 with Mixed Tocopherols 250 Softgels",
+      "vendor": "iherb",
+      "old_price": 30.61,
+      "new_price": 12.23,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Foods Zinc Picolinate 50mg 120 Capsules",
+      "vendor": "iherb",
+      "old_price": 11.01,
+      "new_price": 3.66,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Glycine 1000mg",
+      "vendor": "iherb",
+      "old_price": 6.0,
+      "new_price": 19.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Melatonin 3mg",
+      "vendor": "iherb",
+      "old_price": 6.0,
+      "new_price": 19.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Niacinamide 500mg",
+      "vendor": "iherb",
+      "old_price": 6.0,
+      "new_price": 19.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Selenium 200mcg",
+      "vendor": "iherb",
+      "old_price": 6.0,
+      "new_price": 19.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "NOW Zinc Picolinate 50mg",
+      "vendor": "iherb",
+      "old_price": 6.0,
+      "new_price": 19.59,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Nutricost Psyllium Husk 500mg 500 Capsules",
+      "vendor": "iherb",
+      "old_price": 19.95,
+      "new_price": 5.7,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Pure Encapsulations Liposomal Glutathione 375mg 30 Softgels",
+      "vendor": "iherb",
+      "old_price": 39.6,
+      "new_price": 67.5,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Thorne Glutathione-SR 175mg 60 Capsules",
+      "vendor": "iherb",
+      "old_price": 54.0,
+      "new_price": 9.39,
+      "reason": "wild_swing"
+    },
+    {
+      "product": "Jarrow Citicoline (CDP-Choline) 250mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/citicoline-250mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow Formulas BroccoMax 35mg SGS 120 Capsules",
+      "vendor": "jarrow",
+      "url": "https://jarrow.com/products/broccomax-delayed-release-veggie-caps",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow Formulas Milk Thistle 150mg 200 Capsules",
+      "vendor": "jarrow",
+      "url": "https://jarrow.com/products/milk-thistle-silymarin-150-mg-veggie-caps",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow Glucosamine + Chondroitin",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/glucosamine-chondroitin",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow KSM-66 Ashwagandha 300mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/ksm-66-ashwagandha",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow MK-7 90mcg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/mk-7-90mcg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow MSM 1000mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/msm-1000mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow Methyl B-12 5000mcg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/methyl-b12-5000mcg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow Methyl Folate 400mcg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/methyl-folate-400mcg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow NAC Sustain 600mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/nac-sustain-600mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow PQQ 20mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/pqq-20mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow QH-absorb Ubiquinol 100mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/qh-absorb-100mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Jarrow Rhodiola Rosea 500mg",
+      "vendor": "jarrow",
+      "url": "https://www.jarrow.com/products/rhodiola-rosea-500mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Astaxanthin 4mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item01923/astaxanthin",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Berberine 500mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item02513/berberine",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Citicoline 250mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item01659/citicoline",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Curcumin Elite 500mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item02407/curcumin-elite",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Florassist GI 250mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item02125/florassist-gi",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Hyaluronic Acid 100mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item01878/skin-restoring-ceramides",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension Melatonin 3mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item00329/melatonin-3mg",
+      "reason": "extraction_failed"
+    },
+    {
+      "product": "Life Extension NAD+ Cell Regenerator (NMN) 250mg",
+      "vendor": "life-extension",
+      "url": "https://www.lifeextension.com/vitamins-supplements/item02344/nad-cell-regenerator-nmn",
+      "reason": "extraction_failed"
+    }
+  ]
+}

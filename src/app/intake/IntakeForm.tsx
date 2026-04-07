@@ -57,7 +57,7 @@ export default function IntakeForm() {
     switch (step) {
       case 0: return !!data.gender && !!data.name && !!data.email && !!data.dob && !!data.state;
       case 1: return !!data.productSlug;
-      case 2: return true; // health history is informational, not all required
+      case 2: return true;
       case 3: return true;
       default: return false;
     }
@@ -106,9 +106,9 @@ export default function IntakeForm() {
           {STEPS.map((s, i) => (
             <div key={s} className="flex items-center flex-1 last:flex-none">
               <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
-                i < step ? "bg-[var(--green)] text-white" :
-                i === step ? "bg-[var(--navy)] text-white" :
-                "bg-gray-200 text-[var(--gray)]"
+                i < step ? "bg-[var(--green)] text-[var(--background)]" :
+                i === step ? "bg-[var(--accent)] text-[var(--background)]" :
+                "bg-[var(--card)] border border-[var(--card-border)] text-[var(--muted)]"
               }`}>
                 {i < step ? (
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -117,25 +117,25 @@ export default function IntakeForm() {
                 ) : i + 1}
               </div>
               {i < STEPS.length - 1 && (
-                <div className={`flex-1 h-px mx-1 transition-colors ${i < step ? "bg-[var(--green)]" : "bg-gray-200"}`} />
+                <div className={`flex-1 h-px mx-1 transition-colors ${i < step ? "bg-[var(--green)]" : "bg-[var(--card-border)]"}`} />
               )}
             </div>
           ))}
         </div>
-        <p className="text-xs text-[var(--gray)]">
-          Step {step + 1} of {STEPS.length} — <span className="font-medium text-[var(--navy)]">{STEPS[step]}</span>
+        <p className="text-xs text-[var(--muted)]">
+          Step {step + 1} of {STEPS.length} — <span className="font-medium text-[var(--foreground)]">{STEPS[step]}</span>
         </p>
       </div>
 
       {/* Step 0: About you */}
       {step === 0 && (
         <div>
-          <h1 className="text-2xl font-bold text-[var(--navy)] mb-1">Tell us about yourself</h1>
-          <p className="text-sm text-[var(--gray)] mb-8">Your physician needs this to evaluate your request safely.</p>
+          <h1 className="text-2xl font-bold mb-1">Tell us about yourself</h1>
+          <p className="text-sm text-[var(--muted)] mb-8">Your physician needs this to evaluate your request safely.</p>
 
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-2">I&apos;m looking for</label>
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-2">I&apos;m looking for</label>
               <div className="grid grid-cols-2 gap-3">
                 {(["men", "women"] as const).map((g) => (
                   <button
@@ -143,8 +143,8 @@ export default function IntakeForm() {
                     onClick={() => set("gender", g)}
                     className={`py-3 px-4 rounded-lg border-2 font-semibold text-sm transition-colors ${
                       data.gender === g
-                        ? "border-[var(--navy)] bg-[var(--navy)] text-white"
-                        : "border-gray-200 text-[var(--navy)] hover:border-[var(--navy)]"
+                        ? "border-[var(--accent)] bg-[var(--accent-dim)] text-[var(--accent)]"
+                        : "border-[var(--card-border)] text-[var(--muted)] hover:border-[var(--accent)]/40"
                     }`}
                   >
                     {g === "men" ? "Men's Health" : "Women's Health"}
@@ -155,50 +155,50 @@ export default function IntakeForm() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">Full name</label>
+                <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">Full name</label>
                 <input
                   type="text"
                   value={data.name}
                   onChange={(e) => set("name", e.target.value)}
                   placeholder="Jane Smith"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)]"
+                  className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-light)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">Date of birth</label>
+                <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">Date of birth</label>
                 <input
                   type="date"
                   value={data.dob}
                   onChange={(e) => set("dob", e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)]"
+                  className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">Email address</label>
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">Email address</label>
               <input
                 type="email"
                 value={data.email}
                 onChange={(e) => set("email", e.target.value)}
                 placeholder="you@example.com"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)]"
+                className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-light)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">State of residence</label>
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">State of residence</label>
               <select
                 value={data.state}
                 onChange={(e) => set("state", e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)] bg-white"
+                className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
               >
                 <option value="">Select state</option>
                 {US_STATES.map((s) => (
                   <option key={s} value={s}>{s}</option>
                 ))}
               </select>
-              <p className="text-xs text-[var(--gray-light)] mt-1">We serve all 50 states.</p>
+              <p className="text-xs text-[var(--muted-light)] mt-1">We serve all 50 states.</p>
             </div>
           </div>
         </div>
@@ -207,8 +207,8 @@ export default function IntakeForm() {
       {/* Step 1: Choose medication */}
       {step === 1 && (
         <div>
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-1">Choose your medication</h2>
-          <p className="text-sm text-[var(--gray)] mb-6">
+          <h2 className="text-2xl font-bold mb-1">Choose your medication</h2>
+          <p className="text-sm text-[var(--muted)] mb-6">
             Select one to start. You can add more after your physician review.
           </p>
 
@@ -219,21 +219,21 @@ export default function IntakeForm() {
                 onClick={() => set("productSlug", p.slug)}
                 className={`w-full text-left border-2 rounded-xl p-4 transition-colors ${
                   data.productSlug === p.slug
-                    ? "border-[var(--navy)] bg-blue-50"
-                    : "border-gray-200 hover:border-gray-300"
+                    ? "border-[var(--accent)] bg-[var(--accent-dim)]"
+                    : "border-[var(--card-border)] bg-[var(--card)] hover:border-[var(--accent)]/40"
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-[var(--gray)]">{p.category}</span>
+                      <span className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{p.category}</span>
                     </div>
-                    <p className="font-semibold text-[var(--navy)] text-sm">{p.name}</p>
-                    <p className="text-xs text-[var(--gray)] mt-0.5 line-clamp-1">{p.tagline}</p>
+                    <p className="font-semibold text-[var(--foreground)] text-sm">{p.name}</p>
+                    <p className="text-xs text-[var(--muted)] mt-0.5 line-clamp-1">{p.tagline}</p>
                   </div>
                   <div className="text-right shrink-0">
                     <span className="text-lg font-bold text-[var(--green)]">${p.ourPrice}</span>
-                    <span className="text-xs text-[var(--gray)] block">/mo</span>
+                    <span className="text-xs text-[var(--muted)] block">/mo</span>
                   </div>
                 </div>
               </button>
@@ -245,28 +245,28 @@ export default function IntakeForm() {
       {/* Step 2: Health history */}
       {step === 2 && (
         <div>
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-1">Health history</h2>
-          <p className="text-sm text-[var(--gray)] mb-6">
+          <h2 className="text-2xl font-bold mb-1">Health history</h2>
+          <p className="text-sm text-[var(--muted)] mb-6">
             Your physician needs this to prescribe safely. Answer as fully as you can. Nothing here is disqualifying on its own.
           </p>
 
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">
-                Current medications <span className="text-[var(--gray)] font-normal">(include supplements)</span>
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
+                Current medications <span className="text-[var(--muted)] font-normal">(include supplements)</span>
               </label>
               <textarea
                 value={data.currentMeds}
                 onChange={(e) => set("currentMeds", e.target.value)}
                 placeholder="e.g. Lisinopril 10mg, Vitamin D 5000 IU, Aspirin 81mg"
                 rows={3}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)] resize-none"
+                className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-light)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] resize-none"
               />
-              <p className="text-xs text-[var(--gray-light)] mt-1">Or write &quot;none&quot; if none.</p>
+              <p className="text-xs text-[var(--muted-light)] mt-1">Or write &quot;none&quot; if none.</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
                 Relevant medical conditions or diagnoses
               </label>
               <textarea
@@ -274,13 +274,13 @@ export default function IntakeForm() {
                 onChange={(e) => set("conditions", e.target.value)}
                 placeholder="e.g. hypertension, type 2 diabetes, autoimmune condition"
                 rows={3}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)] resize-none"
+                className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-light)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] resize-none"
               />
-              <p className="text-xs text-[var(--gray-light)] mt-1">Or write &quot;none&quot; if none.</p>
+              <p className="text-xs text-[var(--muted-light)] mt-1">Or write &quot;none&quot; if none.</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
                 Known allergies or medication reactions
               </label>
               <textarea
@@ -288,13 +288,13 @@ export default function IntakeForm() {
                 onChange={(e) => set("allergies", e.target.value)}
                 placeholder="e.g. penicillin allergy, GI upset with NSAIDs"
                 rows={2}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)] resize-none"
+                className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-light)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] resize-none"
               />
-              <p className="text-xs text-[var(--gray-light)] mt-1">Or write &quot;none&quot; if none.</p>
+              <p className="text-xs text-[var(--muted-light)] mt-1">Or write &quot;none&quot; if none.</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--navy)] mb-1.5">
+              <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
                 What are you hoping to achieve?
               </label>
               <textarea
@@ -302,14 +302,14 @@ export default function IntakeForm() {
                 onChange={(e) => set("goals", e.target.value)}
                 placeholder="e.g. lower cardiovascular risk, preserve hair, optimize testosterone, reduce inflammation"
                 rows={2}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[var(--navy)] focus:ring-1 focus:ring-[var(--navy)] resize-none"
+                className="w-full bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-light)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] resize-none"
               />
             </div>
           </div>
 
-          <div className="mt-5 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <p className="text-xs text-blue-700 leading-relaxed">
-              <strong>Privacy:</strong> Your health information is HIPAA-protected and encrypted. It is never sold or shared with third parties. Only your physician can see your intake questionnaire.
+          <div className="mt-5 bg-[var(--accent-dim)] border border-[var(--accent)]/20 rounded-lg p-4">
+            <p className="text-xs text-[var(--muted)] leading-relaxed">
+              <strong className="text-[var(--foreground)]">Privacy:</strong> Your health information is HIPAA-protected and encrypted. It is never sold or shared with third parties. Only your physician can see your intake questionnaire.
             </p>
           </div>
         </div>
@@ -318,26 +318,26 @@ export default function IntakeForm() {
       {/* Step 3: Review */}
       {step === 3 && (
         <div>
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-1">Review your order</h2>
-          <p className="text-sm text-[var(--gray)] mb-8">Confirm the details before proceeding to payment.</p>
+          <h2 className="text-2xl font-bold mb-1">Review your order</h2>
+          <p className="text-sm text-[var(--muted)] mb-8">Confirm the details before proceeding to payment.</p>
 
-          <div className="bg-[var(--gray-bg)] rounded-xl border border-gray-200 divide-y divide-gray-200 mb-6">
+          <div className="bg-[var(--card)] rounded-xl border border-[var(--card-border)] divide-y divide-[var(--card-border)] mb-6">
             <div className="px-5 py-4">
-              <p className="text-xs text-[var(--gray)] uppercase tracking-wide mb-1">Patient</p>
-              <p className="font-semibold text-[var(--navy)]">{data.name}</p>
-              <p className="text-sm text-[var(--gray)]">{data.email} · {data.state}</p>
+              <p className="text-xs text-[var(--muted)] uppercase tracking-wide mb-1">Patient</p>
+              <p className="font-semibold text-[var(--foreground)]">{data.name}</p>
+              <p className="text-sm text-[var(--muted)]">{data.email} · {data.state}</p>
             </div>
 
             {selectedProduct && (
               <div className="px-5 py-4">
-                <p className="text-xs text-[var(--gray)] uppercase tracking-wide mb-1">Medication</p>
+                <p className="text-xs text-[var(--muted)] uppercase tracking-wide mb-1">Medication</p>
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="font-semibold text-[var(--navy)]">{selectedProduct.name}</p>
-                    <p className="text-xs text-[var(--gray)] mt-0.5">{selectedProduct.category}</p>
+                    <p className="font-semibold text-[var(--foreground)]">{selectedProduct.name}</p>
+                    <p className="text-xs text-[var(--muted)] mt-0.5">{selectedProduct.category}</p>
                   </div>
                   <span className="text-xl font-bold text-[var(--green)]">
-                    ${selectedProduct.ourPrice}<span className="text-sm font-normal text-[var(--gray)]">/mo</span>
+                    ${selectedProduct.ourPrice}<span className="text-sm font-normal text-[var(--muted)]">/mo</span>
                   </span>
                 </div>
               </div>
@@ -345,34 +345,34 @@ export default function IntakeForm() {
 
             <div className="px-5 py-4">
               <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-[var(--gray)]">Physician review</p>
+                <p className="text-sm text-[var(--muted)]">Physician review</p>
                 <p className="text-sm font-semibold text-[var(--green)]">Included</p>
               </div>
               <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-[var(--gray)]">Monthly medication supply</p>
+                <p className="text-sm text-[var(--muted)]">Monthly medication supply</p>
                 <p className="text-sm font-semibold text-[var(--green)]">Included</p>
               </div>
               <div className="flex justify-between items-center">
-                <p className="text-sm text-[var(--gray)]">Annual renewal</p>
+                <p className="text-sm text-[var(--muted)]">Annual renewal</p>
                 <p className="text-sm font-semibold text-[var(--green)]">Included</p>
               </div>
             </div>
           </div>
 
           <div className="space-y-3 mb-6">
-            <div className="flex items-start gap-2 text-xs text-[var(--gray)]">
+            <div className="flex items-start gap-2 text-xs text-[var(--muted)]">
               <svg className="w-4 h-4 text-[var(--green)] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
               A licensed physician will review your intake within 24–48 hours before your prescription is issued.
             </div>
-            <div className="flex items-start gap-2 text-xs text-[var(--gray)]">
+            <div className="flex items-start gap-2 text-xs text-[var(--muted)]">
               <svg className="w-4 h-4 text-[var(--green)] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
               If your physician declines to prescribe, you&apos;ll receive a full refund. No questions asked.
             </div>
-            <div className="flex items-start gap-2 text-xs text-[var(--gray)]">
+            <div className="flex items-start gap-2 text-xs text-[var(--muted)]">
               <svg className="w-4 h-4 text-[var(--green)] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
@@ -383,7 +383,7 @@ export default function IntakeForm() {
           <button
             onClick={handleCheckout}
             disabled={loading}
-            className="w-full bg-[var(--navy)] text-white font-bold py-4 rounded-lg hover:bg-[var(--navy-dark)] transition-colors text-base disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-[var(--accent)] text-[var(--background)] font-bold py-4 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-base disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -402,7 +402,7 @@ export default function IntakeForm() {
               </>
             )}
           </button>
-          <p className="text-center text-xs text-[var(--gray-light)] mt-2">
+          <p className="text-center text-xs text-[var(--muted-light)] mt-2">
             Secured by Stripe. We never store your card details.
           </p>
         </div>
@@ -413,7 +413,7 @@ export default function IntakeForm() {
         {step > 0 && (
           <button
             onClick={() => setStep((s) => s - 1)}
-            className="px-5 py-2.5 border border-gray-300 text-[var(--navy)] font-medium rounded-lg text-sm hover:bg-gray-50 transition-colors"
+            className="px-5 py-2.5 border border-[var(--card-border)] text-[var(--foreground)] font-medium rounded-lg text-sm hover:border-[var(--accent)]/40 transition-colors"
           >
             ← Back
           </button>
@@ -422,16 +422,16 @@ export default function IntakeForm() {
           <button
             onClick={() => setStep((s) => s + 1)}
             disabled={!canAdvance()}
-            className="px-6 py-2.5 bg-[var(--navy)] text-white font-semibold rounded-lg text-sm hover:bg-[var(--navy-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+            className="px-6 py-2.5 bg-[var(--accent)] text-[var(--background)] font-semibold rounded-lg text-sm hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
           >
             Continue →
           </button>
         )}
       </div>
 
-      <p className="mt-6 text-center text-xs text-[var(--gray-light)]">
+      <p className="mt-6 text-center text-xs text-[var(--muted-light)]">
         Questions? Email{" "}
-        <Link href="mailto:hello@thelongevityagent.com" className="text-[var(--navy)] hover:underline">
+        <Link href="mailto:hello@thelongevityagent.com" className="text-[var(--accent)] hover:underline">
           hello@thelongevityagent.com
         </Link>
       </p>

@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white">
+    <div>
 
-      <section className="py-16 sm:py-20 border-b border-gray-100">
+      <section className="py-16 sm:py-20 border-b border-[var(--card-border)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--navy)] mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             Why we built this.
           </h1>
-          <p className="text-xl text-[var(--gray)] leading-relaxed">
+          <p className="text-xl text-[var(--muted)] leading-relaxed">
             The medications that longevity physicians prescribe to themselves and
             their wealthiest patients cost pennies to manufacture. The markup
             is the product. We removed the markup.
@@ -25,9 +25,9 @@ export default function AboutPage() {
       </section>
 
       <section className="py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-[var(--gray)] leading-relaxed">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-[var(--muted)] leading-relaxed">
           <div>
-            <h2 className="text-2xl font-bold text-[var(--navy)] mb-4">The problem</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">The problem</h2>
             <p className="mb-4">
               Low dose naltrexone costs about $0.30 to compound. Telehealth clinics
               charge $89/month. Rapamycin, metformin, dutasteride — all cheap generic
@@ -42,7 +42,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-[var(--navy)] mb-4">What we do differently</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">What we do differently</h2>
             <p className="mb-4">
               We&apos;re a direct-to-patient platform. No brick-and-mortar clinic. No
               concierge membership. No upsells. We connect patients with board-certified
@@ -57,7 +57,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-[var(--navy)] mb-4">What we are not</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">What we are not</h2>
             <ul className="space-y-2 list-disc list-inside">
               <li>Not a supplement company. We prescribe real medications.</li>
               <li>Not a wellness brand. We don&apos;t sell lifestyle, we prescribe medicine.</li>
@@ -67,7 +67,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-[var(--navy)] mb-4">Our physician network</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">Our physician network</h2>
             <p className="mb-4">
               All prescriptions are written by board-certified physicians with active
               state licenses. Our clinical protocols were developed by an MD with 13
@@ -82,25 +82,25 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-[var(--navy)] mb-4">The simple version</h2>
-            <p className="text-xl font-semibold text-[var(--navy)]">
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">The simple version</h2>
+            <p className="text-xl font-semibold text-[var(--foreground)]">
               We checked what everyone else charges. Then we charged less.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-[var(--navy)]">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Start at $19/month.
           </h2>
-          <p className="text-blue-200 mb-8">
+          <p className="text-[var(--muted)] mb-8">
             Real prescriptions. Real physicians. No clinic markup.
           </p>
           <Link
             href="/intake"
-            className="inline-flex items-center gap-2 bg-white text-[var(--navy)] font-bold px-10 py-4 rounded-lg hover:bg-gray-50 transition-colors text-base"
+            className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--background)] font-bold px-10 py-4 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-base"
           >
             Get Started
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

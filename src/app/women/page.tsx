@@ -20,20 +20,20 @@ export default function WomenPage() {
   const products = getProductsByGender("women");
 
   return (
-    <div className="bg-white">
+    <div>
 
       {/* Hero */}
-      <section className="py-16 sm:py-24 border-b border-gray-100">
+      <section className="py-16 sm:py-24 border-b border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--green-light)] text-[var(--green-dark)] text-xs font-semibold mb-6 uppercase tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--accent)]/20 bg-[var(--accent-dim)] text-[var(--accent)] text-xs font-semibold mb-6 uppercase tracking-wide">
               Women&apos;s Health
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[var(--navy)] leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
               Evidence-based women&apos;s longevity medicine.<br />
-              <span className="text-[var(--green)]">Starting at $29/month.</span>
+              <span className="text-[var(--accent)]">Starting at $29/month.</span>
             </h1>
-            <p className="text-xl text-[var(--gray)] max-w-2xl mx-auto">
+            <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto">
               Bioidentical HRT, cardiovascular protection, immune optimization, and
               weight management — prescribed by board-certified physicians, shipped to
               your door.
@@ -44,10 +44,10 @@ export default function WomenPage() {
             {BENEFITS.map((b) => (
               <div
                 key={b.label}
-                className="bg-[var(--gray-bg)] border border-gray-200 rounded-lg px-4 py-3 text-center"
+                className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-4 py-3 text-center"
               >
-                <p className="text-xs font-semibold text-[var(--navy)]">{b.label}</p>
-                <p className="text-xs text-[var(--gray)] mt-0.5">{b.product}</p>
+                <p className="text-xs font-semibold text-[var(--foreground)]">{b.label}</p>
+                <p className="text-xs text-[var(--muted)] mt-0.5">{b.product}</p>
               </div>
             ))}
           </div>
@@ -55,7 +55,7 @@ export default function WomenPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/intake"
-              className="inline-flex items-center justify-center gap-2 bg-[var(--navy)] text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-[var(--navy-dark)] transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] text-[var(--background)] font-semibold px-8 py-3.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
             >
               Start Your Intake — $29/mo
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +64,7 @@ export default function WomenPage() {
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center gap-2 border border-gray-300 text-[var(--navy)] font-semibold px-8 py-3.5 rounded-lg hover:border-[var(--navy)] transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-[var(--card-border)] text-[var(--foreground)] font-semibold px-8 py-3.5 rounded-lg hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors"
             >
               See all pricing
             </Link>
@@ -75,7 +75,7 @@ export default function WomenPage() {
       {/* Products */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-[var(--navy)] mb-8">
+          <h2 className="text-2xl font-bold mb-8">
             Women&apos;s medications
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -85,19 +85,19 @@ export default function WomenPage() {
                 <Link
                   key={p.slug}
                   href={`/products/${p.slug}`}
-                  className="border border-gray-200 rounded-xl p-6 hover:border-[var(--navy)] hover:shadow-md transition-all group"
+                  className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-6 hover:border-[var(--accent)]/40 transition-all group"
                 >
-                  <p className="text-xs text-[var(--gray)] font-medium uppercase tracking-wide mb-1">
+                  <p className="text-xs text-[var(--muted-light)] font-medium uppercase tracking-wide mb-1">
                     {p.category}
                   </p>
-                  <h3 className="font-semibold text-[var(--navy)] mb-2 group-hover:text-[var(--navy-light)] transition-colors">
+                  <h3 className="font-semibold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent)] transition-colors">
                     {p.name}
                   </h3>
-                  <p className="text-sm text-[var(--gray)] mb-4 line-clamp-2">{p.tagline}</p>
+                  <p className="text-sm text-[var(--muted)] mb-4 line-clamp-2">{p.tagline}</p>
                   <div className="flex items-end gap-3 mt-auto">
                     <span className="text-2xl font-bold text-[var(--green)]">${p.ourPrice}</span>
-                    <span className="text-sm text-[var(--gray)] mb-0.5">/mo</span>
-                    <span className="text-sm text-[var(--gray-light)] line-through mb-0.5">
+                    <span className="text-sm text-[var(--muted)] mb-0.5">/mo</span>
+                    <span className="text-sm text-[var(--muted-light)] line-through mb-0.5">
                       ${p.competitorPrice}
                     </span>
                     <span className="text-xs font-semibold text-[var(--green)] mb-0.5">
@@ -112,21 +112,21 @@ export default function WomenPage() {
       </section>
 
       {/* HRT explainer */}
-      <section className="py-16 bg-[var(--gray-bg)] border-t border-gray-100">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="text-2xl font-bold text-[var(--navy)] mb-4">
+              <h2 className="text-2xl font-bold mb-4">
                 Bioidentical HRT — the evidence has caught up.
               </h2>
-              <p className="text-[var(--gray)] leading-relaxed mb-4">
+              <p className="text-[var(--muted)] leading-relaxed mb-4">
                 The 2002 WHI study that frightened women off HRT used synthetic
                 progestins and conjugated equine estrogens — not the
                 body-identical hormones we prescribe. The current evidence
                 clearly supports bioidentical estradiol and micronized
                 progesterone as safe and effective for most women under 60.
               </p>
-              <p className="text-[var(--gray)] leading-relaxed">
+              <p className="text-[var(--muted)] leading-relaxed">
                 The British Menopause Society, the Menopause Society, and the
                 NICE guidelines all support HRT as first-line treatment for
                 menopausal symptoms — and as a longevity intervention in its
@@ -139,9 +139,9 @@ export default function WomenPage() {
                 { q: "When should I start?", a: "Evidence is strongest for starting within 10 years of menopause onset. Earlier intervention has better long-term outcomes." },
                 { q: "What about cancer risk?", a: "Current evidence shows no increased risk with estrogen-only HRT, and minimal increase with combined therapy in the first 5 years." },
               ].map((item) => (
-                <div key={item.q} className="bg-white border border-gray-200 rounded-lg p-4">
-                  <p className="font-semibold text-[var(--navy)] text-sm mb-1">{item.q}</p>
-                  <p className="text-sm text-[var(--gray)]">{item.a}</p>
+                <div key={item.q} className="bg-[var(--card)] border border-[var(--card-border)] rounded-lg p-4">
+                  <p className="font-semibold text-[var(--foreground)] text-sm mb-1">{item.q}</p>
+                  <p className="text-sm text-[var(--muted)]">{item.a}</p>
                 </div>
               ))}
             </div>
@@ -150,15 +150,15 @@ export default function WomenPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[var(--navy)]">
+      <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Start your women&apos;s health protocol today.
           </h2>
-          <p className="text-blue-200 mb-8">From $29/month. No office visit required.</p>
+          <p className="text-[var(--muted)] mb-8">From $29/month. No office visit required.</p>
           <Link
             href="/intake"
-            className="inline-flex items-center justify-center gap-2 bg-white text-[var(--navy)] font-bold px-10 py-4 rounded-lg hover:bg-gray-50 transition-colors text-base"
+            className="inline-flex items-center justify-center gap-2 bg-[var(--accent)] text-[var(--background)] font-bold px-10 py-4 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-base"
           >
             Begin Intake
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

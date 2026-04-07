@@ -117,14 +117,14 @@ const FAQS = [
 
 export default function FAQPage() {
   return (
-    <div className="bg-white">
+    <div>
 
-      <section className="py-16 sm:py-20 border-b border-gray-100">
+      <section className="py-16 sm:py-20 border-b border-[var(--card-border)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--navy)] mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-[var(--gray)]">
+          <p className="text-xl text-[var(--muted)]">
             Everything you need to know before you start.
           </p>
         </div>
@@ -135,14 +135,14 @@ export default function FAQPage() {
           <div className="space-y-14">
             {FAQS.map((section) => (
               <div key={section.category}>
-                <h2 className="text-xl font-bold text-[var(--navy)] mb-6 pb-3 border-b border-gray-200">
+                <h2 className="text-xl font-bold mb-6 pb-3 border-b border-[var(--card-border)]">
                   {section.category}
                 </h2>
-                <div className="divide-y divide-gray-100">
+                <div className="divide-y divide-[var(--card-border)]">
                   {section.items.map((faq) => (
                     <div key={faq.q} className="py-5">
-                      <h3 className="font-semibold text-[var(--navy)] mb-2">{faq.q}</h3>
-                      <p className="text-[var(--gray)] text-sm leading-relaxed">{faq.a}</p>
+                      <h3 className="font-semibold text-[var(--foreground)] mb-2">{faq.q}</h3>
+                      <p className="text-[var(--muted)] text-sm leading-relaxed">{faq.a}</p>
                     </div>
                   ))}
                 </div>
@@ -150,18 +150,18 @@ export default function FAQPage() {
             ))}
           </div>
 
-          <div className="mt-16 bg-[var(--gray-bg)] border border-gray-200 rounded-xl p-8 text-center">
-            <h2 className="font-bold text-[var(--navy)] mb-2">Still have questions?</h2>
-            <p className="text-sm text-[var(--gray)] mb-4">
+          <div className="mt-16 bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-8 text-center">
+            <h2 className="font-bold text-[var(--foreground)] mb-2">Still have questions?</h2>
+            <p className="text-sm text-[var(--muted)] mb-4">
               Email us at{" "}
-              <a href="mailto:hello@thelongevityagent.com" className="text-[var(--navy)] hover:underline">
+              <a href="mailto:hello@thelongevityagent.com" className="text-[var(--accent)] hover:underline">
                 hello@thelongevityagent.com
               </a>
               . We respond within one business day.
             </p>
             <Link
               href="/intake"
-              className="inline-flex items-center gap-2 bg-[var(--navy)] text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--navy-dark)] transition-colors text-sm"
+              className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--background)] font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-sm"
             >
               Get Started — from $19/mo
             </Link>
