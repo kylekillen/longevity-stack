@@ -4,10 +4,18 @@ import IntakeForm from "./IntakeForm";
 export const metadata: Metadata = {
   title: "Start Your Intake — The Longevity Agent",
   description:
-    "5-minute health intake. A licensed physician reviews your profile within 24–48 hours.",
+    "5-minute health intake. A licensed physician reviews your protocol within 24–48 hours.",
 };
 
-export default function IntakePage() {
+export default async function IntakePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ stacks?: string; gender?: string }>;
+}) {
+  const { stacks, gender } = await searchParams;
+  const initialStacks = stacks ? stacks.split(",").filter(Boolean) : [];
+  const initialGender = gender === "women" ? "women" : gender === "men" ? "men" : undefined;
+
   return (
     <div className="min-h-screen">
       <div className="border-b border-[var(--card-border)] py-4">
@@ -26,7 +34,7 @@ export default function IntakePage() {
         </div>
       </div>
 
-      <IntakeForm />
+      <IntakeForm initialStacks={initialStacks} initialGender={initialGender} />
     </div>
   );
 }

@@ -323,6 +323,67 @@ export default async function StackPage({
         </div>
       </section>
 
+      {/* ── TRT: Lab requirements ────────────────────────────── */}
+      {stack.id === "testosterone-replacement" && (
+        <section className="py-16 border-b border-[var(--card-border)]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold mb-6">Lab requirements & pricing</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-6">
+                <p className="text-xs text-[var(--muted)] uppercase tracking-wide mb-2">Monthly</p>
+                <p className="text-4xl font-bold text-[var(--green)] mb-1">$79</p>
+                <p className="text-sm text-[var(--muted)]">Testosterone cream + physician management</p>
+              </div>
+              <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-6">
+                <p className="text-xs text-[var(--muted)] uppercase tracking-wide mb-2">Annual lab panel</p>
+                <p className="text-4xl font-bold text-[var(--foreground)] mb-1">$79</p>
+                <p className="text-sm text-[var(--muted)]">Required before first Rx, then annually. Waived if you have recent labs.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)] rounded-xl px-5 py-5 mb-2 text-sm text-[var(--muted)] leading-relaxed space-y-3">
+              <p>
+                <strong className="text-[var(--foreground)]">Why TRT requires labs — and why other stacks don&apos;t.</strong>
+              </p>
+              <p>
+                Testosterone replacement therapy is the only product on The Longevity Agent that requires lab work before your first prescription. Here&apos;s the medical reason: TRT doses are titrated to blood values, not symptoms. Total testosterone, free testosterone, estradiol, hematocrit, PSA, and LH/FSH must be established at baseline so your physician can determine the correct starting dose, set a monitoring baseline, and detect if your hematocrit is rising (a known TRT side effect that increases clotting risk).
+              </p>
+              <p>
+                Every other stack — LDN, rapamycin, semaglutide, HRT — is prescribed based on symptom profile or contraindication screening. They don&apos;t require titration to a specific blood value, so baseline labs aren&apos;t clinically necessary.
+              </p>
+              <p>
+                <strong className="text-[var(--foreground)]">Already have labs?</strong> If you&apos;ve had a comprehensive testosterone panel in the last 6 months, you can skip the lab order — just upload your results during intake and save the $79.
+              </p>
+            </div>
+            <p className="text-xs text-[var(--muted-light)] mt-3">
+              First month total: $158 (includes lab panel). Then $79/month + $79 once per year at renewal.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* ── HRT: Symptom-based approach ──────────────────────── */}
+      {stack.id === "womens-hrt" && (
+        <section className="py-16 border-b border-[var(--card-border)]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold mb-5">Why HRT doesn&apos;t require labs upfront</h2>
+            <div className="text-sm text-[var(--muted)] leading-relaxed space-y-4">
+              <p>
+                You may have heard that hormone replacement therapy requires extensive blood work before starting. The current best practice from the Menopause Society (formerly NAMS) and the British Menopause Society says otherwise: <strong className="text-[var(--foreground)]">HRT should be initiated based on symptoms, not lab values.</strong>
+              </p>
+              <p>
+                Estrogen levels fluctuate dramatically hour-to-hour during perimenopause. A single estradiol reading can be normal at 9am and low at 2pm. Waiting for a lab confirmation before prescribing means waiting for a measurement that doesn&apos;t accurately represent your hormonal state. Your symptoms — hot flashes, sleep disruption, mood changes, brain fog — are a more reliable signal than any single blood draw.
+              </p>
+              <p>
+                This is why our HRT intake is built around your symptom profile and medical history, not a lab panel. Your physician uses the Menopause Rating Scale and clinical history to determine the right starting protocol. You&apos;ll have a 30-day symptom check-in and a 90-day review to adjust dosing based on your response.
+              </p>
+              <p>
+                <strong className="text-[var(--foreground)]">When labs are ordered:</strong> If your physician wants to rule out other causes (thyroid, adrenal), or if you&apos;re a candidate for testosterone supplementation, they may request specific labs as part of your initial review. This is guided by clinical judgment, not a blanket requirement.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <section className="py-16 border-b border-[var(--card-border)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
