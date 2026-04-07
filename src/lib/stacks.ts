@@ -31,7 +31,7 @@ export type Stack = {
 
 // ─── OPEN QUESTIONS (do not block on these) ───────────────────────────────────
 // 1. Final per-stack pricing — using null placeholders for unconfirmed stacks
-// 2. Women's Core Cardio — tadalafil included with physician guidance note
+// 2. Women's Core Cardio & ED Prevention — tadalafil included with physician guidance note
 // 3. Testosterone cream supplier confirmation — marked pending in notes
 // 4. SGLT2 — waitlist only, not orderable
 // 5. Enclomiphene + TRT add-on — noted in TRT stack, not a separate entry
@@ -41,7 +41,7 @@ const STACKS: Stack[] = [
   // ─── CORE CARDIO (both genders) ────────────────────────────────────────────
   {
     id: "core-cardio",
-    name: "Core Cardio",
+    name: "Core Cardio & ED Prevention",
     tagline: "The baseline cardiovascular protocol nearly every adult over 40 should consider.",
     color: "#3b82f6",
     accentText: "#93c5fd",

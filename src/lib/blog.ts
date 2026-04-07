@@ -235,7 +235,7 @@ For longevity applications, low-dose daily tadalafil (2.5–5mg) is preferred ov
 
 ## Women and tadalafil
 
-PDE5 expression in women is similar to men. Tadalafil improves genital blood flow and sexual function in women. For cardiovascular and longevity applications, the mechanism is sex-nonspecific. We include tadalafil as an optional component of the Core Cardio stack with physician guidance.
+PDE5 expression in women is similar to men. Tadalafil improves genital blood flow and sexual function in women. For cardiovascular and longevity applications, the mechanism is sex-nonspecific. We include tadalafil as an optional component of the Core Cardio & ED Prevention stack with physician guidance.
 
 ## Who's a candidate
 

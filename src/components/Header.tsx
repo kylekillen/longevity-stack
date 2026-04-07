@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 const MENS_STACKS = [
-  { href: "/stacks/core-cardio", label: "Core Cardio", desc: "Rosuvastatin + Tadalafil" },
+  { href: "/stacks/core-cardio", label: "Core Cardio & ED Prevention", desc: "Rosuvastatin + Tadalafil" },
   { href: "/stacks/hair-men", label: "Hair", desc: "Finasteride + Oral Minoxidil" },
   { href: "/stacks/hair-pro-men", label: "Hair Pro", desc: "Dutasteride + Oral Minoxidil" },
   { href: "/stacks/skin", label: "Skin", desc: "Tretinoin" },
@@ -17,7 +17,7 @@ const MENS_STACKS = [
 ];
 
 const WOMENS_STACKS = [
-  { href: "/stacks/core-cardio", label: "Core Cardio", desc: "Rosuvastatin + Tadalafil" },
+  { href: "/stacks/core-cardio", label: "Core Cardio & ED Prevention", desc: "Rosuvastatin + Tadalafil" },
   { href: "/stacks/hair-women", label: "Hair", desc: "Spironolactone + Oral Minoxidil" },
   { href: "/stacks/skin", label: "Skin", desc: "Tretinoin" },
   { href: "/stacks/inflammation", label: "Inflammation", desc: "LDN" },

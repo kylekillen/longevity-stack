@@ -77,7 +77,7 @@ export default function BuildYourStackPage() {
               <h3 className="font-bold text-lg mb-4">Men&apos;s Stacks</h3>
               <ul className="space-y-2">
                 {[
-                  { href: "/stacks/core-cardio", name: "Core Cardio" },
+                  { href: "/stacks/core-cardio", name: "Core Cardio & ED Prevention" },
                   { href: "/stacks/hair-men", name: "Hair" },
                   { href: "/stacks/hair-pro-men", name: "Hair Pro" },
                   { href: "/stacks/skin", name: "Skin" },
@@ -103,7 +103,7 @@ export default function BuildYourStackPage() {
               <h3 className="font-bold text-lg mb-4">Women&apos;s Stacks</h3>
               <ul className="space-y-2">
                 {[
-                  { href: "/stacks/core-cardio", name: "Core Cardio" },
+                  { href: "/stacks/core-cardio", name: "Core Cardio & ED Prevention" },
                   { href: "/stacks/hair-women", name: "Hair" },
                   { href: "/stacks/skin", name: "Skin" },
                   { href: "/stacks/inflammation", name: "Inflammation" },
