@@ -1,21 +1,17 @@
 import Link from "next/link";
-import { getAllProducts, savingsPercent } from "@/lib/products";
+import { getAllStacks, getMensStacks, getWomensStacks, stackSavingsPercent } from "@/lib/stacks";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Pricing — The Longevity Agent",
   description:
-    "Full pricing for all 9 prescription longevity medications. Starting at $19/month.",
+    "Full pricing for all 10 prescription longevity stacks. Starting at $19/month. Compare against Hone Health, Maximus, and other telehealth platforms.",
 };
 
 export default function PricingPage() {
-  const products = getAllProducts();
-  const menProducts = products.filter(
-    (p) => p.forGender === "men" || p.forGender === "both"
-  );
-  const womenProducts = products.filter(
-    (p) => p.forGender === "women" || p.forGender === "both"
-  );
+  const allStacks = getAllStacks().filter((s) => !s.waitlist);
+  const mensStacks = getMensStacks().filter((s) => !s.waitlist);
+  const womensStacks = getWomensStacks().filter((s) => !s.waitlist);
 
   return (
     <div>
@@ -27,25 +23,25 @@ export default function PricingPage() {
             Transparent Pricing
           </h1>
           <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto">
-            No membership fees. No consultation charges. One flat monthly rate
-            that includes your prescription, your physician review, and your
-            medication.
+            No membership fees. No consultation charges. One flat monthly rate per stack
+            that includes your prescription, physician review, and medication.
           </p>
         </div>
       </section>
 
-      {/* Full comparison table */}
+      {/* Comparison table */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold mb-6">All stacks</h2>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-[var(--card-border)]">
                   <th className="text-left py-3 pr-6 text-sm font-semibold text-[var(--foreground)]">
-                    Medication
+                    Stack
                   </th>
                   <th className="text-left py-3 pr-6 text-sm font-semibold text-[var(--muted)] hidden sm:table-cell">
-                    Category
+                    Medications
                   </th>
                   <th className="text-right py-3 pr-6 text-sm font-semibold text-[var(--green)]">
                     Our Price
@@ -60,41 +56,64 @@ export default function PricingPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--card-border)]">
-                {products.map((p) => {
-                  const savings = savingsPercent(p.ourPrice, p.competitorPrice);
+                {getAllStacks().map((stack) => {
+                  const savings = stackSavingsPercent(stack);
                   return (
-                    <tr key={p.slug} className="hover:bg-[var(--surface)] transition-colors">
+                    <tr key={stack.id} className="hover:bg-[var(--surface)] transition-colors">
                       <td className="py-4 pr-6">
-                        <Link
-                          href={`/products/${p.slug}`}
-                          className="font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors underline-offset-2"
-                        >
-                          {p.name}
-                        </Link>
-                        <p className="text-xs text-[var(--muted)] sm:hidden mt-0.5">
-                          {p.category}
+                        <div className="flex items-center gap-2">
+                          <div
+                            className="w-2.5 h-2.5 rounded-full shrink-0"
+                            style={{ background: stack.color }}
+                          />
+                          <Link
+                            href={`/stacks/${stack.id}`}
+                            className="font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
+                          >
+                            {stack.name}
+                          </Link>
+                          {stack.waitlist && (
+                            <span className="text-xs text-[var(--muted)] bg-[var(--surface)] border border-[var(--card-border)] px-1.5 py-0.5 rounded-full">
+                              Waitlist
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-[var(--muted)] sm:hidden mt-0.5 ml-4.5">
+                          {stack.medications.map((m) => m.name).join(" + ")}
                         </p>
                       </td>
                       <td className="py-4 pr-6 text-sm text-[var(--muted)] hidden sm:table-cell">
-                        {p.category}
+                        {stack.medications.map((m) => m.name).join(" + ")}
                       </td>
                       <td className="py-4 pr-6 text-right">
-                        <span className="text-xl font-bold text-[var(--green)]">
-                          ${p.ourPrice}
-                        </span>
-                        <span className="text-xs text-[var(--muted)] ml-1">/mo</span>
+                        {stack.waitlist ? (
+                          <span className="text-sm text-[var(--muted)]">—</span>
+                        ) : stack.ourPrice !== null ? (
+                          <>
+                            <span className="text-xl font-bold text-[var(--green)]">
+                              ${stack.ourPrice}
+                            </span>
+                            <span className="text-xs text-[var(--muted)] ml-1">/mo</span>
+                          </>
+                        ) : (
+                          <span className="text-sm text-[var(--muted-light)] font-mono">{"{{PRICE}}"}</span>
+                        )}
                       </td>
                       <td className="py-4 pr-6 text-right text-sm text-[var(--muted-light)] line-through hidden md:table-cell">
-                        ${p.competitorPrice}
+                        {stack.competitorPrice ? `$${stack.competitorPrice}` : "—"}
                       </td>
                       <td className="py-4 text-right hidden md:table-cell">
-                        <span className="text-sm font-semibold text-[var(--green)] bg-[var(--green-dim)] px-2 py-0.5 rounded-full">
-                          −{savings}%
-                        </span>
+                        {savings ? (
+                          <span className="text-sm font-semibold text-[var(--green)] bg-[var(--green-dim)] px-2 py-0.5 rounded-full">
+                            −{savings}%
+                          </span>
+                        ) : (
+                          <span className="text-sm text-[var(--muted-light)]">—</span>
+                        )}
                       </td>
                       <td className="py-4 pl-4">
                         <Link
-                          href={`/products/${p.slug}`}
+                          href={`/stacks/${stack.id}`}
                           className="text-sm text-[var(--accent)] font-medium hover:underline whitespace-nowrap"
                         >
                           Details →
@@ -119,13 +138,13 @@ export default function PricingPage() {
       <section className="py-16 bg-[var(--surface)] border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold mb-8 text-center">
-            Every plan includes
+            Every stack includes
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 title: "Physician evaluation",
-                desc: "Board-certified MD reviews your intake questionnaire within 24–48 hours.",
+                desc: "Board-certified MD reviews your full protocol within 24–48 hours.",
               },
               {
                 title: "Your prescription",
@@ -133,7 +152,7 @@ export default function PricingPage() {
               },
               {
                 title: "Monthly medication supply",
-                desc: "30-day supply shipped directly to your door, 3–5 business days.",
+                desc: "30-day supply shipped directly to your door in 3–5 business days.",
               },
               {
                 title: "Annual renewal",
@@ -170,67 +189,69 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Gender split links */}
+      {/* Gender split */}
       <section className="py-16 border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
             <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-8">
-              <h2 className="text-xl font-bold mb-2">Men&apos;s Health</h2>
+              <h2 className="text-xl font-bold mb-2">Men&apos;s Stacks</h2>
               <p className="text-sm text-[var(--muted)] mb-6">
-                {menProducts.length} medications starting at $
-                {Math.min(...menProducts.map((p) => p.ourPrice))}/mo
+                {mensStacks.length} stacks available, from $
+                {Math.min(...mensStacks.filter((s) => s.ourPrice !== null).map((s) => s.ourPrice as number))}/mo
               </p>
               <ul className="space-y-2 mb-6">
-                {menProducts.map((p) => (
-                  <li key={p.slug} className="flex justify-between text-sm">
+                {mensStacks.map((stack) => (
+                  <li key={stack.id} className="flex justify-between text-sm">
                     <Link
-                      href={`/products/${p.slug}`}
+                      href={`/stacks/${stack.id}`}
                       className="text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
                     >
-                      {p.name}
+                      {stack.name}
                     </Link>
                     <span className="font-semibold text-[var(--green)]">
-                      ${p.ourPrice}/mo
+                      {stack.ourPrice !== null ? `$${stack.ourPrice}/mo` : <span className="text-[var(--muted-light)] font-mono text-xs">{"{{PRICE}}"}</span>}
                     </span>
                   </li>
                 ))}
               </ul>
               <Link
-                href="/men"
+                href="/build-your-stack?gender=men"
                 className="block text-center bg-[var(--accent)] text-[var(--background)] font-semibold py-2.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-sm"
               >
-                Men&apos;s Health →
+                Build Men&apos;s Protocol →
               </Link>
             </div>
 
             <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-8">
-              <h2 className="text-xl font-bold mb-2">Women&apos;s Health</h2>
+              <h2 className="text-xl font-bold mb-2">Women&apos;s Stacks</h2>
               <p className="text-sm text-[var(--muted)] mb-6">
-                {womenProducts.length} medications starting at $
-                {Math.min(...womenProducts.map((p) => p.ourPrice))}/mo
+                {womensStacks.length} stacks available, from $
+                {Math.min(...womensStacks.filter((s) => s.ourPrice !== null).map((s) => s.ourPrice as number))}/mo
               </p>
               <ul className="space-y-2 mb-6">
-                {womenProducts.map((p) => (
-                  <li key={p.slug} className="flex justify-between text-sm">
+                {womensStacks.map((stack) => (
+                  <li key={stack.id} className="flex justify-between text-sm">
                     <Link
-                      href={`/products/${p.slug}`}
+                      href={`/stacks/${stack.id}`}
                       className="text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
                     >
-                      {p.name}
+                      {stack.name}
                     </Link>
                     <span className="font-semibold text-[var(--green)]">
-                      ${p.ourPrice}/mo
+                      {stack.ourPrice !== null ? `$${stack.ourPrice}/mo` : <span className="text-[var(--muted-light)] font-mono text-xs">{"{{PRICE}}"}</span>}
                     </span>
                   </li>
                 ))}
               </ul>
               <Link
-                href="/women"
+                href="/build-your-stack?gender=women"
                 className="block text-center bg-[var(--accent)] text-[var(--background)] font-semibold py-2.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors text-sm"
               >
-                Women&apos;s Health →
+                Build Women&apos;s Protocol →
               </Link>
             </div>
+
           </div>
         </div>
       </section>
@@ -242,17 +263,18 @@ export default function PricingPage() {
             Start at $19/month.
           </h2>
           <p className="text-[var(--muted)] mb-8">
-            A licensed physician reviews your profile within 24–48 hours.
+            A licensed physician reviews your full protocol within 24–48 hours.
           </p>
           <Link
-            href="/intake"
+            href="/build-your-stack"
             className="inline-flex items-center gap-2 bg-[var(--accent)] text-[var(--background)] font-bold px-8 py-3.5 rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
           >
-            Get Started
+            Build Your Stack
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
+          <p className="mt-3 text-sm text-[var(--muted-light)]">Cancel anytime. No contracts.</p>
         </div>
       </section>
 
