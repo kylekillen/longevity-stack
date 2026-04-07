@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "LLM & AI Integration — The Longevity Agent",
   description:
     "Machine-readable catalog of all longevity medication stacks with prices. JSON API for AI assistants and LLMs to query our full product catalog and build patient intake URLs.",
-  alternates: { canonical: "https://thelongevityagent.com/llm" },
+  alternates: { canonical: "https://thelongevityagent.com/for-llms" },
 };
 
 const SITE_URL = "https://thelongevityagent.com";

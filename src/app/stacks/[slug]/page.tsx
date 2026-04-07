@@ -62,7 +62,7 @@ export default async function StackPage({
 
   const stackUrl = `${SITE_URL}/stacks/${stack.id}`;
 
-  // JSON-LD: Product + FAQPage
+  // JSON-LD: Product + Drug + FAQPage + BreadcrumbList
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -77,11 +77,13 @@ export default async function StackPage({
             "@type": "Offer",
             price: stack.ourPrice,
             priceCurrency: "USD",
+            priceValidUntil: "2026-12-31",
             priceSpecification: {
               "@type": "UnitPriceSpecification",
               price: stack.ourPrice,
               priceCurrency: "USD",
               unitText: "MON",
+              billingIncrement: 1,
             },
             availability: "https://schema.org/InStock",
             url: `${SITE_URL}/intake?stacks=${stack.id}`,
@@ -90,6 +92,24 @@ export default async function StackPage({
         }
       : {}),
   };
+
+  // Drug schema — one per medication in the stack
+  const drugSchemas = stack.medications.map((med) => ({
+    "@context": "https://schema.org",
+    "@type": "Drug",
+    name: med.name,
+    dosageForm: med.dose,
+    activeIngredient: med.name,
+    administrationRoute: med.dose.toLowerCase().includes("topical") || med.dose.toLowerCase().includes("cream") || med.dose.toLowerCase().includes("transdermal") || med.dose.toLowerCase().includes("patch") || med.dose.toLowerCase().includes("gel")
+      ? "Topical"
+      : med.dose.toLowerCase().includes("inject")
+      ? "Injection"
+      : "Oral",
+    isProprietary: false,
+    legalStatus: "PrescriptionOnly",
+    prescribingInfo: `${SITE_URL}/stacks/${stack.id}`,
+    relatedDrug: stack.medications.filter((m) => m.name !== med.name).map((m) => ({ "@type": "Drug", name: m.name })),
+  }));
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -114,6 +134,9 @@ export default async function StackPage({
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      {drugSchemas.map((ds, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ds) }} />
+      ))}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 

@@ -8,7 +8,14 @@ export const metadata: Metadata = {
     "Build your personal longevity protocol. 10 modular prescription stacks covering cardiovascular, hormones, hair, skin, and aging biology. Physician-prescribed from $19/month.",
 };
 
-export default function BuildYourStackPage() {
+export default async function BuildYourStackPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ stacks?: string; gender?: string }>;
+}) {
+  const { stacks, gender } = await searchParams;
+  const initialStacks = stacks ? stacks.split(",").filter(Boolean) : undefined;
+  const defaultGender = gender === "women" ? "women" : "men";
   return (
     <div>
       <section className="py-14 sm:py-16 border-b border-[var(--card-border)]">
@@ -24,7 +31,7 @@ export default function BuildYourStackPage() {
       </section>
 
       <section className="py-12">
-        <StackBuilder defaultGender="men" />
+        <StackBuilder defaultGender={defaultGender} initialStacks={initialStacks} />
       </section>
 
       {/* How protocols work */}

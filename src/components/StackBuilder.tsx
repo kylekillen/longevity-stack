@@ -10,11 +10,14 @@ type Gender = "men" | "women";
 interface Props {
   defaultGender?: Gender;
   compact?: boolean; // used on homepage (compact=true) vs full /build-your-stack
+  initialStacks?: string[]; // pre-populate from URL ?stacks= param
 }
 
-export default function StackBuilder({ defaultGender = "men", compact = false }: Props) {
+export default function StackBuilder({ defaultGender = "men", compact = false, initialStacks }: Props) {
   const [gender, setGender] = useState<Gender>(defaultGender);
-  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [selected, setSelected] = useState<Set<string>>(
+    () => new Set(initialStacks ?? [])
+  );
 
   const stacks = getStacksByGender(gender);
 

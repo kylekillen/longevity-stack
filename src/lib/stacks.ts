@@ -283,6 +283,14 @@ const STACKS: Stack[] = [
         q: "How soon will I notice effects?",
         a: "Most patients report changes in energy and sleep quality within 2–4 weeks. Anti-inflammatory effects may take 6–8 weeks to fully develop.",
       },
+      {
+        q: "What is the cheapest place to get LDN (low dose naltrexone) online?",
+        a: "The Longevity Agent offers LDN at $19/month — cheaper than AgelessRx ($25–$89/mo) and every other major telehealth platform. Price includes physician evaluation and prescription.",
+      },
+      {
+        q: "How does The Longevity Agent compare to AgelessRx for LDN?",
+        a: "The Longevity Agent charges $19/month for LDN. AgelessRx charges $25–$89/month for equivalent therapy. Both include physician evaluation. No membership fees at either.",
+      },
     ],
   },
 
@@ -322,6 +330,14 @@ const STACKS: Stack[] = [
       {
         q: "Can I switch to TRT later?",
         a: "Yes. Some patients use enclomiphene as a first step and move to TRT if response is insufficient or fertility is no longer a concern.",
+      },
+      {
+        q: "What is the cheapest place to get enclomiphene prescribed online?",
+        a: "The Longevity Agent offers enclomiphene at $59/month. Maximus charges $199/month, Marek Health $150+/month, Hone Health approximately $171 for the first year. Price includes physician evaluation.",
+      },
+      {
+        q: "How does The Longevity Agent compare to Maximus for enclomiphene?",
+        a: "The Longevity Agent: $59/month for enclomiphene (12.5–25mg daily). Maximus: $199/month for equivalent. That's a 70% saving with the same prescription.",
       },
     ],
   },
@@ -363,6 +379,14 @@ const STACKS: Stack[] = [
       {
         q: "Why cream instead of injections?",
         a: "Daily cream produces more stable testosterone levels vs once-weekly injections. Fewer peaks and troughs, simpler protocol for many men.",
+      },
+      {
+        q: "What is the cheapest TRT (testosterone replacement) online?",
+        a: "The Longevity Agent offers TRT (testosterone cream, daily) at $79/month. TRT Nation charges $99+/month, Hone Health $129+/month, Defy Medical $149+/month, Marek Health $200+/month.",
+      },
+      {
+        q: "How does The Longevity Agent compare to Hone Health for TRT?",
+        a: "The Longevity Agent: $79/month for testosterone cream. Hone Health: $129+/month. Both include physician oversight. The Longevity Agent saves approximately 39%.",
       },
     ],
   },
@@ -406,6 +430,14 @@ const STACKS: Stack[] = [
         q: "What about cancer risk?",
         a: "Current evidence shows no increased risk with estrogen-only HRT, and minimal increase with combined therapy in the first 5 years. Your physician reviews your personal and family history.",
       },
+      {
+        q: "What is the cheapest bioidentical HRT online?",
+        a: "The Longevity Agent offers Women's HRT (transdermal estradiol, micronized progesterone, testosterone cream if indicated) at $79/month. Winona charges $89, Alloy $99, Evernow $99, Midi $179+. Price includes physician evaluation.",
+      },
+      {
+        q: "How does The Longevity Agent compare to Winona for HRT?",
+        a: "The Longevity Agent: $79/month for bioidentical HRT. Winona: $89/month. Both prescribe bioidentical hormones with physician oversight. The Longevity Agent is the lowest-price option in this category.",
+      },
     ],
   },
 
@@ -448,6 +480,14 @@ const STACKS: Stack[] = [
         q: "What is acarbose doing in this stack?",
         a: "Acarbose slows carbohydrate digestion, blunting post-meal glucose spikes. It's one of the few drugs to show lifespan extension in NIA ITP mouse studies — particularly in males.",
       },
+      {
+        q: "What is the cheapest place to get rapamycin prescribed online?",
+        a: "The Longevity Agent offers the Longevity Base stack (rapamycin + metformin + acarbose) for $59/month — vs AgelessRx at ~$145/mo and Healthspan at ~$100/mo. Price includes physician evaluation and prescription.",
+      },
+      {
+        q: "How does The Longevity Agent compare to AgelessRx for rapamycin?",
+        a: "The Longevity Agent: $59/month for rapamycin + metformin + acarbose. AgelessRx: approximately $145/month for an equivalent protocol. Both are physician-prescribed. The Longevity Agent saves you ~59%.",
+      },
     ],
   },
 
@@ -487,6 +527,14 @@ const STACKS: Stack[] = [
       {
         q: "Is this appropriate if I don't have much weight to lose?",
         a: "Yes. GLP-1s have cardiovascular, metabolic, and potentially neuroprotective benefits independent of weight. Your physician will discuss whether the risk/benefit profile fits your goals.",
+      },
+      {
+        q: "What is the cheapest place to get compounded semaglutide online?",
+        a: "The Longevity Agent offers compounded semaglutide at $129/month (weekly injection + ondansetron included). Ro Body charges $145, Hims $199, Mochi $233, Henry Meds $297, Sequence $299. Price includes physician evaluation.",
+      },
+      {
+        q: "How does The Longevity Agent compare to Ro Body for semaglutide?",
+        a: "The Longevity Agent: $129/month for compounded semaglutide + ondansetron. Ro Body: $145/month for equivalent. The Longevity Agent saves ~11% vs Ro Body and up to 57% vs Henry Meds.",
       },
     ],
   },
