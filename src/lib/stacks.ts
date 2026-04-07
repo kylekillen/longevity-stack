@@ -42,7 +42,7 @@ const STACKS: Stack[] = [
   {
     id: "core-cardio",
     name: "Core Cardio",
-    tagline: "The baseline protocol nearly every adult over 40 should consider.",
+    tagline: "The baseline cardiovascular protocol nearly every adult over 40 should consider.",
     color: "#3b82f6",
     accentText: "#93c5fd",
     forGender: "both",
@@ -54,11 +54,11 @@ const STACKS: Stack[] = [
       { name: "Rosuvastatin", dose: "5mg daily" },
       { name: "Tadalafil", dose: "5mg daily" },
     ],
-    notes: "Tadalafil prescribed for both men and women; physician reviews appropriateness during intake.",
+    notes: "Tadalafil is prescribed here as a cardiovascular agent — reducing arterial stiffness and improving endothelial function. It also works for ED in men. Both uses are real; the CV evidence is what puts it in a longevity protocol.",
     description:
-      "Rosuvastatin is the most evidence-backed statin for LDL reduction and cardiovascular event prevention. Daily low-dose tadalafil has emerging cardiovascular benefits beyond its well-known effects on blood flow — including reduced arterial stiffness and improved endothelial function. Together they form the baseline cardiovascular protection most longevity physicians prescribe.",
+      "Most people know tadalafil for erectile dysfunction. The under-discussed story is its cardiovascular profile: daily low-dose tadalafil reduces arterial stiffness, improves endothelial function, and lowers pulmonary arterial pressure. That's why longevity physicians prescribe it even to patients without ED — and why it belongs in a cardioprotective stack. Rosuvastatin pairs with it as the most potent statin per milligram, with 44% cardiovascular event reduction in the JUPITER trial. Together they form the baseline cardiovascular protocol most longevity physicians prescribe.",
     scienceBlurb:
-      "The JUPITER trial demonstrated rosuvastatin reduced major cardiovascular events by 44% in patients with elevated CRP. Daily tadalafil improves endothelial function independent of sexual effects. Combination statin + PDE5 inhibitor protocols are standard at leading longevity clinics.",
+      "The JUPITER trial demonstrated rosuvastatin reduced major cardiovascular events by 44% in patients with elevated CRP. Multiple studies show daily tadalafil reduces arterial stiffness and improves endothelial function independent of its sexual effects — the same PDE5 mechanism that dilates penile vasculature also benefits systemic vasculature. High-dose tadalafil (Adcirca) is FDA-approved for pulmonary arterial hypertension. Combination statin + PDE5 inhibitor protocols are standard at leading longevity clinics.",
     heroStats: [
       { label: "Competitor price", value: "$129/mo" },
       { label: "Rx review", value: "24–48 hrs" },
@@ -211,7 +211,7 @@ const STACKS: Stack[] = [
   {
     id: "skin",
     name: "Skin",
-    tagline: "The only topical with clinical evidence for anti-aging.",
+    tagline: "FDA-approved for acne. Used by longevity physicians for the strongest anti-aging evidence in topical skincare.",
     color: "#fb923c",
     accentText: "#fed7aa",
     forGender: "both",
@@ -221,7 +221,7 @@ const STACKS: Stack[] = [
       { name: "Tretinoin", dose: "0.025% cream" },
     ],
     description:
-      "Tretinoin (all-trans retinoic acid) is the most evidence-backed topical intervention for skin aging, with over 30 years of clinical literature. It's the only prescription topical proven to reverse photoaging — not just prevent it. Unlike OTC retinols, tretinoin works directly without requiring conversion.",
+      "Tretinoin was FDA-approved for acne. That's the regulatory history. What put it in every longevity physician's protocol is the anti-aging evidence: tretinoin is the only topical ingredient with randomized controlled trial data showing reversal of photoaging — not prevention, actual reversal at the histological level. Unlike OTC retinols that must be converted to retinoic acid by skin enzymes (an inefficient, variable process), tretinoin is retinoic acid and works directly. Over 30 years of literature, confirmed by biopsy.",
     scienceBlurb:
       "Tretinoin increases collagen synthesis, accelerates skin cell turnover, and reverses photoaging at the histological level. A landmark 48-week randomized trial published in NEJM showed visible reversal of fine lines, improved skin texture, and increased dermal collagen in tretinoin-treated vs placebo skin.",
     heroStats: [
@@ -261,9 +261,9 @@ const STACKS: Stack[] = [
       { name: "LDN (Low Dose Naltrexone)", dose: "1.5–4.5mg nightly" },
     ],
     description:
-      "Low dose naltrexone (LDN) is one of the most cost-effective interventions in longevity medicine. At sub-therapeutic doses taken nightly, it transiently blocks opioid receptors for 4–6 hours, triggering a rebound increase in endorphin production and downregulating inflammatory cytokines. Used by longevity physicians for autoimmune conditions, chronic fatigue, and general immune optimization.",
+      "This is not addiction medicine. At the 50mg dose FDA-approved for opioid and alcohol use disorder, naltrexone blocks opioid receptors all day. At 1.5–4.5mg — about 1/10th of that dose, taken at night — it briefly blocks receptors for 4–6 hours, then the block releases. The body responds by upregulating its own endorphin production and downregulating inflammatory signaling. Completely different mechanism, completely different indication. Longevity physicians prescribe it for systemic inflammation, autoimmune conditions, and chronic fatigue.",
     scienceBlurb:
-      "LDN's mechanism centers on transient opioid receptor blockade. The brief blockade triggers compensatory upregulation of endogenous opioids and modulates microglial activation. Multiple peer-reviewed trials support its use in fibromyalgia, Crohn's disease, MS, and ME/CFS. The anti-inflammatory mechanism is conserved across conditions.",
+      "LDN's mechanism centers on transient opioid receptor blockade. The brief nighttime blockade triggers compensatory upregulation of endogenous opioids and modulates microglial activation (the brain's inflammatory cells). Multiple peer-reviewed trials support its use in fibromyalgia, Crohn's disease, MS, and ME/CFS. The anti-inflammatory mechanism is conserved across conditions. Not immunosuppressive — immunomodulatory.",
     heroStats: [
       { label: "Our price", value: "$19/mo" },
       { label: "Competitor price", value: "$89/mo" },
@@ -455,7 +455,7 @@ const STACKS: Stack[] = [
   {
     id: "longevity-glp1",
     name: "Longevity GLP-1",
-    tagline: "GLP-1 isn't just for weight loss.",
+    tagline: "GLP-1 isn't just for weight loss. The SELECT trial proved it.",
     color: "#14b8a6",
     accentText: "#99f6e4",
     forGender: "both",
@@ -466,9 +466,9 @@ const STACKS: Stack[] = [
       { name: "Ondansetron", dose: "As needed for nausea" },
     ],
     description:
-      "GLP-1 receptor agonists produce 15–22% body weight reduction in clinical trials — but their effects go beyond weight loss. Emerging data shows GLP-1s reduce cardiovascular events, neuroinflammation, and all-cause mortality independent of weight. The SELECT trial showed 20% reduction in MACE in non-diabetic obese patients. Longevity physicians are now prescribing GLP-1s as a broad metabolic intervention.",
+      "The SELECT trial enrolled 17,600 non-diabetic adults with obesity and cardiovascular disease, randomized them to semaglutide or placebo, and measured hard cardiovascular outcomes. Result: 20% reduction in cardiovascular death, non-fatal MI, and non-fatal stroke. That's comparable to the best statin or antihypertensive outcomes data. Crucially, the benefit was independent of the degree of weight loss — suggesting direct cardiovascular and anti-inflammatory effects beyond body composition change. Yes, GLP-1s also produce 15–22% body weight reduction and that matters for longevity. But the CV evidence is why they belong in this protocol regardless of how much weight you need to lose.",
     scienceBlurb:
-      "Semaglutide reduces appetite via hypothalamic signaling, slows gastric emptying, and improves insulin sensitivity. The SELECT cardiovascular outcomes trial demonstrated a 20% reduction in major adverse cardiovascular events. Emerging research suggests GLP-1 receptor activation has direct anti-inflammatory and neuroprotective effects independent of weight loss.",
+      "Semaglutide reduces appetite via hypothalamic GLP-1 receptor signaling, slows gastric emptying, and improves insulin sensitivity. GLP-1 receptors are expressed throughout the body — heart, kidneys, liver, and brain — and their activation appears to have pleiotropic effects beyond weight. The SELECT trial (NEJM 2023) showed 20% MACE reduction in non-diabetic participants. Ongoing trials are investigating GLP-1 agonists for Alzheimer's, Parkinson's, NASH, and CKD.",
     heroStats: [
       { label: "Our price", value: "$129/mo" },
       { label: "Competitor price", value: "$699/mo" },

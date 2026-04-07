@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { getAllStacks, getStacksByGender, Stack, formatStackPrice } from "@/lib/stacks";
+import { getStackCompetitorData } from "@/data/competitor-pricing";
 
 type Gender = "men" | "women";
 
@@ -41,6 +42,15 @@ export default function StackBuilder({ defaultGender = "men", compact = false }:
   const totalPrice = knownPrice.reduce((sum, s) => sum + (s.ourPrice ?? 0), 0);
   const totalCompetitor = selectedStacks.reduce((sum, s) => sum + (s.competitorPrice ?? 0), 0);
   const hasPending = selectedStacks.some((s) => s.ourPrice === null);
+
+  // Compute competitor savings details for selected stacks
+  const competitorDetails = selectedStacks.flatMap((s) => {
+    const data = getStackCompetitorData(s.id);
+    if (!data || data.competitors.length === 0) return [];
+    const top = data.competitors.find((c) => c.price !== null);
+    if (!top) return [];
+    return [{ stack: s.name, vendor: top.vendor, price: top.price! }];
+  });
 
   // Suggestions: stacks suggested by selected stacks, that aren't already selected
   const suggestions = stacks.filter(
@@ -297,6 +307,16 @@ export default function StackBuilder({ defaultGender = "men", compact = false }:
                     <span className="text-sm text-[var(--muted-light)] line-through">
                       ${totalCompetitor}/mo
                     </span>
+                  </div>
+                )}
+                {competitorDetails.length > 0 && (
+                  <div className="mt-2 pt-2 border-t border-[var(--card-border)] space-y-1">
+                    {competitorDetails.map((d) => (
+                      <div key={d.stack} className="flex items-center justify-between text-xs text-[var(--muted-light)]">
+                        <span>{d.stack} @ {d.vendor}</span>
+                        <span className="line-through">${d.price}/mo</span>
+                      </div>
+                    ))}
                   </div>
                 )}
                 {hasPending && (

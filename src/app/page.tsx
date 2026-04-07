@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StackBuilder from "@/components/StackBuilder";
+import { HERO_COMPARISONS } from "@/data/competitor-pricing";
 
 const HOW_IT_WORKS = [
   {
@@ -53,6 +54,21 @@ export default function Home() {
             10 modular stacks covering cardiovascular protection, hormones, hair, skin, and
             aging biology. Mix and match. A board-certified physician reviews your combination.
           </p>
+        </div>
+
+        {/* Competitor comparison callouts */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {HERO_COMPARISONS.map((c) => (
+              <div key={c.label} className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-4 text-center">
+                <p className="text-xs text-[var(--muted)] mb-2 font-medium">{c.label}</p>
+                <p className="text-2xl font-bold text-[var(--green)]">${c.ours}<span className="text-xs font-normal text-[var(--muted)] ml-0.5">/mo</span></p>
+                <p className="text-xs text-[var(--muted-light)] line-through mt-0.5">{c.competitor} ${c.theirs}/mo</p>
+                <p className="text-xs font-semibold text-[var(--green)] mt-1.5 bg-[var(--green-dim)] rounded-full px-2 py-0.5 inline-block">Save {c.savings}%</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-[var(--muted-light)] text-center mt-2">Prices verified April 2026. Competitor prices from publicly listed rates.</p>
         </div>
 
         {/* Stack Builder embedded in hero */}

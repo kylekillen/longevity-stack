@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getAllStacks, getStack, stackSavingsPercent } from "@/lib/stacks";
+import { getStackCompetitorData } from "@/data/competitor-pricing";
+import ComparisonTable from "@/components/ComparisonTable";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -32,6 +34,7 @@ export default async function StackPage({
   if (!stack) notFound();
 
   const savings = stackSavingsPercent(stack);
+  const competitorData = getStackCompetitorData(stack.id);
 
   // Related stacks: same gender + adjacent
   const allStacks = getAllStacks();
@@ -185,19 +188,28 @@ export default async function StackPage({
               )}
             </div>
 
-            {/* Right — stats grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {stack.heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5"
-                >
-                  <p className="text-xs text-[var(--muted)] mb-1">{stat.label}</p>
-                  <p className="text-2xl font-bold text-[var(--foreground)]">
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
+            {/* Right — comparison table + stats grid */}
+            <div className="space-y-4">
+              {competitorData && competitorData.competitors.length > 0 && (
+                <ComparisonTable
+                  title="Price comparison"
+                  ourPrice={competitorData.ourPrice}
+                  competitors={competitorData.competitors}
+                />
+              )}
+              <div className="grid grid-cols-2 gap-4">
+                {stack.heroStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5"
+                  >
+                    <p className="text-xs text-[var(--muted)] mb-1">{stat.label}</p>
+                    <p className="text-2xl font-bold text-[var(--foreground)]">
+                      {stat.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
