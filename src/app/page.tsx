@@ -1,6 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import StackBuilder from "@/components/StackBuilder";
 import { HERO_COMPARISONS } from "@/data/competitor-pricing";
+
+export const metadata: Metadata = {
+  title: "Cheapest Prescription Longevity Medications — The Longevity Agent",
+  description:
+    "Rapamycin $59/mo. Semaglutide $129/mo. TRT $79/mo. LDN $19/mo. The same medications every longevity physician prescribes, at prices they can't match. Board-certified physicians. Ships to your door.",
+  alternates: { canonical: "https://thelongevityagent.com" },
+  openGraph: {
+    title: "Cheapest Prescription Longevity Medications — The Longevity Agent",
+    description:
+      "Rapamycin $59/mo. Semaglutide $129/mo. TRT $79/mo. LDN $19/mo. Cheaper than AgelessRx, Hone Health, Hims, and every major telehealth platform.",
+    url: "https://thelongevityagent.com",
+    type: "website",
+  },
+};
 
 const HOW_IT_WORKS = [
   {

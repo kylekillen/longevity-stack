@@ -9,6 +9,8 @@ export async function generateStaticParams() {
   return getAllStacks().map((s) => ({ slug: s.id }));
 }
 
+const SITE_URL = "https://thelongevityagent.com";
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,9 +20,22 @@ export async function generateMetadata({
   const stack = getStack(slug);
   if (!stack) return {};
   const priceStr = stack.ourPrice ? `$${stack.ourPrice}/mo` : "Physician-prescribed";
+  const medList = stack.medications.map((m) => m.name).join(", ");
+  const title = `${stack.name} — ${priceStr} | Physician-Prescribed`;
+  const description = `${stack.name}: ${medList}. ${priceStr}. ${stack.tagline} Prescribed by board-certified physicians. Ships to your door.`;
+  const url = `${SITE_URL}/stacks/${slug}`;
   return {
-    title: `${stack.name} Stack — ${priceStr} | The Longevity Agent`,
-    description: stack.tagline,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      images: [{ url: "/og-product.png", width: 1200, height: 630 }],
+    },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -45,8 +60,62 @@ export default async function StackPage({
       !s.waitlist
   ).slice(0, 3);
 
+  const stackUrl = `${SITE_URL}/stacks/${stack.id}`;
+
+  // JSON-LD: Product + FAQPage
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: stack.name,
+    description: stack.description,
+    url: stackUrl,
+    brand: { "@type": "Brand", name: "The Longevity Agent" },
+    category: "Prescription Medication",
+    ...(stack.ourPrice !== null && !stack.waitlist
+      ? {
+          offers: {
+            "@type": "Offer",
+            price: stack.ourPrice,
+            priceCurrency: "USD",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: stack.ourPrice,
+              priceCurrency: "USD",
+              unitText: "MON",
+            },
+            availability: "https://schema.org/InStock",
+            url: `${SITE_URL}/intake?stacks=${stack.id}`,
+            seller: { "@type": "Organization", name: "The Longevity Agent" },
+          },
+        }
+      : {}),
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: stack.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Stacks", item: `${SITE_URL}/build-your-stack` },
+      { "@type": "ListItem", position: 3, name: stack.name, item: stackUrl },
+    ],
+  };
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="border-b border-[var(--card-border)] py-16 sm:py-20">

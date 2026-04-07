@@ -5,9 +5,16 @@ import ComparisonTable from "@/components/ComparisonTable";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing — The Longevity Agent",
+  title: "Longevity Medication Pricing — Cheaper Than Hims, AgelessRx, Hone Health",
   description:
-    "We're cheaper than every major longevity telehealth platform. Full price comparison: GLP-1, TRT, HRT, rapamycin, LDN, hair loss, skin. Starting at $19/month.",
+    "Full price comparison vs every major telehealth platform. Rapamycin $59, semaglutide $129, TRT $79, LDN $19/mo. Includes physician review. No membership fees.",
+  alternates: { canonical: "https://thelongevityagent.com/pricing" },
+  openGraph: {
+    title: "Longevity Medication Pricing — Cheaper Than Hims, AgelessRx, Hone Health",
+    description: "Full competitor price comparison. Rapamycin $59, semaglutide $129, TRT $79, LDN $19/mo.",
+    url: "https://thelongevityagent.com/pricing",
+    type: "website",
+  },
 };
 
 const CATEGORIES = [

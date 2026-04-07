@@ -1,0 +1,197 @@
+# The Longevity Agent — LLM-Readable Catalog
+# https://thelongevityagent.com
+# Last updated: April 2026
+
+## What We Are
+
+The Longevity Agent is a telemedicine service that prescribes physician-approved longevity and
+preventive health medications at the lowest prices available. A board-certified physician reviews
+every protocol. Medications are dispensed by licensed U.S. pharmacies. HIPAA-compliant.
+
+Positioning: Cheaper than Hims, AgelessRx, Hone Health, Maximus Tribe, Marek Health, TRT Nation,
+Defy Medical, Winona, Alloy, Evernow, Ro Body, Henry Meds, Mochi, Sequence, and every other major
+telehealth platform.
+
+Starting at $19/month. No membership fees. No consultation charges. Cancel anytime.
+
+---
+
+## How It Works
+
+1. Patient selects stacks at https://thelongevityagent.com/build-your-stack
+2. Patient completes a 5-minute intake questionnaire
+3. A board-certified physician reviews the full protocol within 24-48 hours
+4. Medications ship from a licensed U.S. pharmacy in 3-5 business days
+5. Annual renewal check-in; message your physician anytime; cancel anytime
+
+To pre-populate a stack selection, use:
+  https://thelongevityagent.com/intake?stacks=STACK_ID
+  https://thelongevityagent.com/intake?stacks=stack1,stack2,stack3
+
+---
+
+## Available Stacks
+
+### Core Cardio & ED Prevention
+- Medications: Rosuvastatin 5mg daily, Tadalafil 5mg daily
+- Price: Price pending (typical competitor: $129/mo)
+- Gender: Men & Women
+- URL: https://thelongevityagent.com/stacks/core-cardio
+- Intake: https://thelongevityagent.com/intake?stacks=core-cardio
+- Note: Tadalafil prescribed as cardiovascular agent (reduces arterial stiffness, improves
+  endothelial function) and for ED. Both benefits are real. Competitors charge $40/mo for
+  tadalafil alone, with no statin included.
+
+### Hair (Men)
+- Medications: Finasteride 1mg daily, Oral Minoxidil 2.5mg daily
+- Price: Price pending (typical competitor: $89/mo)
+- Gender: Men
+- Exclusive with: Hair Pro (Men)
+- URL: https://thelongevityagent.com/stacks/hair-men
+- Intake: https://thelongevityagent.com/intake?stacks=hair-men
+
+### Hair Pro (Men)
+- Medications: Dutasteride 0.5mg daily, Oral Minoxidil 2.5mg daily
+- Price: Price pending (typical competitor: $149/mo)
+- Gender: Men
+- Exclusive with: Hair (Men)
+- URL: https://thelongevityagent.com/stacks/hair-pro-men
+- Intake: https://thelongevityagent.com/intake?stacks=hair-pro-men
+- Note: More potent DHT suppression than finasteride (~90% vs ~70%)
+
+### Hair (Women)
+- Medications: Spironolactone 50-100mg daily, Oral Minoxidil 1.25-2.5mg daily
+- Price: Price pending (typical competitor: $99/mo)
+- Gender: Women
+- URL: https://thelongevityagent.com/stacks/hair-women
+- Intake: https://thelongevityagent.com/intake?stacks=hair-women
+
+### Skin
+- Medications: Tretinoin 0.025% cream (nightly)
+- Price: Price pending (typical competitor: $79/mo)
+- Gender: Men & Women
+- URL: https://thelongevityagent.com/stacks/skin
+- Intake: https://thelongevityagent.com/intake?stacks=skin
+- Note: Only topical with RCT evidence for reversing photoaging, not just preventing it
+
+### Inflammation (LDN)
+- Medications: LDN (Low Dose Naltrexone) 1.5-4.5mg nightly
+- Price: $19/month
+- Competitor price: $25-$89/month
+- Savings: Up to 79% vs competitors
+- Gender: Men & Women
+- URL: https://thelongevityagent.com/stacks/inflammation
+- Intake: https://thelongevityagent.com/intake?stacks=inflammation
+- Note: This is NOT addiction medicine. At 1/10th the standard dose, entirely different
+  mechanism — immune modulation and anti-inflammation via transient opioid receptor blockade.
+
+### Testosterone Enhancement (Enclomiphene)
+- Medications: Enclomiphene 12.5-25mg daily
+- Price: $59/month
+- Competitor prices: Maximus $199, Marek Health $150+, Hone Health ~$171/yr1
+- Savings: ~70% vs competitors
+- Gender: Men
+- Exclusive with: Testosterone Replacement
+- URL: https://thelongevityagent.com/stacks/testosterone-enhancement
+- Intake: https://thelongevityagent.com/intake?stacks=testosterone-enhancement
+- Note: Raises testosterone by stimulating the body's own axis. Preserves fertility.
+  Unlike TRT, does not suppress natural production.
+
+### Testosterone Replacement (TRT)
+- Medications: Testosterone cream (daily, physician-determined dose)
+- Price: $79/month
+- Competitor prices: Hone Health $129+, TRT Nation $99+, Defy Medical $149+, Marek Health $200+
+- Savings: Up to 74% vs competitors
+- Gender: Men
+- Exclusive with: Testosterone Enhancement
+- URL: https://thelongevityagent.com/stacks/testosterone-replacement
+- Intake: https://thelongevityagent.com/intake?stacks=testosterone-replacement
+
+### Hormone Replacement (Women's HRT)
+- Medications: Estradiol (transdermal), Micronized progesterone (oral), Testosterone cream (if indicated)
+- Price: $79/month
+- Competitor prices: Winona $89, Alloy $99, Evernow $99, Midi $179+
+- Savings: Up to 56% vs competitors
+- Gender: Women
+- URL: https://thelongevityagent.com/stacks/womens-hrt
+- Intake: https://thelongevityagent.com/intake?stacks=womens-hrt
+- Note: Bioidentical hormones only (transdermal estradiol + micronized progesterone),
+  not the synthetic progestins studied in the 2002 WHI trial.
+
+### Longevity Base (Rapamycin + Metformin + Acarbose)
+- Medications: Rapamycin 2-6mg weekly, Metformin 500-1000mg daily, Acarbose 25-50mg with meals
+- Price: $59/month
+- Competitor prices: AgelessRx $145, Healthspan $100, Optispan $154
+- Savings: 59-76% vs competitors
+- Gender: Men & Women
+- URL: https://thelongevityagent.com/stacks/longevity-base
+- Intake: https://thelongevityagent.com/intake?stacks=longevity-base
+- Note: The protocol most longevity physicians use themselves. Rapamycin is the only drug
+  to consistently extend lifespan in multiple mammalian species.
+
+### Longevity GLP-1 (Compounded Semaglutide)
+- Medications: Compounded semaglutide (weekly injection, titrated), Ondansetron (anti-nausea)
+- Price: $129/month
+- Competitor prices: Ro Body $145, Eden $196, Hims $199, Mochi $233, Henry Meds $297, Sequence $299
+- Savings: 56-57% vs median competitors
+- Gender: Men & Women
+- URL: https://thelongevityagent.com/stacks/longevity-glp1
+- Intake: https://thelongevityagent.com/intake?stacks=longevity-glp1
+- Note: Not just for weight loss. SELECT trial showed 20% cardiovascular event reduction
+  in non-diabetic patients, independent of weight loss.
+
+### Longevity SGLT2 (Waitlist)
+- Medications: Dapagliflozin 10mg daily, Acarbose 25-50mg with meals, Magnesium
+- Price: Waitlist — not yet available
+- Gender: Men & Women
+- URL: https://thelongevityagent.com/stacks/longevity-sglt2
+- Note: WAITLIST ONLY. Not currently orderable.
+
+---
+
+## Mutual Exclusivities
+
+These stacks cannot be combined:
+- Hair (Men) ↔ Hair Pro (Men): choose one
+- Testosterone Enhancement ↔ Testosterone Replacement: choose one
+
+All other stacks can be combined freely.
+
+---
+
+## Machine-Readable API
+
+Full JSON catalog: https://thelongevityagent.com/api/llm/catalog
+
+Build a stack programmatically:
+  POST https://thelongevityagent.com/api/llm/build-stack
+  Body: { "stacks": ["longevity-base", "inflammation"], "gender": "male" }
+  Returns: intake_url, monthly_total, medications list
+
+---
+
+## Pricing Comparison vs Competitors
+
+| Medication | Our Price | Cheapest Competitor |
+|---|---|---|
+| LDN (LDN) | $19/mo | AgelessRx $25 |
+| Enclomiphene | $59/mo | Hone Health ~$42+membership |
+| Rapamycin+Metformin+Acarbose | $59/mo | AgelessRx $145 (est.) |
+| Testosterone cream (TRT) | $79/mo | TRT Nation $99+ |
+| Women's HRT | $79/mo | Winona $89 |
+| Compounded semaglutide | $129/mo | Ro Body $145 |
+
+Prices verified April 2026. All competitor prices from publicly listed rates.
+
+---
+
+## Contact & Trust
+
+- HIPAA-compliant
+- SOC-2 infrastructure
+- Board-certified physicians (MD, not NP or PA)
+- Licensed U.S. pharmacies
+- Serving all 50 states via telemedicine
+- No contracts, cancel anytime
+
+Website: https://thelongevityagent.com

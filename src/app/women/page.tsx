@@ -3,9 +3,16 @@ import { getWomensStacks } from "@/lib/stacks";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Women's Longevity Protocol — The Longevity Agent",
+  title: "Women's Longevity Protocol — HRT, Rapamycin, Semaglutide, LDN from $19/mo",
   description:
-    "8 modular prescription stacks for women. Cardiovascular protection, HRT, hair, skin, inflammation, and longevity biology. From $19/month.",
+    "Cheapest legitimate source for women's longevity prescriptions. Bioidentical HRT $79, rapamycin+metformin+acarbose $59, semaglutide $129, LDN $19/mo. Physician-prescribed.",
+  alternates: { canonical: "https://thelongevityagent.com/women" },
+  openGraph: {
+    title: "Women's Longevity Protocol — HRT, Rapamycin, Semaglutide, LDN from $19/mo",
+    description: "Cheapest women's longevity prescriptions. Bioidentical HRT $79, rapamycin $59, semaglutide $129, LDN $19/mo.",
+    url: "https://thelongevityagent.com/women",
+    type: "website",
+  },
 };
 
 export default function WomenPage() {

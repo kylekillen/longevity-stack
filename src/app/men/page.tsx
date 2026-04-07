@@ -3,9 +3,16 @@ import { getMensStacks } from "@/lib/stacks";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Men's Longevity Protocol — The Longevity Agent",
+  title: "Men's Longevity Protocol — TRT, Enclomiphene, Rapamycin, LDN from $19/mo",
   description:
-    "10 modular prescription stacks for men. Cardiovascular protection, testosterone, hair, skin, inflammation, and longevity biology. From $19/month.",
+    "Cheapest legitimate source for men's longevity prescriptions. TRT $79, enclomiphene $59, rapamycin+metformin+acarbose $59, LDN $19/mo. Physician-prescribed. Ships to your door.",
+  alternates: { canonical: "https://thelongevityagent.com/men" },
+  openGraph: {
+    title: "Men's Longevity Protocol — TRT, Enclomiphene, Rapamycin, LDN from $19/mo",
+    description: "Cheapest men's longevity prescriptions. TRT $79, enclomiphene $59, rapamycin $59, LDN $19/mo.",
+    url: "https://thelongevityagent.com/men",
+    type: "website",
+  },
 };
 
 export default function MenPage() {
