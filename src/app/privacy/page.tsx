@@ -138,6 +138,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-bold text-[var(--foreground)] mb-3">11. Contact</h2>
             <p>
               Privacy Officer, The Longevity Agent LLC<br />
+              3646 E Viewcrest Cir, Salt Lake City, UT 84124<br />
+              Phone: <a href="tel:3104399867" className="text-[var(--accent)] hover:underline">(310) 439-9867</a><br />
               Email:{" "}
               <a href="mailto:privacy@thelongevityagent.com" className="text-[var(--accent)] hover:underline">
                 privacy@thelongevityagent.com

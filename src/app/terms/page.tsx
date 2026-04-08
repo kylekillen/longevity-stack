@@ -161,7 +161,8 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-[var(--foreground)] mb-3">13. Contact</h2>
             <p>
               The Longevity Agent LLC<br />
-              Utah, United States<br />
+              3646 E Viewcrest Cir, Salt Lake City, UT 84124<br />
+              Phone: <a href="tel:3104399867" className="text-[var(--accent)] hover:underline">(310) 439-9867</a><br />
               Email:{" "}
               <a href="mailto:hello@thelongevityagent.com" className="text-[var(--accent)] hover:underline">
                 hello@thelongevityagent.com

@@ -18,6 +18,13 @@ export default function Footer() {
             <p className="text-sm text-[var(--muted)] leading-relaxed">
               Prescription longevity medicine. The lowest price. Real doctors. No frills.
             </p>
+            <div className="mt-3 text-xs text-[var(--muted-light)] space-y-1">
+              <p>The Longevity Agent LLC</p>
+              <p>3646 E Viewcrest Cir</p>
+              <p>Salt Lake City, UT 84124</p>
+              <p><a href="tel:3104399867" className="hover:text-[var(--foreground)] transition-colors">(310) 439-9867</a></p>
+              <p><a href="mailto:hello@thelongevityagent.com" className="hover:text-[var(--foreground)] transition-colors">hello@thelongevityagent.com</a></p>
+            </div>
           </div>
 
           <div>
