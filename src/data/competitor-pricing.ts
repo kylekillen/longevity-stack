@@ -52,7 +52,7 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
   // ─── CORE CARDIO ──────────────────────────────────────────────────────────
   {
     stackId: "core-cardio",
-    ourPrice: null, // pending
+    ourPrice: 29,
     competitors: [
       { vendor: "Hims", price: 40, note: "Tadalafil only — no statin" },
       { vendor: "Roman", price: 40, note: "Tadalafil only — no statin" },
@@ -64,7 +64,7 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
   // ─── HAIR (MEN) ───────────────────────────────────────────────────────────
   {
     stackId: "hair-men",
-    ourPrice: null, // pending
+    ourPrice: 29,
     competitors: [
       { vendor: "Hims", price: 55, note: "Finasteride $25 + oral minoxidil $30" },
       { vendor: "Keeps", price: 48, note: "Finasteride $23 + oral minoxidil est." },
@@ -76,7 +76,7 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
   // ─── HAIR PRO (MEN) ───────────────────────────────────────────────────────
   {
     stackId: "hair-pro-men",
-    ourPrice: null, // pending
+    ourPrice: 35,
     competitors: [
       { vendor: "Hims", price: 120, note: "Dutasteride $90 + oral minoxidil $30" },
       { vendor: "Keeps", price: 85, note: "Dutasteride $60 + oral minoxidil est." },
@@ -87,7 +87,7 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
   // ─── HAIR (WOMEN) ─────────────────────────────────────────────────────────
   {
     stackId: "hair-women",
-    ourPrice: null, // pending
+    ourPrice: 29,
     competitors: [
       { vendor: "Nurx", price: 60, note: "Spironolactone $30 + minoxidil est." },
       { vendor: "Wisp", price: 55, note: "Spironolactone $25 + minoxidil est." },
@@ -99,7 +99,7 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
   // ─── SKIN ─────────────────────────────────────────────────────────────────
   {
     stackId: "skin",
-    ourPrice: null, // pending
+    ourPrice: 19,
     competitors: [
       { vendor: "Apostrophe", price: 30 },
       { vendor: "Curology", price: 25 },
@@ -158,7 +158,7 @@ export const COMPETITOR_PRICING: StackCompetitorData[] = [
   // ─── LONGEVITY BASE ───────────────────────────────────────────────────────
   {
     stackId: "longevity-base",
-    ourPrice: 59,
+    ourPrice: 89,
     competitors: [
       { vendor: "AgelessRx", price: 145, note: "Rapamycin $65 + metformin $25 + acarbose $55" },
       { vendor: "Healthspan", price: 100, note: "Rapamycin $70 + metformin $30 (no acarbose)" },

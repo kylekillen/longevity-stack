@@ -20,12 +20,16 @@ export const STRIPE_PRICES: Record<string, { priceId: string; amount: number }> 
 export const STACK_STRIPE_PRICES: Record<string, { priceId: string; amount: number }> = {
   "inflammation":               { priceId: process.env.STRIPE_PRICE_LDN || "price_1TIzCwQ3RMXFjEVjnsfD3VGL", amount: 1900 },
   "testosterone-enhancement":   { priceId: process.env.STRIPE_PRICE_ENCLOMIPHENE || "price_1TIzCxQ3RMXFjEVjPoyhbQ8K", amount: 5900 },
-  "longevity-base":             { priceId: process.env.STRIPE_PRICE_LONGEVITY_STACK || "price_1TIzCxQ3RMXFjEVjirD0veHy", amount: 5900 },
+  "longevity-base":             { priceId: process.env.STRIPE_PRICE_LONGEVITY_BASE || "price_1TIzCxQ3RMXFjEVjirD0veHy", amount: 8900 },
   "testosterone-replacement":   { priceId: process.env.STRIPE_PRICE_TRT || "price_1TIzCyQ3RMXFjEVjZZO2URB0", amount: 7900 },
   "womens-hrt":                 { priceId: process.env.STRIPE_PRICE_WOMENS_HRT || "price_1TIzCyQ3RMXFjEVjlup6OYk6", amount: 7900 },
   "longevity-glp1":             { priceId: process.env.STRIPE_PRICE_GLP1 || "price_1TIzCyQ3RMXFjEVjIkD6pjXc", amount: 12900 },
-  // Stacks pending pharmacy pricing — no Stripe price yet:
-  // core-cardio, hair-men, hair-pro-men, hair-women, skin
+  // Newly priced — run `bun run stripe:seed` to get real price IDs, then set env vars
+  "core-cardio":                { priceId: process.env.STRIPE_PRICE_CORE_CARDIO || "price_core_cardio_placeholder", amount: 2900 },
+  "hair-men":                   { priceId: process.env.STRIPE_PRICE_HAIR_MEN || "price_hair_men_placeholder", amount: 2900 },
+  "hair-pro-men":               { priceId: process.env.STRIPE_PRICE_HAIR_PRO_MEN || "price_hair_pro_men_placeholder", amount: 3500 },
+  "hair-women":                 { priceId: process.env.STRIPE_PRICE_HAIR_WOMEN || "price_hair_women_placeholder", amount: 2900 },
+  "skin":                       { priceId: process.env.STRIPE_PRICE_SKIN || "price_skin_placeholder", amount: 1900 },
 };
 
 // TRT lab panel add-on (annual, billed once)

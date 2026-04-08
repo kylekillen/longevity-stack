@@ -48,6 +48,8 @@ export default function Footer() {
               <li><Link href="/about" className="hover:text-[var(--foreground)] transition-colors">About</Link></li>
               <li><Link href="/faq" className="hover:text-[var(--foreground)] transition-colors">FAQ</Link></li>
               <li><Link href="/blog" className="hover:text-[var(--foreground)] transition-colors">Blog</Link></li>
+              <li><Link href="/privacy" className="hover:text-[var(--foreground)] transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-[var(--foreground)] transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
@@ -57,7 +59,7 @@ export default function Footer() {
             <strong className="text-[var(--muted)]">Medical Disclaimer:</strong> The Longevity Agent is a telemedicine platform. All prescriptions require evaluation by a licensed healthcare provider. This site does not provide medical advice. Medications are prescribed off-label where noted, consistent with standard medical practice. Results vary. Not a substitute for in-person medical care.
           </p>
           <p className="mt-4 text-xs text-[var(--muted-light)]">
-            © {new Date().getFullYear()} The Longevity Agent. All rights reserved.
+            © {new Date().getFullYear()} The Longevity Agent LLC (Utah). All rights reserved.
           </p>
         </div>
       </div>

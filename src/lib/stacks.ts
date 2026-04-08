@@ -47,30 +47,30 @@ const STACKS: Stack[] = [
     color: "#3b82f6",
     accentText: "#93c5fd",
     forGender: "both",
-    ourPrice: null, // {{PRICE}}
+    ourPrice: 29,
     competitorPrice: 40,
     lowestCompetitor: "Hims",
     badge: "Foundational",
     suggestsStacks: ["longevity-base"],
     medications: [
-      { name: "Rosuvastatin", dose: "5mg daily" },
+      { name: "Atorvastatin", dose: "20mg daily" },
       { name: "Tadalafil", dose: "5mg daily" },
     ],
     notes: "Tadalafil is prescribed here as a cardiovascular agent — reducing arterial stiffness and improving endothelial function. It also works for ED in men. Both uses are real; the CV evidence is what puts it in a longevity protocol.",
     description:
-      "Most people know tadalafil for erectile dysfunction. The under-discussed story is its cardiovascular profile: daily low-dose tadalafil reduces arterial stiffness, improves endothelial function, and lowers pulmonary arterial pressure. That's why longevity physicians prescribe it even to patients without ED — and why it belongs in a cardioprotective stack. Rosuvastatin pairs with it as the most potent statin per milligram, with 44% cardiovascular event reduction in the JUPITER trial. Together they form the baseline cardiovascular protocol most longevity physicians prescribe.",
+      "Most people know tadalafil for erectile dysfunction. The cardiovascular evidence is what puts it in a longevity protocol: daily low-dose tadalafil reduces arterial stiffness, improves endothelial function, and lowers pulmonary arterial pressure — benefits that are independent of its sexual effects. Atorvastatin 20mg is the most-prescribed statin in the world, with robust cardiovascular event reduction data across multiple large trials. Together they form the baseline cardiovascular protocol most longevity physicians prescribe.",
     scienceBlurb:
-      "The JUPITER trial demonstrated rosuvastatin reduced major cardiovascular events by 44% in patients with elevated CRP. Multiple studies show daily tadalafil reduces arterial stiffness and improves endothelial function independent of its sexual effects — the same PDE5 mechanism that dilates penile vasculature also benefits systemic vasculature. High-dose tadalafil (Adcirca) is FDA-approved for pulmonary arterial hypertension. Combination statin + PDE5 inhibitor protocols are standard at leading longevity clinics.",
+      "Atorvastatin is the world's most prescribed statin, with extensive real-world safety data and 39–50% LDL reduction at 20mg. The CARDS trial showed atorvastatin reduced major cardiovascular events by 37% in patients with no prior cardiac history. Multiple studies show daily tadalafil reduces arterial stiffness and improves endothelial function — the same PDE5 mechanism that dilates penile vasculature benefits systemic vasculature. High-dose tadalafil (Adcirca) is FDA-approved for pulmonary arterial hypertension. Combination statin + PDE5 inhibitor protocols are standard at leading longevity clinics.",
     heroStats: [
-      { label: "Competitor price", value: "$129/mo" },
-      { label: "Rx review", value: "24–48 hrs" },
+      { label: "Our price", value: "$29/mo" },
+      { label: "Hims", value: "$40/mo" },
       { label: "Evidence", value: "Tier 1" },
       { label: "Medications", value: "2" },
     ],
     faqs: [
       {
-        q: "Do I need labs before starting rosuvastatin?",
-        a: "Not required to begin. We recommend a lipid panel and liver enzymes within the first 90 days. Your physician will guide you.",
+        q: "Do I need labs before starting atorvastatin?",
+        a: "Not required to begin. We recommend a lipid panel and liver enzymes within the first 90 days. Your provider will guide you.",
       },
       {
         q: "Is tadalafil appropriate for women?",
@@ -91,7 +91,7 @@ const STACKS: Stack[] = [
     color: "#22c55e",
     accentText: "#bbf7d0",
     forGender: "men",
-    ourPrice: null, // {{PRICE}}
+    ourPrice: 29,
     competitorPrice: 48,
     lowestCompetitor: "Keeps",
     exclusiveWith: ["hair-pro-men"],
@@ -134,7 +134,7 @@ const STACKS: Stack[] = [
     color: "#15803d",
     accentText: "#86efac",
     forGender: "men",
-    ourPrice: null, // {{PRICE}}
+    ourPrice: 35,
     competitorPrice: 85,
     lowestCompetitor: "Keeps",
     exclusiveWith: ["hair-men"],
@@ -178,7 +178,7 @@ const STACKS: Stack[] = [
     color: "#22c55e",
     accentText: "#bbf7d0",
     forGender: "women",
-    ourPrice: null, // {{PRICE}}
+    ourPrice: 29,
     competitorPrice: 55,
     lowestCompetitor: "Wisp",
     suggestsStacks: ["skin"],
@@ -220,7 +220,7 @@ const STACKS: Stack[] = [
     color: "#fb923c",
     accentText: "#fed7aa",
     forGender: "both",
-    ourPrice: null, // {{PRICE}}
+    ourPrice: 19,
     competitorPrice: 20,
     lowestCompetitor: "Dermatica",
     medications: [
@@ -459,7 +459,7 @@ const STACKS: Stack[] = [
     color: "#eab308",
     accentText: "#fef08a",
     forGender: "both",
-    ourPrice: 59,
+    ourPrice: 89,
     competitorPrice: 100,
     lowestCompetitor: "Healthspan",
     badge: "Gold Standard",
@@ -473,9 +473,9 @@ const STACKS: Stack[] = [
     scienceBlurb:
       "Rapamycin extended median lifespan in ITP mice by 9–14%, even when started in old age. Metformin is being studied in the landmark TAME trial as a geroprotective agent. Acarbose showed significant lifespan extension in male ITP mice — one of the few drugs to show benefit in the NIA's rigorous testing program. Together they hit mTOR, AMPK, and glucose signaling.",
     heroStats: [
-      { label: "Our price", value: "$59/mo" },
-      { label: "Competitor price", value: "$249/mo" },
-      { label: "You save", value: "76%" },
+      { label: "Our price", value: "$89/mo" },
+      { label: "Healthspan", value: "$100/mo" },
+      { label: "You save", value: "11%" },
       { label: "Pathways", value: "3" },
     ],
     faqs: [
@@ -493,11 +493,11 @@ const STACKS: Stack[] = [
       },
       {
         q: "What is the cheapest place to get rapamycin prescribed online?",
-        a: "The Longevity Agent offers the Longevity Base stack (rapamycin + metformin + acarbose) for $59/month — vs AgelessRx at ~$145/mo and Healthspan at ~$100/mo. Price includes physician evaluation and prescription.",
+        a: "The Longevity Agent offers the Longevity Base stack (rapamycin + metformin + acarbose) for $89/month — vs AgelessRx at ~$145/mo and Healthspan at ~$100/mo. Price includes provider evaluation and prescription.",
       },
       {
         q: "How does The Longevity Agent compare to AgelessRx for rapamycin?",
-        a: "The Longevity Agent: $59/month for rapamycin + metformin + acarbose. AgelessRx: approximately $145/month for an equivalent protocol. Both are physician-prescribed. The Longevity Agent saves you ~59%.",
+        a: "The Longevity Agent: $89/month for rapamycin + metformin + acarbose. AgelessRx: approximately $145/month for an equivalent protocol. Both are provider-prescribed. The Longevity Agent saves you ~39%.",
       },
     ],
   },
@@ -529,8 +529,8 @@ const STACKS: Stack[] = [
     ],
     faqs: [
       {
-        q: "Is compounded semaglutide the same as Ozempic/Wegovy?",
-        a: "The active ingredient is identical. Compounded versions are produced in FDA-registered pharmacies during documented shortage. Same mechanism, dramatically different price.",
+        q: "Is compounded semaglutide the same as brand-name semaglutide?",
+        a: "Compounded semaglutide contains the same active ingredient — semaglutide — and is produced by licensed 503A compounding pharmacies. Compounded medications are not FDA-approved products but are produced under state pharmacy board oversight. Your provider will discuss whether compounded semaglutide is appropriate for you.",
       },
       {
         q: "Why is ondansetron included?",

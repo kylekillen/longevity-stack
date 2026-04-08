@@ -62,7 +62,7 @@ const TRT_SYMPTOMS = [
 const STACK_CONTRAS: Record<string, ContraItem[]> = {
   "core-cardio": [
     { id: "cc-nitrates", text: "Do you currently take nitrates (nitroglycerin, isosorbide)?", severity: "HARD_STOP", stopTitle: "Tadalafil + nitrates interaction", stopMessage: "Tadalafil combined with nitrates can cause a dangerous drop in blood pressure. This stack cannot be prescribed while you're on nitrate therapy. Please discuss alternatives with your primary care physician." },
-    { id: "cc-liver", text: "Do you have severe liver disease?", severity: "HARD_STOP", stopTitle: "Liver disease", stopMessage: "Both rosuvastatin and tadalafil require hepatic metabolism. Severe liver disease is a contraindication for this stack." },
+    { id: "cc-liver", text: "Do you have severe liver disease?", severity: "HARD_STOP", stopTitle: "Liver disease", stopMessage: "Both atorvastatin and tadalafil require hepatic metabolism. Severe liver disease is a contraindication for this stack." },
     { id: "cc-pregnant", text: "Are you currently pregnant?", severity: "HARD_STOP", stopTitle: "Pregnancy", stopMessage: "These medications are not safe in pregnancy." },
     { id: "cc-low-bp", text: "Do you have low blood pressure (hypotension)?", severity: "FLAG" },
     { id: "cc-alpha", text: "Do you take alpha-blockers (tamsulosin, prazosin, terazosin)?", severity: "FLAG" },

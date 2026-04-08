@@ -66,17 +66,22 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">Our provider network</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-4">Medical oversight</h2>
+            <p className="mb-4">
+              Clinical protocols are designed under the supervision of our Chief Medical
+              Officer, <strong className="text-[var(--foreground)]">Dr. Amy Killen, MD</strong> — a board-certified physician
+              with 13 years of experience in longevity and regenerative medicine, and a
+              leading voice in evidence-based preventive care.
+            </p>
             <p className="mb-4">
               All prescriptions are written by licensed healthcare providers with active
-              state licenses. Our clinical protocols were developed by an MD with 13
-              years of longevity medicine experience — the same physician who helped
-              design the protocols used by leading longevity clinics.
+              state licenses. Your provider reviews your intake questionnaire, approves
+              your protocol, and is available for questions year-round.
             </p>
-            <p>
-              Your physician reviews your intake questionnaire, approves your protocol,
-              and is available for questions year-round. This is real medicine, not a
-              checkbox algorithm.
+            <p className="text-sm text-[var(--muted-light)]">
+              The Longevity Agent LLC is a technology and managed services platform, not
+              a medical practice. Clinical services are provided by independently licensed
+              healthcare providers who exercise independent medical judgment.
             </p>
           </div>
 

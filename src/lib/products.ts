@@ -69,7 +69,7 @@ const PRODUCTS: Product[] = [
     category: "Cardiovascular + Metabolic",
     tagline: "The four-drug longevity stack most men's health doctors prescribe. One price.",
     description:
-      "A bundled protocol of the four medications most commonly prescribed by longevity physicians for cardiovascular protection, metabolic health, and quality of life: a statin (rosuvastatin), low-dose aspirin, a PDE5 inhibitor (tadalafil), and finasteride. Individually these run $149+ at other clinics. We bundle them for $25/month.",
+      "A bundled protocol of the four medications most commonly prescribed by longevity physicians for cardiovascular protection, metabolic health, and quality of life: a statin (atorvastatin), low-dose aspirin, a PDE5 inhibitor (tadalafil), and finasteride. Individually these run $149+ at other clinics. We bundle them for $25/month.",
     ourPrice: 25,
     competitorPrice: 65,
     lowestCompetitor: "Hims (finasteride + tadalafil)",
@@ -82,7 +82,7 @@ const PRODUCTS: Product[] = [
       { label: "Medications", value: "4" },
     ],
     whatYouGet: [
-      "Rosuvastatin 5–10mg (cholesterol/CV protection)",
+      "Atorvastatin 20mg (cholesterol/CV protection)",
       "Low-dose aspirin 81mg (cardiovascular)",
       "Tadalafil 5mg daily (ED + cardiovascular)",
       "Finasteride 1mg (hair preservation)",
@@ -114,7 +114,7 @@ const PRODUCTS: Product[] = [
     category: "Cardiovascular + Metabolic",
     tagline: "The core protocol for women's longevity. Cardiovascular, metabolic, and bone health.",
     description:
-      "A bundled protocol for women optimized for cardiovascular protection, metabolic health, and bone density: rosuvastatin, low-dose aspirin, and vitamin D3/K2 at therapeutic doses. Designed for women in their 30s–50s who want the same science-backed preventive approach their male counterparts use, priced fairly.",
+      "A bundled protocol for women optimized for cardiovascular protection, metabolic health, and bone density: atorvastatin, low-dose aspirin, and vitamin D3/K2 at therapeutic doses. Designed for women in their 30s–50s who want the same science-backed preventive approach their male counterparts use, priced fairly.",
     ourPrice: 29,
     competitorPrice: 55,
     lowestCompetitor: "Nurx",
@@ -127,7 +127,7 @@ const PRODUCTS: Product[] = [
       { label: "Medications", value: "3" },
     ],
     whatYouGet: [
-      "Rosuvastatin 5mg (cardiovascular protection)",
+      "Atorvastatin 20mg (cardiovascular protection)",
       "Low-dose aspirin 81mg (cardiovascular)",
       "Prescription-strength vitamin D3/K2",
       "Physician evaluation and annual renewal",
@@ -408,8 +408,8 @@ const PRODUCTS: Product[] = [
         a: "Semaglutide targets GLP-1 receptors only. Tirzepatide is a dual GLP-1/GIP agonist. Head-to-head trials show tirzepatide produces greater average weight loss. Your physician will recommend based on your goals and tolerance.",
       },
       {
-        q: "Is compounded GLP-1 the same as Ozempic/Wegovy?",
-        a: "The active ingredient is identical. Compounded versions are produced in FDA-registered pharmacies when there's a documented shortage (which currently exists). The formulation is equivalent; the brand markup is not.",
+        q: "Is compounded semaglutide the same as brand-name semaglutide?",
+        a: "Compounded semaglutide contains the same active ingredient and is produced by licensed 503A compounding pharmacies under state pharmacy board oversight. Compounded medications are not FDA-approved drug products. Your provider will discuss whether compounded semaglutide is appropriate for you.",
       },
       {
         q: "What are the side effects?",
