@@ -1,6 +1,6 @@
 # The Longevity Agent — BUILD BIBLE
 **Last updated:** 2026-04-13  
-**Commit:** 0c36820  
+**Commit:** 54fd74b  
 **Purpose:** Complete handoff document. A new Claude Code instance with zero prior context should be able to pick up the project from here.
 
 ---
@@ -203,10 +203,10 @@ This is the primary product definition file. `src/lib/products.ts` is a legacy p
 | `inflammation` | Inflammation | LDN 1.5–4.5mg | null (pending) | both | **Pending** |
 | `testosterone-enhancement` | Testosterone Enhancement | Enclomiphene 12.5mg | $59/mo | men | **Active** |
 | `testosterone-replacement` | Testosterone Replacement | Testosterone cream (50–100mg) | $79/mo | men | **Active** |
-| `womens-hrt` | Hormone Replacement | Estradiol + Progesterone | $79/mo | women | **Active** |
+| `womens-hrt` | Hormone Replacement | Estradiol (transdermal) + Micronized Progesterone + Testosterone cream (low dose, if indicated) | $79/mo | women | **Active** |
 | `longevity-base` | Longevity Base | Rapamycin 6mg/wk + Metformin 500mg + Acarbose 25mg | $89/mo | both | **Active** |
 | `longevity-glp1` | Longevity GLP-1 | Semaglutide 0.25–2.4mg/wk + Ondansetron 4mg | $129/mo | both | **Active** |
-| `longevity-sglt2` | Longevity SGLT2 | Empagliflozin (TBD) | null | both | **Waitlist** |
+| `longevity-sglt2` | Longevity SGLT2 | Dapagliflozin 10mg + Acarbose 25–50mg + Magnesium | null | both | **Waitlist** |
 
 ### Medication note
 **Statin = Atorvastatin 20mg** throughout the entire codebase. An earlier version used rosuvastatin 5mg — this was migrated in commit 7b91e9e. One blog post (`rosuvastatin-the-statin-worth-taking`) still references rosuvastatin — it should be rewritten, redirected to Core Cardio, or unpublished.
